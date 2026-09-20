@@ -54,82 +54,92 @@ class Qnet(nn.Module):
         x = self.layer4(x)
         x = F.relu(x)
         x = self.layer5(x)
-        x = F.relu(x)
         return x
 
 def build_list_state(demand_qty, rates, t, scaling):
-    now_demand = demand_qty[t + 1]
-    prior_rate = rates[t]
+    now_demand = demand_qty[t]
+    today_rate = rates[t - 1]
 
-    demand_until_now = np.array(demand_qty[:t + 2])
+    demand_until_now = np.array(demand_qty[:t + 1])
     mean_demand = np.mean(demand_until_now)
-    std_demand = np.std(demand_until_now, ddof=1 - 1e-7)
+    std_demand = np.std(demand_until_now, ddof=1) if demand_until_now.size > 1 else 0
 
-    rate_until_now = np.array(rates[:t + 1])
+    rate_until_now = np.array(rates[:t])
     mean_rate = np.mean(rate_until_now)
-    std_rate = np.std(rate_until_now, ddof=1 - 1e-7)
-    list_state = [now_demand / scaling, prior_rate, mean_demand/scaling, std_demand/scaling, mean_rate, std_rate]
+    std_rate = np.std(rate_until_now, ddof=1) if rate_until_now.size > 1 else 0
+    list_state = [now_demand / scaling, today_rate, mean_demand/scaling, std_demand/scaling, mean_rate, std_rate]
     return list_state
 
-def train(demand_qty, rates, scaling, every_episode=2000, cycle=4, lr=0.001):
-    qnet = Qnet()
+def train(demand_qty, rates, scaling, device, every_episode=2000, cycle=4, lr=0.001):
+    qnet = Qnet().to(device)
 
     optimizer = optim.RMSprop(qnet.parameters(), lr=lr)
 
     list_states, real_rates = [], []
     for epoch in range(every_episode):
 
-        for t in range(len(demand_qty) - 1):
-            list_state, real_rate = build_list_state(demand_qty, rates, t, scaling), [rates[t + 1]]
+        for t in range(1, len(demand_qty)):
+            list_state, next_rate = build_list_state(demand_qty, rates, t, scaling), [rates[t]]
             list_states.append(list_state)
-            real_rates.append(real_rate)
+            real_rates.append(next_rate)
 
         if (epoch + 1) % cycle == 0:
-            torch_states = torch.Tensor(list_states)
-            real_rates = torch.Tensor(real_rates)
-
+            torch_states = torch.Tensor(list_states).to(device)
             pred_rate = qnet(torch_states)
-            loss = F.mse_loss(pred_rate, real_rates)
+
+            real_rates = torch.Tensor(real_rates).to(device)
+
+            loss = F.l1_loss(pred_rate, real_rates)
+            print("Loss :", loss.item())
             optimizer.zero_grad()
             loss.backward()
             optimizer.step()
             list_states, real_rates = [], []
     return qnet.state_dict()
 
-def test(demand_qty, rates, scaling, parameters):
-    qnet = Qnet()
+def test(demand_qty, rates, scaling, parameters, device):
+
+    qnet = Qnet().to(device)
     qnet.load_state_dict(parameters)
     qnet.eval()
 
-    list_state = build_list_state(demand_qty, rates, len(demand_qty) - 2, scaling)
-    torch_state = torch.Tensor([list_state])
+    list_state = build_list_state(demand_qty, rates, len(demand_qty) - 1, scaling)
+    print(list_state)
+    torch_state = torch.Tensor([list_state]).to(device)
     with torch.no_grad():
         pred_rate = qnet(torch_state)
-    print(pred_rate)
+    print(pred_rate.item() / 100)
 
 def main():
+
     data_name = 'demand_data_p1'
     df = pd.read_excel(data_name+'.xls')
     demand_qty = df.DEMAND_QTY.values.tolist()
     demand_qty.reverse()
 
-    searching_indices = 2000
-    next_day_demand = demand_qty[searching_indices]
-    demand_qty=demand_qty[:min(searching_indices, len(demand_qty))]
-
-    rates = [(demand_qty[t + 1] / demand_qty[t]) - 1 for t in range(len(demand_qty) - 1)]
+    today_indices = 1800
+    next_day_demand = demand_qty[today_indices]
+    demand_qty=demand_qty[:min(today_indices, len(demand_qty))]
+    rates = [((demand_qty[t + 1] / demand_qty[t]) - 1) * 100 for t in range(len(demand_qty) - 1)]
+    print(len(demand_qty), demand_qty)
+    print(len(rates), rates)
     today_demand = demand_qty.pop(len(demand_qty) - 1)
-    scaling = 10000
+
+    scaling = 1000
 
     learning = False
-
     if learning or not Path(data_name+".pt").is_file():
-        torch.save(train(demand_qty, rates, scaling=scaling), data_name+'.pt')
+        device = torch.device("cuda" if torch.cuda.is_available() else "mps" if torch.backends.mps.is_available() else "cpu")
+        print("We are using", device)
+        torch.save(train(demand_qty, rates, scaling=scaling, device=device), data_name+'.pt')
     else:
+        device = torch.device("cpu")
+        print("We are using", device)
+        print("Next  =", next_day_demand)
+        print("Today =", today_demand)
         print("Real Rate :", next_day_demand / today_demand - 1)
-        test(demand_qty+[today_demand], rates, scaling, torch.load(data_name + ".pt"))
+        test(demand_qty+[today_demand], rates, scaling, torch.load(data_name + ".pt"), device)
 
-    # drawing(pmf, bin_edges)
 
 if __name__ == "__main__":
     main()
