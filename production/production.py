@@ -91,7 +91,7 @@ def schedule(df):
 
     tabu_list, pops = {}, sorted(pops, key=lambda gene: dt.total_makespan(gene))
     best, best_score = pops[0], dt.total_makespan(pops[0])
-    for _ in range(50):
+    for _ in range(35):
 
         mating_pools = []
         for _ in range(40):
@@ -121,7 +121,7 @@ def schedule(df):
                 tabu_list[every_gene[idx]] = 0
             else:
                 tabu_list[every_gene[idx]] += 1
-                if tabu_list[every_gene[idx]] == 10:
+                if tabu_list[every_gene[idx]] == 5:
                     erase_gene.append(idx)
 
         for gene in reversed(erase_gene):
@@ -143,8 +143,8 @@ def main():
     # amount = 75000
 
     scheduling = {}
-    for week, amount in zip(("sun", "mon", "tue", "wed", "thu", "fri", "sat"),(76000, 75000, 74000, 73000, 72000, 72000, 71000)):
-        directory = "./ProcessingTimeTable/t2_500_20_"
+    for week, amount in (("fri",288000), ()):
+        directory = "./ProcessingTimeTable/t_500_20_"
         df = pd.read_csv(directory + week + ".csv")
 
         total_job = amount//1000 - 1
