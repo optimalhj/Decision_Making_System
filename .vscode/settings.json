@@ -1,0 +1,6 @@
+{
+    "python-envs.defaultEnvManager": "ms-python.python:conda",
+    "python-envs.defaultPackageManager": "ms-python.python:conda",
+    "python.condaPath": "C:/Users/USER/anaconda3/Scripts/conda.exe",
+    "python.defaultInterpreterPath": "C:/Users/USER/anaconda3/envs/my_baseball/python.exe"
+}

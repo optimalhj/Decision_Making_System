@@ -1,0 +1,18 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+.env
+.env.*
+!.env.example
+.DS_Store
+Thumbs.db
+
+# 학생 제출물 업로드 (서버 런타임 산출물 — git에 넣지 않음)
+uploads/*
+!uploads/.gitkeep
+output/*
+!output/.gitkeep
+sota/*
+examples/example_ga_lineup.py
