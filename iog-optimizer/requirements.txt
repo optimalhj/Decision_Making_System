@@ -1,0 +1,6 @@
+numpy>=1.24
+pandas>=2.0
+lxml>=4.9        # pandas.read_html (대시보드 파싱)
+numba>=0.58      # 스케줄러 속도 (없어도 돌지만 IG가 수십 배 느림)
+requests>=2.31   # sync_state.py --fetch
+pytest>=7

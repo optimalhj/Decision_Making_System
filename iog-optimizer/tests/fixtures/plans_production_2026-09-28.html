@@ -1,0 +1,946 @@
+<html lang="en" xmlns:float="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>    
+   <!-- Required meta tags -->
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+   <!-- Bootstrap CSS -->
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+   <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
+   <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+   <script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>
+
+   <link rel="stylesheet" href="/static/my.css" type="text/css" />        
+
+   <link rel="shortcut icon" href="https://s3.amazonaws.com/django-blog/ico/favicon_v2.ico">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://omnipotent.net/jquery.sparkline/2.1.2/jquery.sparkline.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+<style>
+  .toggle-btn{
+    display:inline-flex; align-items:center; gap:.5rem;
+    padding:.6rem 1rem; border:1px solid #ccc; border-radius:999px;
+    cursor:pointer; user-select:none; font:14px/1.2 system-ui, sans-serif;
+    background:#f7f7f8; transition:background .2s, border-color .2s;
+  }
+  .toggle-btn .dot{
+    width:18px; height:18px; border-radius:50%; background:#bbb; transition:transform .2s, background .2s;
+  }
+  .toggle-btn.is-on{ background:#e8f7ee; border-color:#86d39a; }
+  .toggle-btn.is-on .dot{ background:#17a34a; transform:translateX(4px) scale(1.05); }
+  .state{ font-weight:600; min-width:2.5em; text-align:center; }
+</style>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-F840W1DZTS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-F840W1DZTS');
+</script>
+
+</head>
+
+<body>
+
+  <!-- <header class="navbar navbar-expand-lg bd-navbar sticky-top"> -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/R2602B">
+          <img  src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="">          
+          <b>IOG</b>          
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/R2602B">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="https://deluxe-barometer-751.notion.site/IOG-Notice-1fc2218381bb801da87bf1930641ec4e" target="_blank">Notice</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/stats/R2602B">Stats</a>
+            </li>   
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/rank_changes/R2602B">LeaderBoard</a>
+            </li>                          
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" target="_blank" href="/iog_rank">Ranks</a>
+            </li>                        
+            <li class="nav-item">
+              <a class="nav-link active" href="/show_configs">Configs</a>
+            </li>
+          
+            <li class="nav-item">
+
+            </li>  
+
+            </ul>         
+            
+        </div>
+
+        <div class="d-flex" role="search" style="margin-top: 0px;">
+
+          <span style="color: #fd7e14; margin-top: 3px; margin-right: 20px;" >
+            Sys Today(AUTO): 2026-09-28,
+            Current Round: <b>R2602B</b>
+          </span>          
+
+          
+            <span style="color: white; margin-top: 3px; margin-right: 20px" >Logged in as <b>DGU</b> / <b>26_DGU_KSH</b></span>
+            <button type="button" onclick="document.location.href='/login/out/R2602B'" class="btn btn-outline-danger btn-sm " >Logout</button>
+          
+        </div>           
+
+      </div>
+    </nav>
+  <!-- </header> -->
+<!--     
+    <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top" data-bs-theme="dark">
+
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/R2602B">
+          <img src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="">          
+          <b>IOG</b>
+        </a>
+          <div class="" style="width:500px">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                  <a class="nav-link" href="/R2602B">Home</a>
+                </li>
+                <li class="nav-item active">
+                  <a class="nav-link" href="/show_configs">Configs</a>
+                </li>
+                <li class="nav-item active">
+                  <a class="nav-link" href="https://deluxe-barometer-751.notion.site/IOG_Notice-67e7b177fadc4bcba35bb0490ff3772f?pvs=4" target="_blank">Notice</a>
+                </li>
+                <li class="nav-item active">
+                  <span style="margin-left: 20px; font-weight:100; color: #fd7e14" class="navbar-brand">Round: <b>R2602B</b></span>
+                </li>
+              </ul>
+          </div>            
+        </div>
+      </nav> -->
+
+  <!-- </header> -->
+  
+   
+
+
+  
+
+
+    </header>
+
+
+
+
+    
+    <div class="container-sm">
+
+<!--
+https://doong-e.tistory.com/50
+-->
+
+<script type="text/javascript">
+    $( document ).ready( function() {
+        $(".tab-ul li:nth-child("+tab_idx+")").addClass("selected")
+    });   
+</script>
+
+    <p>
+        <h4 style="margin-top: 35px; margin-bottom: 35px;">Business Dashboard of DGU / 26_DGU_KSH</h4>
+    </p>
+
+    <ul class="tab-ul">
+        <li class="tab-ul" onclick='document.location.href="/plans_demand/board/DGU/26_DGU_KSH/R2602B"'>Demand</li>
+        <li class="tab-ul" onclick='document.location.href="/plans_material/board/DGU/26_DGU_KSH/R2602B"''>Material</li>        
+        <li class="tab-ul" onclick='document.location.href="/plans_production/board/DGU/26_DGU_KSH/R2602B"''>Production</li>
+        <li class="tab-ul" onclick='document.location.href="/plans_sales/board/DGU/26_DGU_KSH/R2602B"''>Sales</li>        
+        <li class="tab-ul" onclick='document.location.href="/plans_ledger/board/DGU/26_DGU_KSH/R2602B"''>Ledger</li>        
+     </ul>    
+<script type="text/javascript">
+    tab_idx = 3
+</script>
+   
+         
+    <p>
+        <a href="/plans_production/frm/DGU/26_DGU_KSH/R2602B">Create production plans</a>
+    </p>    
+
+    <h4>Production performances</h4><br>
+    <h5>Metrics of P1</h5><br>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm" style="display: flex; justify-content: top; align-items: center; flex-wrap: wrap; flex-direction: column;">            
+                <div>PFR (Production / Forecasting Ratio)</div>
+            <div id="graphs_pfr_p1" class="chart"></div>            
+          </div>
+          <div class="col-sm" style="display: flex; justify-content: top; align-items: center; flex-wrap: wrap; flex-direction: column;">            
+            <div>ATR (Avg. Target Ratio (%))</div>
+            <div id="graphs_atr_p1" class="chart"></div>   
+          </div>          
+          <div class="col-sm" style="display: flex; justify-content: space-around ; flex-wrap: wrap; flex-direction: row;">            
+            <div class="c_box">
+                <div class="c_title">Total Production Qty</div>
+                <div class="c_value">None</div>
+            </div>
+            <div class="c_box">
+                <div class="c_title">Avg. Makespan / Job</div>
+                <div class="c_value">None</div>
+            </div>  
+            <div class="c_box">
+                <div class="c_title">Std. Capacity</div>
+                <div class="c_value">7,000</div>
+            </div>              
+            <div class="c_box">
+                <div class="c_title">Avg. Extra Time</div>
+                <div class="c_value">None</div>
+            </div>
+            <div class="c_box">
+                <div class="c_title">Avg. Extra Cost</div>
+                <div class="c_value">$None</div>
+            </div>            
+            <div class="c_box">
+                <div class="c_title">Avg. Unit Cost</div>
+                <div class="c_value">$None</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <h5>Metrics of P2</h5><br>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm" style="display: flex; justify-content: top; align-items: center; flex-wrap: wrap; flex-direction: column;">            
+                <div>PFR (Production / Forecasting Ratio)</div>
+            <div id="graphs_pfr_p2" class="chart"></div>            
+          </div>
+          <div class="col-sm" style="display: flex; justify-content: top; align-items: center; flex-wrap: wrap; flex-direction: column;">            
+            <div>ATR (Avg. Target Ratio (%))</div>
+            <div id="graphs_atr_p2" class="chart"></div>   
+          </div>          
+          <div class="col-sm" style="display: flex; justify-content: space-around ; flex-wrap: wrap; flex-direction: row;">            
+            <div class="c_box">
+                <div class="c_title">Total Production Qty</div>
+                <div class="c_value">76,000</div>
+            </div>
+            <div class="c_box">
+                <div class="c_title">Avg. Makespan / Job</div>
+                <div class="c_value">152.47</div>
+            </div>  
+            <div class="c_box">
+                <div class="c_title">Std. Capacity</div>
+                <div class="c_value">7,000</div>
+            </div>              
+            <div class="c_box">
+                <div class="c_title">Avg. Extra Time</div>
+                <div class="c_value">4,588.00</div>
+            </div>
+            <div class="c_box">
+                <div class="c_title">Avg. Extra Cost</div>
+                <div class="c_value">$4,588,000.00</div>
+            </div>            
+            <div class="c_box">
+                <div class="c_title">Avg. Unit Cost</div>
+                <div class="c_value">$263.16</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+<br>
+      <h4>Production plans</h4>         
+    <table class="table" style="text-align:center;">
+        <thead class="table-dark">
+        <tr>
+            <th>Date</th>
+            <th>Status</th>
+            <th>Type</th>
+            <th>Product</th>
+            <th>Algo</th>
+            <!-- <th>Sequence</th> -->
+            <th>Planned #Jobs</th>
+            <th>Produced Qty</th>            
+            <th>Target Ratio(%)</th>
+            <th>Makespan</th>
+            <!-- <th>Cost</th>
+            <th>Extra cost</th>
+            <th>Total cost</th> -->
+            <th>Gantt</th>
+        </tr>
+        </thead>
+        
+        <tbody>
+            <tr>
+                <td>2026-10-03</td>   
+                <td>
+                    
+                    <span class="badge bg-warning text-dark">Planned</span>
+                                    
+                </td> 
+                <td>MANUAL</td>            
+                <td>P2</td>            
+                <td>CUSTOM</td>                 
+                <!-- <td>30, 28, 5, 52, 26, 13, 55, 44, 54, 11, 66, 23, 67, 21, 25, 16, 2, 70, 56, 18, 47, 43, 4, 50, 1, 59, 6, 9, 61, 51, 15, 33, 17, 63, 69, 49, 58, 41, 60, 39, 8, 19, 20, 40, 12, 35, 64, 48, 22, 68, 57, 14, 46, 10, 36, 62, 38, 24, 45, 65, 71, 53, 27, 31, 37, 3, 34, 7, 32, 29, 42</td>                  -->                
+                <td>71</td>
+                <td>
+                     
+                </td>
+                <td align="left">
+                     
+                </td>
+                <td>
+                     
+                </td>
+                <!-- <td>---</td>
+                <td>---</td>
+                 -->
+                
+                    <td></td>
+                                
+                
+            </tr>
+        </tbody>
+        
+        <tbody>
+            <tr>
+                <td>2026-10-03</td>   
+                <td>
+                    
+                    <span class="badge bg-warning text-dark">Planned</span>
+                                    
+                </td> 
+                <td>MANUAL</td>            
+                <td>P1</td>            
+                <td>SPT</td>                 
+                <!-- <td></td>                  -->                
+                <td>0</td>
+                <td>
+                     
+                </td>
+                <td align="left">
+                     
+                </td>
+                <td>
+                     
+                </td>
+                <!-- <td>---</td>
+                <td>---</td>
+                 -->
+                
+                    <td></td>
+                                
+                
+            </tr>
+        </tbody>
+        
+        <tbody>
+            <tr>
+                <td>2026-10-02</td>   
+                <td>
+                    
+                    <span class="badge bg-warning text-dark">Planned</span>
+                                    
+                </td> 
+                <td>MANUAL</td>            
+                <td>P2</td>            
+                <td>CUSTOM</td>                 
+                <!-- <td>16, 9, 17, 20, 2, 15, 29, 51, 13, 55, 68, 64, 19, 48, 36, 26, 1, 59, 46, 34, 39, 10, 18, 61, 49, 21, 63, 65, 41, 3, 71, 72, 32, 43, 27, 31, 7, 58, 35, 14, 47, 66, 38, 25, 40, 22, 4, 52, 69, 23, 12, 24, 54, 37, 33, 11, 30, 50, 44, 45, 60, 67, 28, 62, 42, 53, 70, 8, 57, 56, 5, 6</td>                  -->                
+                <td>72</td>
+                <td>
+                     
+                </td>
+                <td align="left">
+                     
+                </td>
+                <td>
+                     
+                </td>
+                <!-- <td>---</td>
+                <td>---</td>
+                 -->
+                
+                    <td></td>
+                                
+                
+            </tr>
+        </tbody>
+        
+        <tbody>
+            <tr>
+                <td>2026-10-02</td>   
+                <td>
+                    
+                    <span class="badge bg-warning text-dark">Planned</span>
+                                    
+                </td> 
+                <td>MANUAL</td>            
+                <td>P1</td>            
+                <td>CUSTOM</td>                 
+                <!-- <td>60, 71, 15, 228, 24, 138, 265, 63, 18, 172, 22, 166, 247, 49, 59, 43, 271, 87, 44, 26, 185, 237, 79, 106, 120, 30, 35, 78, 13, 213, 229, 41, 200, 89, 169, 125, 174, 235, 88, 210, 85, 34, 76, 75, 36, 201, 236, 109, 45, 251, 263, 112, 214, 58, 83, 9, 102, 144, 196, 57, 250, 84, 143, 256, 173, 238, 6, 82, 113, 232, 233, 70, 253, 204, 171, 264, 127, 23, 90, 77, 42, 99, 12, 215, 244, 2, 180, 19, 14, 145, 254, 192, 154, 124, 64, 27, 29, 285, 97, 95, 161, 184, 153, 51, 40, 273, 126, 147, 190, 7, 203, 178, 272, 133, 158, 121, 142, 21, 47, 5, 55, 94, 117, 33, 222, 111, 217, 28, 25, 242, 227, 225, 280, 231, 101, 37, 152, 108, 208, 139, 205, 282, 288, 189, 239, 72, 278, 260, 243, 149, 287, 123, 188, 165, 137, 54, 62, 68, 131, 195, 277, 275, 129, 162, 67, 135, 179, 193, 209, 284, 1, 283, 130, 16, 255, 226, 245, 246, 170, 207, 175, 286, 240, 198, 159, 274, 128, 65, 281, 223, 202, 93, 261, 132, 11, 80, 104, 219, 177, 92, 32, 81, 212, 3, 103, 266, 220, 269, 115, 39, 38, 216, 100, 155, 46, 20, 141, 150, 118, 262, 10, 258, 4, 183, 230, 96, 48, 56, 157, 267, 279, 119, 268, 259, 187, 181, 224, 186, 199, 31, 61, 114, 116, 122, 167, 160, 91, 191, 218, 163, 140, 8, 249, 194, 110, 146, 257, 151, 248, 107, 164, 73, 136, 105, 50, 270, 69, 66, 211, 252, 276, 234, 53, 52, 241, 182, 206, 134, 148, 98, 86, 197, 156, 221, 74, 17, 168, 176</td>                  -->                
+                <td>288</td>
+                <td>
+                     
+                </td>
+                <td align="left">
+                     
+                </td>
+                <td>
+                     
+                </td>
+                <!-- <td>---</td>
+                <td>---</td>
+                 -->
+                
+                    <td></td>
+                                
+                
+            </tr>
+        </tbody>
+        
+        <tbody>
+            <tr>
+                <td>2026-10-01</td>   
+                <td>
+                    
+                    <span class="badge bg-warning text-dark">Planned</span>
+                                    
+                </td> 
+                <td>MANUAL</td>            
+                <td>P2</td>            
+                <td>CUSTOM</td>                 
+                <!-- <td>14, 41, 64, 26, 3, 60, 16, 52, 71, 22, 36, 38, 23, 5, 70, 59, 18, 46, 11, 54, 62, 40, 8, 49, 33, 20, 55, 43, 29, 51, 6, 42, 17, 39, 45, 9, 44, 1, 31, 56, 57, 12, 32, 67, 61, 25, 65, 19, 15, 58, 34, 68, 48, 50, 30, 63, 13, 4, 66, 27, 24, 7, 47, 2, 37, 53, 35, 21, 69, 28, 10, 72</td>                  -->                
+                <td>72</td>
+                <td>
+                     
+                </td>
+                <td align="left">
+                     
+                </td>
+                <td>
+                     
+                </td>
+                <!-- <td>---</td>
+                <td>---</td>
+                 -->
+                
+                    <td></td>
+                                
+                
+            </tr>
+        </tbody>
+        
+        <tbody>
+            <tr>
+                <td>2026-10-01</td>   
+                <td>
+                    
+                    <span class="badge bg-warning text-dark">Planned</span>
+                                    
+                </td> 
+                <td>MANUAL</td>            
+                <td>P1</td>            
+                <td>CUSTOM</td>                 
+                <!-- <td>143, 188, 186, 230, 232, 86, 78, 90, 216, 134, 215, 12, 217, 193, 185, 117, 44, 7, 36, 270, 269, 252, 155, 15, 147, 256, 150, 161, 104, 56, 222, 170, 119, 47, 38, 179, 21, 178, 209, 197, 8, 205, 183, 32, 208, 24, 249, 174, 63, 95, 30, 255, 130, 152, 233, 214, 105, 219, 241, 14, 260, 141, 91, 94, 264, 192, 107, 71, 40, 50, 220, 182, 211, 184, 271, 51, 31, 33, 144, 235, 251, 245, 27, 274, 268, 43, 212, 73, 203, 59, 74, 131, 89, 160, 67, 231, 257, 79, 221, 132, 16, 250, 11, 112, 9, 126, 53, 68, 229, 272, 262, 72, 25, 111, 181, 121, 57, 153, 258, 106, 266, 124, 76, 23, 13, 156, 28, 87, 194, 213, 55, 137, 198, 98, 125, 81, 19, 244, 41, 175, 261, 273, 201, 58, 115, 278, 85, 29, 135, 265, 42, 77, 60, 224, 92, 157, 223, 88, 17, 66, 242, 136, 45, 148, 162, 263, 191, 234, 168, 151, 64, 2, 70, 20, 39, 240, 207, 199, 37, 149, 96, 200, 259, 122, 48, 253, 275, 133, 236, 267, 101, 129, 93, 114, 142, 6, 195, 154, 120, 204, 123, 225, 100, 226, 177, 176, 180, 103, 248, 280, 97, 10, 166, 69, 34, 35, 3, 18, 159, 206, 5, 145, 169, 108, 254, 99, 1, 167, 140, 279, 246, 80, 22, 243, 227, 165, 164, 54, 247, 238, 202, 196, 190, 113, 163, 118, 49, 210, 171, 65, 26, 127, 4, 146, 173, 109, 172, 52, 239, 83, 138, 46, 228, 158, 218, 276, 237, 110, 187, 139, 75, 277, 128, 82, 62, 189, 102, 116, 61, 84</td>                  -->                
+                <td>280</td>
+                <td>
+                     
+                </td>
+                <td align="left">
+                     
+                </td>
+                <td>
+                     
+                </td>
+                <!-- <td>---</td>
+                <td>---</td>
+                 -->
+                
+                    <td></td>
+                                
+                
+            </tr>
+        </tbody>
+        
+        <tbody>
+            <tr>
+                <td>2026-09-30</td>   
+                <td>
+                    
+                    <span class="badge bg-warning text-dark">Planned</span>
+                                    
+                </td> 
+                <td>MANUAL</td>            
+                <td>P2</td>            
+                <td>CUSTOM</td>                 
+                <!-- <td>3, 19, 51, 21, 13, 12, 59, 6, 73, 41, 63, 9, 68, 32, 64, 50, 48, 15, 16, 69, 56, 53, 27, 10, 22, 54, 34, 66, 49, 70, 26, 35, 65, 25, 72, 33, 5, 14, 18, 46, 52, 1, 61, 67, 62, 11, 2, 17, 24, 42, 60, 37, 8, 47, 44, 57, 23, 36, 45, 55, 43, 28, 29, 71, 7, 4, 38, 30, 31, 58, 20, 40, 39</td>                  -->                
+                <td>73</td>
+                <td>
+                     
+                </td>
+                <td align="left">
+                     
+                </td>
+                <td>
+                     
+                </td>
+                <!-- <td>---</td>
+                <td>---</td>
+                 -->
+                
+                    <td></td>
+                                
+                
+            </tr>
+        </tbody>
+        
+        <tbody>
+            <tr>
+                <td>2026-09-30</td>   
+                <td>
+                    
+                    <span class="badge bg-warning text-dark">Planned</span>
+                                    
+                </td> 
+                <td>MANUAL</td>            
+                <td>P1</td>            
+                <td>CUSTOM</td>                 
+                <!-- <td>105, 200, 116, 133, 246, 40, 136, 80, 88, 42, 264, 99, 267, 47, 171, 65, 167, 23, 201, 198, 209, 240, 125, 188, 260, 69, 213, 139, 165, 66, 43, 51, 178, 272, 202, 177, 50, 146, 181, 261, 214, 231, 4, 122, 266, 35, 10, 172, 233, 79, 100, 110, 118, 280, 44, 106, 115, 152, 242, 67, 138, 194, 29, 238, 45, 56, 128, 101, 102, 20, 197, 85, 52, 57, 61, 19, 186, 91, 120, 16, 258, 2, 163, 230, 160, 225, 273, 72, 243, 220, 251, 81, 46, 232, 148, 270, 278, 34, 248, 114, 112, 244, 211, 95, 176, 192, 137, 268, 228, 224, 11, 191, 215, 30, 113, 204, 58, 164, 239, 108, 277, 98, 25, 249, 159, 187, 173, 205, 257, 271, 26, 221, 151, 132, 235, 123, 269, 53, 87, 84, 170, 64, 111, 185, 62, 17, 265, 203, 195, 153, 74, 174, 210, 229, 223, 144, 140, 63, 226, 158, 247, 184, 236, 75, 68, 103, 207, 70, 179, 189, 90, 94, 143, 216, 73, 199, 109, 208, 3, 78, 14, 131, 274, 97, 38, 212, 206, 145, 169, 182, 254, 39, 55, 129, 28, 124, 241, 6, 96, 1, 262, 9, 237, 71, 12, 263, 162, 142, 155, 175, 180, 190, 93, 150, 21, 183, 92, 134, 250, 245, 149, 83, 15, 86, 5, 259, 219, 41, 218, 147, 157, 279, 253, 227, 13, 82, 54, 32, 126, 48, 130, 135, 256, 154, 166, 33, 27, 37, 141, 31, 107, 193, 8, 196, 7, 104, 18, 60, 252, 89, 168, 275, 156, 119, 276, 161, 217, 127, 222, 49, 59, 77, 22, 76, 121, 117, 24, 36, 234, 255</td>                  -->                
+                <td>280</td>
+                <td>
+                     
+                </td>
+                <td align="left">
+                     
+                </td>
+                <td>
+                     
+                </td>
+                <!-- <td>---</td>
+                <td>---</td>
+                 -->
+                
+                    <td></td>
+                                
+                
+            </tr>
+        </tbody>
+        
+        <tbody>
+            <tr>
+                <td>2026-09-29</td>   
+                <td>
+                    
+                    <span class="badge bg-warning text-dark">Planned</span>
+                                    
+                </td> 
+                <td>MANUAL</td>            
+                <td>P2</td>            
+                <td>CUSTOM</td>                 
+                <!-- <td>54, 21, 5, 58, 68, 72, 7, 64, 41, 50, 23, 1, 40, 45, 19, 56, 70, 65, 6, 16, 46, 59, 11, 36, 63, 37, 17, 60, 61, 31, 51, 2, 55, 67, 27, 38, 20, 24, 69, 9, 52, 13, 32, 8, 12, 25, 33, 30, 57, 43, 15, 44, 18, 10, 74, 28, 66, 42, 26, 3, 22, 34, 39, 73, 14, 62, 49, 48, 35, 53, 4, 47, 29, 71</td>                  -->                
+                <td>74</td>
+                <td>
+                     
+                </td>
+                <td align="left">
+                     
+                </td>
+                <td>
+                     
+                </td>
+                <!-- <td>---</td>
+                <td>---</td>
+                 -->
+                
+                    <td></td>
+                                
+                
+            </tr>
+        </tbody>
+        
+        <tbody>
+            <tr>
+                <td>2026-09-29</td>   
+                <td>
+                    
+                    <span class="badge bg-warning text-dark">Planned</span>
+                                    
+                </td> 
+                <td>MANUAL</td>            
+                <td>P1</td>            
+                <td>CUSTOM</td>                 
+                <!-- <td>125, 56, 5, 8, 154, 84, 247, 237, 18, 147, 185, 83, 39, 70, 238, 21, 178, 120, 24, 142, 89, 232, 62, 40, 210, 107, 155, 41, 153, 121, 35, 115, 88, 164, 200, 204, 94, 117, 143, 3, 184, 160, 236, 163, 82, 1, 224, 132, 112, 99, 33, 55, 14, 198, 248, 87, 179, 205, 50, 240, 80, 54, 79, 25, 49, 176, 202, 177, 137, 140, 231, 28, 150, 74, 251, 11, 157, 9, 256, 241, 59, 258, 260, 243, 195, 152, 138, 228, 116, 32, 168, 85, 23, 17, 206, 48, 139, 161, 126, 108, 226, 175, 183, 110, 239, 31, 15, 101, 123, 252, 105, 165, 244, 103, 170, 159, 2, 65, 172, 229, 199, 254, 215, 64, 230, 16, 114, 151, 122, 58, 19, 196, 191, 73, 207, 72, 75, 219, 189, 203, 145, 259, 63, 253, 47, 212, 60, 133, 222, 192, 149, 57, 245, 223, 52, 131, 181, 66, 173, 27, 61, 93, 135, 92, 113, 180, 218, 97, 197, 20, 13, 30, 77, 38, 141, 262, 235, 37, 78, 124, 22, 69, 217, 148, 233, 187, 249, 106, 95, 118, 10, 250, 193, 81, 12, 234, 257, 130, 109, 36, 86, 129, 96, 111, 158, 194, 127, 43, 261, 242, 98, 211, 171, 220, 119, 188, 42, 26, 7, 214, 264, 221, 213, 182, 167, 29, 102, 263, 208, 104, 162, 46, 201, 34, 71, 68, 51, 186, 45, 174, 144, 134, 169, 53, 76, 67, 246, 156, 255, 225, 166, 227, 216, 146, 190, 136, 265, 44, 128, 91, 209, 90, 4, 100, 6</td>                  -->                
+                <td>265</td>
+                <td>
+                     
+                </td>
+                <td align="left">
+                     
+                </td>
+                <td>
+                     
+                </td>
+                <!-- <td>---</td>
+                <td>---</td>
+                 -->
+                
+                    <td></td>
+                                
+                
+            </tr>
+        </tbody>
+        
+        <tbody>
+            <tr>
+                <td>2026-09-28</td>   
+                <td>
+                    
+                    <span class="badge bg-warning text-dark">Planned</span>
+                                    
+                </td> 
+                <td>MANUAL</td>            
+                <td>P2</td>            
+                <td>CUSTOM</td>                 
+                <!-- <td>25, 31, 40, 43, 20, 72, 59, 16, 44, 47, 5, 74, 42, 75, 39, 62, 22, 23, 54, 11, 49, 3, 33, 4, 63, 51, 35, 12, 56, 73, 29, 37, 45, 65, 69, 64, 14, 60, 71, 50, 15, 52, 70, 32, 6, 18, 55, 34, 17, 2, 8, 58, 67, 19, 30, 10, 13, 9, 7, 68, 38, 46, 57, 1, 24, 61, 26, 28, 36, 41, 27, 48, 53, 21, 66</td>                  -->                
+                <td>75</td>
+                <td>
+                     
+                </td>
+                <td align="left">
+                     
+                </td>
+                <td>
+                     
+                </td>
+                <!-- <td>---</td>
+                <td>---</td>
+                 -->
+                
+                    <td></td>
+                                
+                
+            </tr>
+        </tbody>
+        
+        <tbody>
+            <tr>
+                <td>2026-09-28</td>   
+                <td>
+                    
+                    <span class="badge bg-warning text-dark">Planned</span>
+                                    
+                </td> 
+                <td>MANUAL</td>            
+                <td>P1</td>            
+                <td>CUSTOM</td>                 
+                <!-- <td>156, 136, 16, 117, 202, 60, 115, 146, 107, 64, 90, 137, 182, 163, 213, 9, 17, 230, 174, 232, 200, 72, 78, 221, 2, 175, 80, 19, 120, 93, 165, 28, 110, 231, 127, 254, 129, 239, 256, 12, 74, 236, 251, 198, 159, 134, 199, 130, 13, 244, 109, 164, 6, 225, 203, 187, 248, 99, 63, 26, 88, 114, 27, 30, 119, 3, 37, 44, 208, 133, 51, 86, 23, 8, 233, 69, 223, 210, 46, 87, 132, 207, 192, 138, 257, 252, 186, 224, 145, 229, 190, 65, 1, 240, 143, 222, 151, 259, 54, 226, 67, 123, 204, 128, 48, 255, 234, 172, 247, 34, 71, 82, 7, 124, 142, 184, 171, 94, 62, 84, 161, 83, 206, 154, 238, 144, 180, 258, 219, 10, 33, 106, 178, 185, 5, 36, 39, 218, 177, 237, 25, 29, 195, 131, 55, 73, 157, 81, 102, 79, 149, 18, 20, 40, 103, 95, 76, 179, 166, 57, 116, 108, 47, 215, 193, 209, 101, 191, 140, 188, 246, 112, 167, 50, 53, 66, 197, 158, 217, 35, 243, 121, 77, 22, 4, 176, 214, 15, 32, 135, 118, 122, 147, 70, 85, 148, 227, 155, 241, 100, 212, 24, 126, 242, 45, 97, 173, 111, 153, 205, 211, 125, 250, 98, 21, 150, 183, 201, 14, 228, 38, 49, 160, 41, 91, 168, 92, 169, 11, 181, 104, 31, 253, 96, 89, 141, 42, 196, 58, 235, 139, 194, 43, 105, 249, 189, 113, 170, 68, 75, 152, 245, 52, 59, 56, 162, 216, 61, 220</td>                  -->                
+                <td>259</td>
+                <td>
+                     
+                </td>
+                <td align="left">
+                     
+                </td>
+                <td>
+                     
+                </td>
+                <!-- <td>---</td>
+                <td>---</td>
+                 -->
+                
+                    <td></td>
+                                
+                
+            </tr>
+        </tbody>
+        
+        <tbody>
+            <tr>
+                <td>2026-09-27</td>   
+                <td>
+                                        
+                    <span class="badge bg-success">Produced</span>                    
+                                    
+                </td> 
+                <td>MANUAL</td>            
+                <td>P2</td>            
+                <td>CUSTOM</td>                 
+                <!-- <td>46, 73, 4, 12, 67, 7, 47, 57, 59, 27, 68, 22, 20, 5, 48, 53, 33, 34, 31, 40, 8, 29, 32, 60, 15, 19, 74, 76, 62, 26, 55, 75, 38, 58, 2, 43, 30, 3, 69, 23, 52, 50, 18, 70, 11, 65, 71, 25, 36, 42, 54, 72, 66, 6, 13, 41, 63, 16, 51, 39, 45, 28, 64, 17, 56, 1, 24, 44, 9, 14, 49, 37, 61, 35, 21, 10</td>                  -->                
+                <td>76</td>
+                <td>
+                      
+                        76,000
+                     
+                </td>
+                <td align="left">
+                      
+                        <span class="inlinesparkline_2026-09-27_P2">
+                            100.00,102,102
+                        </span>
+                        100.00
+                     
+                </td>
+                <td>
+                      
+                        11,588
+                     
+                </td>
+                <!-- <td>---</td>
+                <td>---</td>
+                 -->
+                                
+
+                    <!-- <td><a target='_blank' href='/static/gantt_charts/DGU_26_DGU_KSH_2026-09-27.png'>View</a></td> -->
+                    <td><a target='_blank' href='/plans_production/details/DGU/26_DGU_KSH/R2602B/2026-09-27/P2'>Details</a></td>
+                                
+                
+            </tr>
+        </tbody>
+        
+        <tbody>
+            <tr>
+                <td>2026-09-27</td>   
+                <td>
+                                        
+                    <span class="badge bg-success">Produced</span>                    
+                                    
+                </td> 
+                <td>MANUAL</td>            
+                <td>P1</td>            
+                <td>SPT</td>                 
+                <!-- <td></td>                  -->                
+                <td>0</td>
+                <td>
+                      
+                        0
+                     
+                </td>
+                <td align="left">
+                     
+                </td>
+                <td>
+                     
+                </td>
+                <!-- <td>---</td>
+                <td>---</td>
+                 -->
+                
+                    <td></td>
+                                
+                
+            </tr>
+        </tbody>
+        
+    </table>    
+    
+<script type="text/javascript">
+    $(function() {
+        /** This code runs when everything has been loaded on the page */
+        /* Inline sparklines take their values from the contents of the tag */
+        
+            $('.inlinesparkline_2026-10-03_P2').sparkline('html', 
+                {   
+                    type: 'bullet', 
+                    disableTooltips: 'true',  
+                    performanceColor: '#17a2b8',
+                    spotColor: '#000000',
+                    rangeColors: ['#ffffff','#ffffff','#ffffff']
+                }); 
+        
+            $('.inlinesparkline_2026-10-03_P1').sparkline('html', 
+                {   
+                    type: 'bullet', 
+                    disableTooltips: 'true',  
+                    performanceColor: '#17a2b8',
+                    spotColor: '#000000',
+                    rangeColors: ['#ffffff','#ffffff','#ffffff']
+                }); 
+        
+            $('.inlinesparkline_2026-10-02_P2').sparkline('html', 
+                {   
+                    type: 'bullet', 
+                    disableTooltips: 'true',  
+                    performanceColor: '#17a2b8',
+                    spotColor: '#000000',
+                    rangeColors: ['#ffffff','#ffffff','#ffffff']
+                }); 
+        
+            $('.inlinesparkline_2026-10-02_P1').sparkline('html', 
+                {   
+                    type: 'bullet', 
+                    disableTooltips: 'true',  
+                    performanceColor: '#17a2b8',
+                    spotColor: '#000000',
+                    rangeColors: ['#ffffff','#ffffff','#ffffff']
+                }); 
+        
+            $('.inlinesparkline_2026-10-01_P2').sparkline('html', 
+                {   
+                    type: 'bullet', 
+                    disableTooltips: 'true',  
+                    performanceColor: '#17a2b8',
+                    spotColor: '#000000',
+                    rangeColors: ['#ffffff','#ffffff','#ffffff']
+                }); 
+        
+            $('.inlinesparkline_2026-10-01_P1').sparkline('html', 
+                {   
+                    type: 'bullet', 
+                    disableTooltips: 'true',  
+                    performanceColor: '#17a2b8',
+                    spotColor: '#000000',
+                    rangeColors: ['#ffffff','#ffffff','#ffffff']
+                }); 
+        
+            $('.inlinesparkline_2026-09-30_P2').sparkline('html', 
+                {   
+                    type: 'bullet', 
+                    disableTooltips: 'true',  
+                    performanceColor: '#17a2b8',
+                    spotColor: '#000000',
+                    rangeColors: ['#ffffff','#ffffff','#ffffff']
+                }); 
+        
+            $('.inlinesparkline_2026-09-30_P1').sparkline('html', 
+                {   
+                    type: 'bullet', 
+                    disableTooltips: 'true',  
+                    performanceColor: '#17a2b8',
+                    spotColor: '#000000',
+                    rangeColors: ['#ffffff','#ffffff','#ffffff']
+                }); 
+        
+            $('.inlinesparkline_2026-09-29_P2').sparkline('html', 
+                {   
+                    type: 'bullet', 
+                    disableTooltips: 'true',  
+                    performanceColor: '#17a2b8',
+                    spotColor: '#000000',
+                    rangeColors: ['#ffffff','#ffffff','#ffffff']
+                }); 
+        
+            $('.inlinesparkline_2026-09-29_P1').sparkline('html', 
+                {   
+                    type: 'bullet', 
+                    disableTooltips: 'true',  
+                    performanceColor: '#17a2b8',
+                    spotColor: '#000000',
+                    rangeColors: ['#ffffff','#ffffff','#ffffff']
+                }); 
+        
+            $('.inlinesparkline_2026-09-28_P2').sparkline('html', 
+                {   
+                    type: 'bullet', 
+                    disableTooltips: 'true',  
+                    performanceColor: '#17a2b8',
+                    spotColor: '#000000',
+                    rangeColors: ['#ffffff','#ffffff','#ffffff']
+                }); 
+        
+            $('.inlinesparkline_2026-09-28_P1').sparkline('html', 
+                {   
+                    type: 'bullet', 
+                    disableTooltips: 'true',  
+                    performanceColor: '#17a2b8',
+                    spotColor: '#000000',
+                    rangeColors: ['#ffffff','#ffffff','#ffffff']
+                }); 
+        
+            $('.inlinesparkline_2026-09-27_P2').sparkline('html', 
+                {   
+                    type: 'bullet', 
+                    disableTooltips: 'true',  
+                    performanceColor: '#17a2b8',
+                    spotColor: '#000000',
+                    rangeColors: ['#ffffff','#ffffff','#ffffff']
+                }); 
+        
+            $('.inlinesparkline_2026-09-27_P1').sparkline('html', 
+                {   
+                    type: 'bullet', 
+                    disableTooltips: 'true',  
+                    performanceColor: '#17a2b8',
+                    spotColor: '#000000',
+                    rangeColors: ['#ffffff','#ffffff','#ffffff']
+                }); 
+        
+    
+    });
+    </script>
+
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script type="text/javascript">
+    var graphs_pfr_p1 = {"data": [{"domain": {"x": [0, 1], "y": [0, 1]}, "gauge": {"axis": {"range": [null, 2]}, "bar": {"color": "blue"}, "steps": [{"color": "red", "range": [0, 0.7]}, {"color": "orange", "range": [0.7, 0.9]}, {"color": "green", "range": [0.9, 1.1]}, {"color": "orange", "range": [1.1, 1.3]}, {"color": "red", "range": [1.3, 2]}]}, "mode": "gauge+number", "value": 0.0, "type": "indicator"}], "layout": {"template": {"data": {"histogram2dcontour": [{"type": "histogram2dcontour", "colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]]}], "choropleth": [{"type": "choropleth", "colorbar": {"outlinewidth": 0, "ticks": ""}}], "histogram2d": [{"type": "histogram2d", "colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]]}], "heatmap": [{"type": "heatmap", "colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]]}], "heatmapgl": [{"type": "heatmapgl", "colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]]}], "contourcarpet": [{"type": "contourcarpet", "colorbar": {"outlinewidth": 0, "ticks": ""}}], "contour": [{"type": "contour", "colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]]}], "surface": [{"type": "surface", "colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]]}], "mesh3d": [{"type": "mesh3d", "colorbar": {"outlinewidth": 0, "ticks": ""}}], "scatter": [{"fillpattern": {"fillmode": "overlay", "size": 10, "solidity": 0.2}, "type": "scatter"}], "parcoords": [{"type": "parcoords", "line": {"colorbar": {"outlinewidth": 0, "ticks": ""}}}], "scatterpolargl": [{"type": "scatterpolargl", "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}}], "bar": [{"error_x": {"color": "#2a3f5f"}, "error_y": {"color": "#2a3f5f"}, "marker": {"line": {"color": "#E5ECF6", "width": 0.5}, "pattern": {"fillmode": "overlay", "size": 10, "solidity": 0.2}}, "type": "bar"}], "scattergeo": [{"type": "scattergeo", "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}}], "scatterpolar": [{"type": "scatterpolar", "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}}], "histogram": [{"marker": {"pattern": {"fillmode": "overlay", "size": 10, "solidity": 0.2}}, "type": "histogram"}], "scattergl": [{"type": "scattergl", "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}}], "scatter3d": [{"type": "scatter3d", "line": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}}], "scattermapbox": [{"type": "scattermapbox", "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}}], "scatterternary": [{"type": "scatterternary", "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}}], "scattercarpet": [{"type": "scattercarpet", "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}}], "carpet": [{"aaxis": {"endlinecolor": "#2a3f5f", "gridcolor": "white", "linecolor": "white", "minorgridcolor": "white", "startlinecolor": "#2a3f5f"}, "baxis": {"endlinecolor": "#2a3f5f", "gridcolor": "white", "linecolor": "white", "minorgridcolor": "white", "startlinecolor": "#2a3f5f"}, "type": "carpet"}], "table": [{"cells": {"fill": {"color": "#EBF0F8"}, "line": {"color": "white"}}, "header": {"fill": {"color": "#C8D4E3"}, "line": {"color": "white"}}, "type": "table"}], "barpolar": [{"marker": {"line": {"color": "#E5ECF6", "width": 0.5}, "pattern": {"fillmode": "overlay", "size": 10, "solidity": 0.2}}, "type": "barpolar"}], "pie": [{"automargin": true, "type": "pie"}]}, "layout": {"autotypenumbers": "strict", "colorway": ["#636efa", "#EF553B", "#00cc96", "#ab63fa", "#FFA15A", "#19d3f3", "#FF6692", "#B6E880", "#FF97FF", "#FECB52"], "font": {"color": "#2a3f5f"}, "hovermode": "closest", "hoverlabel": {"align": "left"}, "paper_bgcolor": "white", "plot_bgcolor": "#E5ECF6", "polar": {"bgcolor": "#E5ECF6", "angularaxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}, "radialaxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}}, "ternary": {"bgcolor": "#E5ECF6", "aaxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}, "baxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}, "caxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}}, "coloraxis": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "colorscale": {"sequential": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "sequentialminus": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "diverging": [[0, "#8e0152"], [0.1, "#c51b7d"], [0.2, "#de77ae"], [0.3, "#f1b6da"], [0.4, "#fde0ef"], [0.5, "#f7f7f7"], [0.6, "#e6f5d0"], [0.7, "#b8e186"], [0.8, "#7fbc41"], [0.9, "#4d9221"], [1, "#276419"]]}, "xaxis": {"gridcolor": "white", "linecolor": "white", "ticks": "", "title": {"standoff": 15}, "zerolinecolor": "white", "automargin": true, "zerolinewidth": 2}, "yaxis": {"gridcolor": "white", "linecolor": "white", "ticks": "", "title": {"standoff": 15}, "zerolinecolor": "white", "automargin": true, "zerolinewidth": 2}, "scene": {"xaxis": {"backgroundcolor": "#E5ECF6", "gridcolor": "white", "linecolor": "white", "showbackground": true, "ticks": "", "zerolinecolor": "white", "gridwidth": 2}, "yaxis": {"backgroundcolor": "#E5ECF6", "gridcolor": "white", "linecolor": "white", "showbackground": true, "ticks": "", "zerolinecolor": "white", "gridwidth": 2}, "zaxis": {"backgroundcolor": "#E5ECF6", "gridcolor": "white", "linecolor": "white", "showbackground": true, "ticks": "", "zerolinecolor": "white", "gridwidth": 2}}, "shapedefaults": {"line": {"color": "#2a3f5f"}}, "annotationdefaults": {"arrowcolor": "#2a3f5f", "arrowhead": 0, "arrowwidth": 1}, "geo": {"bgcolor": "white", "landcolor": "#E5ECF6", "subunitcolor": "white", "showland": true, "showlakes": true, "lakecolor": "white"}, "title": {"x": 0.05}, "mapbox": {"style": "light"}}}, "margin": {"l": 0, "r": 0, "t": 0, "b": 0}, "height": 180, "width": 200}};
+    Plotly.plot('graphs_pfr_p1', graphs_pfr_p1,{});  
+    var graphs_pfr_p2 = {"data": [{"domain": {"x": [0, 1], "y": [0, 1]}, "gauge": {"axis": {"range": [null, 2]}, "bar": {"color": "blue"}, "steps": [{"color": "red", "range": [0, 0.7]}, {"color": "orange", "range": [0.7, 0.9]}, {"color": "green", "range": [0.9, 1.1]}, {"color": "orange", "range": [1.1, 1.3]}, {"color": "red", "range": [1.3, 2]}]}, "mode": "gauge+number", "value": 1.01, "type": "indicator"}], "layout": {"template": {"data": {"histogram2dcontour": [{"type": "histogram2dcontour", "colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]]}], "choropleth": [{"type": "choropleth", "colorbar": {"outlinewidth": 0, "ticks": ""}}], "histogram2d": [{"type": "histogram2d", "colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]]}], "heatmap": [{"type": "heatmap", "colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]]}], "heatmapgl": [{"type": "heatmapgl", "colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]]}], "contourcarpet": [{"type": "contourcarpet", "colorbar": {"outlinewidth": 0, "ticks": ""}}], "contour": [{"type": "contour", "colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]]}], "surface": [{"type": "surface", "colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]]}], "mesh3d": [{"type": "mesh3d", "colorbar": {"outlinewidth": 0, "ticks": ""}}], "scatter": [{"fillpattern": {"fillmode": "overlay", "size": 10, "solidity": 0.2}, "type": "scatter"}], "parcoords": [{"type": "parcoords", "line": {"colorbar": {"outlinewidth": 0, "ticks": ""}}}], "scatterpolargl": [{"type": "scatterpolargl", "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}}], "bar": [{"error_x": {"color": "#2a3f5f"}, "error_y": {"color": "#2a3f5f"}, "marker": {"line": {"color": "#E5ECF6", "width": 0.5}, "pattern": {"fillmode": "overlay", "size": 10, "solidity": 0.2}}, "type": "bar"}], "scattergeo": [{"type": "scattergeo", "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}}], "scatterpolar": [{"type": "scatterpolar", "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}}], "histogram": [{"marker": {"pattern": {"fillmode": "overlay", "size": 10, "solidity": 0.2}}, "type": "histogram"}], "scattergl": [{"type": "scattergl", "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}}], "scatter3d": [{"type": "scatter3d", "line": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}}], "scattermapbox": [{"type": "scattermapbox", "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}}], "scatterternary": [{"type": "scatterternary", "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}}], "scattercarpet": [{"type": "scattercarpet", "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}}], "carpet": [{"aaxis": {"endlinecolor": "#2a3f5f", "gridcolor": "white", "linecolor": "white", "minorgridcolor": "white", "startlinecolor": "#2a3f5f"}, "baxis": {"endlinecolor": "#2a3f5f", "gridcolor": "white", "linecolor": "white", "minorgridcolor": "white", "startlinecolor": "#2a3f5f"}, "type": "carpet"}], "table": [{"cells": {"fill": {"color": "#EBF0F8"}, "line": {"color": "white"}}, "header": {"fill": {"color": "#C8D4E3"}, "line": {"color": "white"}}, "type": "table"}], "barpolar": [{"marker": {"line": {"color": "#E5ECF6", "width": 0.5}, "pattern": {"fillmode": "overlay", "size": 10, "solidity": 0.2}}, "type": "barpolar"}], "pie": [{"automargin": true, "type": "pie"}]}, "layout": {"autotypenumbers": "strict", "colorway": ["#636efa", "#EF553B", "#00cc96", "#ab63fa", "#FFA15A", "#19d3f3", "#FF6692", "#B6E880", "#FF97FF", "#FECB52"], "font": {"color": "#2a3f5f"}, "hovermode": "closest", "hoverlabel": {"align": "left"}, "paper_bgcolor": "white", "plot_bgcolor": "#E5ECF6", "polar": {"bgcolor": "#E5ECF6", "angularaxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}, "radialaxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}}, "ternary": {"bgcolor": "#E5ECF6", "aaxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}, "baxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}, "caxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}}, "coloraxis": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "colorscale": {"sequential": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "sequentialminus": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "diverging": [[0, "#8e0152"], [0.1, "#c51b7d"], [0.2, "#de77ae"], [0.3, "#f1b6da"], [0.4, "#fde0ef"], [0.5, "#f7f7f7"], [0.6, "#e6f5d0"], [0.7, "#b8e186"], [0.8, "#7fbc41"], [0.9, "#4d9221"], [1, "#276419"]]}, "xaxis": {"gridcolor": "white", "linecolor": "white", "ticks": "", "title": {"standoff": 15}, "zerolinecolor": "white", "automargin": true, "zerolinewidth": 2}, "yaxis": {"gridcolor": "white", "linecolor": "white", "ticks": "", "title": {"standoff": 15}, "zerolinecolor": "white", "automargin": true, "zerolinewidth": 2}, "scene": {"xaxis": {"backgroundcolor": "#E5ECF6", "gridcolor": "white", "linecolor": "white", "showbackground": true, "ticks": "", "zerolinecolor": "white", "gridwidth": 2}, "yaxis": {"backgroundcolor": "#E5ECF6", "gridcolor": "white", "linecolor": "white", "showbackground": true, "ticks": "", "zerolinecolor": "white", "gridwidth": 2}, "zaxis": {"backgroundcolor": "#E5ECF6", "gridcolor": "white", "linecolor": "white", "showbackground": true, "ticks": "", "zerolinecolor": "white", "gridwidth": 2}}, "shapedefaults": {"line": {"color": "#2a3f5f"}}, "annotationdefaults": {"arrowcolor": "#2a3f5f", "arrowhead": 0, "arrowwidth": 1}, "geo": {"bgcolor": "white", "landcolor": "#E5ECF6", "subunitcolor": "white", "showland": true, "showlakes": true, "lakecolor": "white"}, "title": {"x": 0.05}, "mapbox": {"style": "light"}}}, "margin": {"l": 0, "r": 0, "t": 0, "b": 0}, "height": 180, "width": 200}};
+    Plotly.plot('graphs_pfr_p2', graphs_pfr_p2,{});      
+    
+    var graphs_atr_p1 = {"data": [{"domain": {"x": [0, 1], "y": [0, 1]}, "gauge": {"axis": {"range": [null, 100]}, "bar": {"color": "blue"}, "steps": [{"color": "red", "range": [0, 70]}, {"color": "orange", "range": [70, 80]}, {"color": "green", "range": [80, 100]}]}, "mode": "gauge+number", "value": 100.0, "type": "indicator"}], "layout": {"template": {"data": {"histogram2dcontour": [{"type": "histogram2dcontour", "colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]]}], "choropleth": [{"type": "choropleth", "colorbar": {"outlinewidth": 0, "ticks": ""}}], "histogram2d": [{"type": "histogram2d", "colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]]}], "heatmap": [{"type": "heatmap", "colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]]}], "heatmapgl": [{"type": "heatmapgl", "colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]]}], "contourcarpet": [{"type": "contourcarpet", "colorbar": {"outlinewidth": 0, "ticks": ""}}], "contour": [{"type": "contour", "colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]]}], "surface": [{"type": "surface", "colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]]}], "mesh3d": [{"type": "mesh3d", "colorbar": {"outlinewidth": 0, "ticks": ""}}], "scatter": [{"fillpattern": {"fillmode": "overlay", "size": 10, "solidity": 0.2}, "type": "scatter"}], "parcoords": [{"type": "parcoords", "line": {"colorbar": {"outlinewidth": 0, "ticks": ""}}}], "scatterpolargl": [{"type": "scatterpolargl", "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}}], "bar": [{"error_x": {"color": "#2a3f5f"}, "error_y": {"color": "#2a3f5f"}, "marker": {"line": {"color": "#E5ECF6", "width": 0.5}, "pattern": {"fillmode": "overlay", "size": 10, "solidity": 0.2}}, "type": "bar"}], "scattergeo": [{"type": "scattergeo", "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}}], "scatterpolar": [{"type": "scatterpolar", "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}}], "histogram": [{"marker": {"pattern": {"fillmode": "overlay", "size": 10, "solidity": 0.2}}, "type": "histogram"}], "scattergl": [{"type": "scattergl", "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}}], "scatter3d": [{"type": "scatter3d", "line": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}}], "scattermapbox": [{"type": "scattermapbox", "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}}], "scatterternary": [{"type": "scatterternary", "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}}], "scattercarpet": [{"type": "scattercarpet", "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}}], "carpet": [{"aaxis": {"endlinecolor": "#2a3f5f", "gridcolor": "white", "linecolor": "white", "minorgridcolor": "white", "startlinecolor": "#2a3f5f"}, "baxis": {"endlinecolor": "#2a3f5f", "gridcolor": "white", "linecolor": "white", "minorgridcolor": "white", "startlinecolor": "#2a3f5f"}, "type": "carpet"}], "table": [{"cells": {"fill": {"color": "#EBF0F8"}, "line": {"color": "white"}}, "header": {"fill": {"color": "#C8D4E3"}, "line": {"color": "white"}}, "type": "table"}], "barpolar": [{"marker": {"line": {"color": "#E5ECF6", "width": 0.5}, "pattern": {"fillmode": "overlay", "size": 10, "solidity": 0.2}}, "type": "barpolar"}], "pie": [{"automargin": true, "type": "pie"}]}, "layout": {"autotypenumbers": "strict", "colorway": ["#636efa", "#EF553B", "#00cc96", "#ab63fa", "#FFA15A", "#19d3f3", "#FF6692", "#B6E880", "#FF97FF", "#FECB52"], "font": {"color": "#2a3f5f"}, "hovermode": "closest", "hoverlabel": {"align": "left"}, "paper_bgcolor": "white", "plot_bgcolor": "#E5ECF6", "polar": {"bgcolor": "#E5ECF6", "angularaxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}, "radialaxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}}, "ternary": {"bgcolor": "#E5ECF6", "aaxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}, "baxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}, "caxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}}, "coloraxis": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "colorscale": {"sequential": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "sequentialminus": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "diverging": [[0, "#8e0152"], [0.1, "#c51b7d"], [0.2, "#de77ae"], [0.3, "#f1b6da"], [0.4, "#fde0ef"], [0.5, "#f7f7f7"], [0.6, "#e6f5d0"], [0.7, "#b8e186"], [0.8, "#7fbc41"], [0.9, "#4d9221"], [1, "#276419"]]}, "xaxis": {"gridcolor": "white", "linecolor": "white", "ticks": "", "title": {"standoff": 15}, "zerolinecolor": "white", "automargin": true, "zerolinewidth": 2}, "yaxis": {"gridcolor": "white", "linecolor": "white", "ticks": "", "title": {"standoff": 15}, "zerolinecolor": "white", "automargin": true, "zerolinewidth": 2}, "scene": {"xaxis": {"backgroundcolor": "#E5ECF6", "gridcolor": "white", "linecolor": "white", "showbackground": true, "ticks": "", "zerolinecolor": "white", "gridwidth": 2}, "yaxis": {"backgroundcolor": "#E5ECF6", "gridcolor": "white", "linecolor": "white", "showbackground": true, "ticks": "", "zerolinecolor": "white", "gridwidth": 2}, "zaxis": {"backgroundcolor": "#E5ECF6", "gridcolor": "white", "linecolor": "white", "showbackground": true, "ticks": "", "zerolinecolor": "white", "gridwidth": 2}}, "shapedefaults": {"line": {"color": "#2a3f5f"}}, "annotationdefaults": {"arrowcolor": "#2a3f5f", "arrowhead": 0, "arrowwidth": 1}, "geo": {"bgcolor": "white", "landcolor": "#E5ECF6", "subunitcolor": "white", "showland": true, "showlakes": true, "lakecolor": "white"}, "title": {"x": 0.05}, "mapbox": {"style": "light"}}}, "margin": {"l": 0, "r": 0, "t": 0, "b": 0}, "height": 180, "width": 200}};
+    Plotly.plot('graphs_atr_p1', graphs_atr_p1,{});    
+    var graphs_atr_p2 = {"data": [{"domain": {"x": [0, 1], "y": [0, 1]}, "gauge": {"axis": {"range": [null, 100]}, "bar": {"color": "blue"}, "steps": [{"color": "red", "range": [0, 70]}, {"color": "orange", "range": [70, 80]}, {"color": "green", "range": [80, 100]}]}, "mode": "gauge+number", "value": 100.0, "type": "indicator"}], "layout": {"template": {"data": {"histogram2dcontour": [{"type": "histogram2dcontour", "colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]]}], "choropleth": [{"type": "choropleth", "colorbar": {"outlinewidth": 0, "ticks": ""}}], "histogram2d": [{"type": "histogram2d", "colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]]}], "heatmap": [{"type": "heatmap", "colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]]}], "heatmapgl": [{"type": "heatmapgl", "colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]]}], "contourcarpet": [{"type": "contourcarpet", "colorbar": {"outlinewidth": 0, "ticks": ""}}], "contour": [{"type": "contour", "colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]]}], "surface": [{"type": "surface", "colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]]}], "mesh3d": [{"type": "mesh3d", "colorbar": {"outlinewidth": 0, "ticks": ""}}], "scatter": [{"fillpattern": {"fillmode": "overlay", "size": 10, "solidity": 0.2}, "type": "scatter"}], "parcoords": [{"type": "parcoords", "line": {"colorbar": {"outlinewidth": 0, "ticks": ""}}}], "scatterpolargl": [{"type": "scatterpolargl", "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}}], "bar": [{"error_x": {"color": "#2a3f5f"}, "error_y": {"color": "#2a3f5f"}, "marker": {"line": {"color": "#E5ECF6", "width": 0.5}, "pattern": {"fillmode": "overlay", "size": 10, "solidity": 0.2}}, "type": "bar"}], "scattergeo": [{"type": "scattergeo", "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}}], "scatterpolar": [{"type": "scatterpolar", "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}}], "histogram": [{"marker": {"pattern": {"fillmode": "overlay", "size": 10, "solidity": 0.2}}, "type": "histogram"}], "scattergl": [{"type": "scattergl", "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}}], "scatter3d": [{"type": "scatter3d", "line": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}}], "scattermapbox": [{"type": "scattermapbox", "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}}], "scatterternary": [{"type": "scatterternary", "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}}], "scattercarpet": [{"type": "scattercarpet", "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}}], "carpet": [{"aaxis": {"endlinecolor": "#2a3f5f", "gridcolor": "white", "linecolor": "white", "minorgridcolor": "white", "startlinecolor": "#2a3f5f"}, "baxis": {"endlinecolor": "#2a3f5f", "gridcolor": "white", "linecolor": "white", "minorgridcolor": "white", "startlinecolor": "#2a3f5f"}, "type": "carpet"}], "table": [{"cells": {"fill": {"color": "#EBF0F8"}, "line": {"color": "white"}}, "header": {"fill": {"color": "#C8D4E3"}, "line": {"color": "white"}}, "type": "table"}], "barpolar": [{"marker": {"line": {"color": "#E5ECF6", "width": 0.5}, "pattern": {"fillmode": "overlay", "size": 10, "solidity": 0.2}}, "type": "barpolar"}], "pie": [{"automargin": true, "type": "pie"}]}, "layout": {"autotypenumbers": "strict", "colorway": ["#636efa", "#EF553B", "#00cc96", "#ab63fa", "#FFA15A", "#19d3f3", "#FF6692", "#B6E880", "#FF97FF", "#FECB52"], "font": {"color": "#2a3f5f"}, "hovermode": "closest", "hoverlabel": {"align": "left"}, "paper_bgcolor": "white", "plot_bgcolor": "#E5ECF6", "polar": {"bgcolor": "#E5ECF6", "angularaxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}, "radialaxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}}, "ternary": {"bgcolor": "#E5ECF6", "aaxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}, "baxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}, "caxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}}, "coloraxis": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "colorscale": {"sequential": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "sequentialminus": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "diverging": [[0, "#8e0152"], [0.1, "#c51b7d"], [0.2, "#de77ae"], [0.3, "#f1b6da"], [0.4, "#fde0ef"], [0.5, "#f7f7f7"], [0.6, "#e6f5d0"], [0.7, "#b8e186"], [0.8, "#7fbc41"], [0.9, "#4d9221"], [1, "#276419"]]}, "xaxis": {"gridcolor": "white", "linecolor": "white", "ticks": "", "title": {"standoff": 15}, "zerolinecolor": "white", "automargin": true, "zerolinewidth": 2}, "yaxis": {"gridcolor": "white", "linecolor": "white", "ticks": "", "title": {"standoff": 15}, "zerolinecolor": "white", "automargin": true, "zerolinewidth": 2}, "scene": {"xaxis": {"backgroundcolor": "#E5ECF6", "gridcolor": "white", "linecolor": "white", "showbackground": true, "ticks": "", "zerolinecolor": "white", "gridwidth": 2}, "yaxis": {"backgroundcolor": "#E5ECF6", "gridcolor": "white", "linecolor": "white", "showbackground": true, "ticks": "", "zerolinecolor": "white", "gridwidth": 2}, "zaxis": {"backgroundcolor": "#E5ECF6", "gridcolor": "white", "linecolor": "white", "showbackground": true, "ticks": "", "zerolinecolor": "white", "gridwidth": 2}}, "shapedefaults": {"line": {"color": "#2a3f5f"}}, "annotationdefaults": {"arrowcolor": "#2a3f5f", "arrowhead": 0, "arrowwidth": 1}, "geo": {"bgcolor": "white", "landcolor": "#E5ECF6", "subunitcolor": "white", "showland": true, "showlakes": true, "lakecolor": "white"}, "title": {"x": 0.05}, "mapbox": {"style": "light"}}}, "margin": {"l": 0, "r": 0, "t": 0, "b": 0}, "height": 180, "width": 200}};
+    Plotly.plot('graphs_atr_p2', graphs_atr_p2,{});     
+</script>
+
+
+
+</div> <!-- main-content -->
+
+
+<footer class="bd-footer py-4 py-md-5 mt-5 bg-body-tertiary">
+    <div class="container py-4 py-md-1 px-4 px-md-3 text-body-secondary">
+      <div class="row">
+        <div class="col-lg-10 mb-10">
+          <a class="d-inline-flex align-items-center mb-2 text-body-emphasis text-decoration-none" 
+              href="/" aria-label="Bootstrap">            
+            <span class="fs-5"><b>IOG</b> <font size="2px">Industrial Optimization Ground</font></span>
+          </a>
+          <ul class="list-unstyled small">
+            <li class="mb-2">Designed and built with all the love in the world by IOG team with the help of our contributors.</li>
+            <!-- <li class="mb-2">Code licensed <a href="https://github.com/twbs/bootstrap/blob/main/LICENSE" target="_blank" rel="license noopener">MIT</a>, docs <a href="https://creativecommons.org/licenses/by/3.0/" target="_blank" rel="license noopener">CC BY 3.0</a>.</li> -->
+            <li class="mb-2">Currently v0.1.0 published on Sep. 9 2024.</li>
+          </ul>
+        </div>
+        <!-- <div class="col-6 col-lg-2 offset-lg-1 mb-3">
+          <h5>Links</h5>
+          <ul class="list-unstyled">
+            <li class="mb-2"><a href="/">Home</a></li>
+            <li class="mb-2"><a href="/docs/5.3/">Docs</a></li>
+            <li class="mb-2"><a href="/docs/5.3/examples/">Examples</a></li>
+            <li class="mb-2"><a href="https://icons.getbootstrap.com/">Icons</a></li>
+            <li class="mb-2"><a href="https://themes.getbootstrap.com/">Themes</a></li>
+            <li class="mb-2"><a href="https://blog.getbootstrap.com/">Blog</a></li>
+            <li class="mb-2"><a href="https://cottonbureau.com/people/bootstrap" target="_blank" rel="noopener">Swag Store</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-lg-2 mb-3">
+          <h5>Guides</h5>
+          <ul class="list-unstyled">
+            <li class="mb-2"><a href="/docs/5.3/getting-started/">Getting started</a></li>
+            <li class="mb-2"><a href="/docs/5.3/examples/starter-template/">Starter template</a></li>
+            <li class="mb-2"><a href="/docs/5.3/getting-started/webpack/">Webpack</a></li>
+            <li class="mb-2"><a href="/docs/5.3/getting-started/parcel/">Parcel</a></li>
+            <li class="mb-2"><a href="/docs/5.3/getting-started/vite/">Vite</a></li>
+          </ul>
+        </div> -->
+        
+        
+      </div>
+    </div>
+  </footer>
+
+</body>
+ 
+</html>

@@ -1,0 +1,3477 @@
+<html lang="en" xmlns:float="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>    
+   <!-- Required meta tags -->
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+   <!-- Bootstrap CSS -->
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+   <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
+   <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+   <script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>
+
+   <link rel="stylesheet" href="/static/my.css" type="text/css" />        
+
+   <link rel="shortcut icon" href="https://s3.amazonaws.com/django-blog/ico/favicon_v2.ico">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://omnipotent.net/jquery.sparkline/2.1.2/jquery.sparkline.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+<style>
+  .toggle-btn{
+    display:inline-flex; align-items:center; gap:.5rem;
+    padding:.6rem 1rem; border:1px solid #ccc; border-radius:999px;
+    cursor:pointer; user-select:none; font:14px/1.2 system-ui, sans-serif;
+    background:#f7f7f8; transition:background .2s, border-color .2s;
+  }
+  .toggle-btn .dot{
+    width:18px; height:18px; border-radius:50%; background:#bbb; transition:transform .2s, background .2s;
+  }
+  .toggle-btn.is-on{ background:#e8f7ee; border-color:#86d39a; }
+  .toggle-btn.is-on .dot{ background:#17a34a; transform:translateX(4px) scale(1.05); }
+  .state{ font-weight:600; min-width:2.5em; text-align:center; }
+</style>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-F840W1DZTS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-F840W1DZTS');
+</script>
+
+</head>
+
+<body>
+
+  <!-- <header class="navbar navbar-expand-lg bd-navbar sticky-top"> -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/R2602B">
+          <img  src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="">          
+          <b>IOG</b>          
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/R2602B">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="https://deluxe-barometer-751.notion.site/IOG-Notice-1fc2218381bb801da87bf1930641ec4e" target="_blank">Notice</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/stats/R2602B">Stats</a>
+            </li>   
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/rank_changes/R2602B">LeaderBoard</a>
+            </li>                          
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" target="_blank" href="/iog_rank">Ranks</a>
+            </li>                        
+            <li class="nav-item">
+              <a class="nav-link active" href="/show_configs">Configs</a>
+            </li>
+          
+            <li class="nav-item">
+
+            </li>  
+
+            </ul>         
+            
+        </div>
+
+        <div class="d-flex" role="search" style="margin-top: 0px;">
+
+          <span style="color: #fd7e14; margin-top: 3px; margin-right: 20px;" >
+            Sys Today(AUTO): 2026-09-28,
+            Current Round: <b>R2602B</b>
+          </span>          
+
+          
+            <span style="color: white; margin-top: 3px; margin-right: 20px" >Logged in as <b>DGU</b> / <b>26_DGU_KSH</b></span>
+            <button type="button" onclick="document.location.href='/login/out/R2602B'" class="btn btn-outline-danger btn-sm " >Logout</button>
+          
+        </div>           
+
+      </div>
+    </nav>
+  <!-- </header> -->
+<!--     
+    <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top" data-bs-theme="dark">
+
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/R2602B">
+          <img src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="">          
+          <b>IOG</b>
+        </a>
+          <div class="" style="width:500px">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                  <a class="nav-link" href="/R2602B">Home</a>
+                </li>
+                <li class="nav-item active">
+                  <a class="nav-link" href="/show_configs">Configs</a>
+                </li>
+                <li class="nav-item active">
+                  <a class="nav-link" href="https://deluxe-barometer-751.notion.site/IOG_Notice-67e7b177fadc4bcba35bb0490ff3772f?pvs=4" target="_blank">Notice</a>
+                </li>
+                <li class="nav-item active">
+                  <span style="margin-left: 20px; font-weight:100; color: #fd7e14" class="navbar-brand">Round: <b>R2602B</b></span>
+                </li>
+              </ul>
+          </div>            
+        </div>
+      </nav> -->
+
+  <!-- </header> -->
+  
+   
+
+
+  
+
+
+    </header>
+
+
+
+
+    
+    <div class="container-sm">
+
+<!-- <p style="margin-top: 35px;">
+    <span class='myh4' style="margin-bottom: 0px;">News</span>
+
+    
+        <span><a 
+            class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
+            target="_blank" href='https://www.notion.so/IOG-News-047c249084ac4df28e847ec59bc4afc3?pvs=4'>more</a></span>
+    
+</p> 
+<p>
+    
+    <p style="margin-bottom: 5px;">
+        (2024-11-15)
+        <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
+        target='_blank' href='https://www.notion.so/IOG-News-047c249084ac4df28e847ec59bc4afc3?pvs=4#13f2218381bb80cdbe8ddaad13e0f3b7'>&lt;중요!!!!&gt; 🚀 드디어! 경진대회가 개최됩니다!!</a> </p>
+    
+    <p style="margin-bottom: 5px;">
+        (2024-11-06)
+        <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
+        target='_blank' href='https://www.notion.so/IOG-News-047c249084ac4df28e847ec59bc4afc3?pvs=4#1362218381bb803eb43afab5b8af6be2'>### 😎 계획을 보려면 로그인 하세요!!</a> </p>
+    
+    <p style="margin-bottom: 5px;">
+        (2024-10-21)
+        <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
+        target='_blank' href='https://www.notion.so/IOG-News-047c249084ac4df28e847ec59bc4afc3?pvs=4#1262218381bb80518d37e4f7998284bd'>### 😈 라운드 R2402B 끝~ 마지막 라운드 R2402C가 11/3에 시작합니다.</a> </p>
+    
+    <p style="margin-bottom: 5px;">
+        (2024-09-29)
+        <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
+        target='_blank' href='https://www.notion.so/IOG-News-047c249084ac4df28e847ec59bc4afc3?pvs=4#10f2218381bb80de8fd2eaa5eca369a1'>### 💞 연습라운드 R2402A Top 3 발표~ 두둥</a> </p>
+    
+    <p style="margin-bottom: 5px;">
+        (2024-09-25)
+        <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
+        target='_blank' href='https://www.notion.so/IOG-News-047c249084ac4df28e847ec59bc4afc3?pvs=4#10b2218381bb801cb415c847ee22ed23'>### 🚫 &lt;주의!!&gt; 9/30 부터 계획은 R2402B 라운드 선택하고 입력!!</a> </p>
+    
+</p>
+-->
+<p>
+    <h4 style="margin-top: 15px; margin-bottom: 0px;">Round Selection</h4>
+</p>
+<p>
+
+    <div class="row">
+        <div class="col-sm-5">
+            <select id="round_sct" class="form-select" aria-label="Default select example">
+
+                
+                
+                <option value="R2602C" >
+                    R2602C &nbsp; 2026-11-01 - 2026-12-04  &nbsp;                                      
+                </option>
+                
+                
+                
+                <option value="R2602B"  selected >
+                    R2602B &nbsp; 2026-09-27 - 2026-10-16  &nbsp; RUNNING                                     
+                </option>
+                
+                
+                
+                <option value="R2602A" >
+                    R2602A &nbsp; 2026-09-13 - 2026-09-25  &nbsp; CLOSED                                     
+                </option>
+                
+                
+                
+                <option value="R2601A" >
+                    R2601A &nbsp; 2026-06-29 - 2026-07-15  &nbsp; CLOSED                                     
+                </option>
+                
+                
+                
+                <option value="R2502C" >
+                    R2502C &nbsp; 2025-11-02 - 2025-12-06  &nbsp; CLOSED                                     
+                </option>
+                
+                
+                
+                <option value="R2502B" >
+                    R2502B &nbsp; 2025-09-28 - 2025-10-17  &nbsp; CLOSED                                     
+                </option>
+                
+                
+                
+                <option value="R2502A" >
+                    R2502A &nbsp; 2025-09-14 - 2025-09-26  &nbsp; CLOSED                                     
+                </option>
+                
+                
+                
+                <option value="R2601K2" >
+                    R2601K2 &nbsp; 2025-06-29 - 2025-07-26  &nbsp; CLOSED                                     
+                </option>
+                
+                
+                
+                <option value="R2601K1" >
+                    R2601K1 &nbsp; 2025-06-15 - 2025-06-21  &nbsp; CLOSED                                     
+                </option>
+                
+                
+                
+                <option value="R2501C" >
+                    R2501C &nbsp; 2025-06-09 - 2025-06-13  &nbsp; CLOSED                                     
+                </option>
+                
+                
+                
+                <option value="R2501B" >
+                    R2501B &nbsp; 2025-05-04 - 2025-06-04  &nbsp; CLOSED                                     
+                </option>
+                
+                
+                
+                <option value="R2501A" >
+                    R2501A &nbsp; 2025-04-20 - 2025-05-02  &nbsp; CLOSED                                     
+                </option>
+                
+                
+                
+                <option value="R2500B" >
+                    R2500B &nbsp; 2025-01-20 - 2025-02-14  &nbsp; CLOSED                                     
+                </option>
+                
+                
+                
+                <option value="R2500A" >
+                    R2500A &nbsp; 2025-01-06 - 2025-01-17  &nbsp; CLOSED                                     
+                </option>
+                
+                
+                
+                <option value="R2402C" >
+                    R2402C &nbsp; 2024-11-03 - 2024-12-04  &nbsp; CLOSED                                     
+                </option>
+                
+                
+                
+                <option value="R2402B" >
+                    R2402B &nbsp; 2024-09-29 - 2024-10-19  &nbsp; CLOSED                                     
+                </option>
+                
+                
+                
+                <option value="R2402A" >
+                    R2402A &nbsp; 2024-09-15 - 2024-09-28  &nbsp; CLOSED                                     
+                </option>
+                
+                
+                
+                <option value="R2401B" >
+                    R2401B &nbsp; 2024-09-10 - 2024-09-14  &nbsp; CLOSED                                     
+                </option>
+                
+                
+                
+                <option value="R2401A" >
+                    R2401A &nbsp; 2024-08-18 - 2024-09-07  &nbsp; CLOSED                                     
+                </option>
+                
+                
+                
+            </select>          
+        </div>
+        <div class="col">
+            <button id="round_sct_btn" type="button" class="btn btn-success ">Apply</button>
+        </div>
+      </div>
+
+</p>
+
+    <p>
+        <h4>Teams</h4>
+    </p>
+<p>
+    <table class="table" style="text-align:center;">
+        <thead class="table-dark">
+        <tr>            
+            <th colspan="1">University</th>            
+            <th>Team ID</th>   
+            <th>Class</th>                   
+            <th>Balance</th>
+            <th>Rank</th>
+            <th>Dashboard</th>
+        </tr>
+        </thead>
+                
+        <tbody>
+            <tr>
+                <td class="align-middle"><img src='https://academyinfo.go.kr/image/schlInfoJspImgLoad.do?paramUrl=/infofile/PDF_UPLOAD/ANNOUNCE/20130507142832971.jpg' class="rounded mx-auto d-block" width="120"></td>
+                <!-- <td class="align-middle">DAU</td>                 -->
+                <td class="align-middle">26_DAU_26dauteam9</td>
+                <td class="align-middle">운영최적화</td>
+                <td class="align-middle">
+                    <!-- <span class="inlinesparkline_DAU_26_DAU_26dauteam9">
+                        3335280                         
+                    </span> -->
+                    <span class="inlinesparkline_DAU_26_DAU_26dauteam9">
+                        <div class="spinner-border" role="status" style="width:10px; height:10px">
+                            <span class="visually-hidden" >Loading...</span>
+                          </div>          
+                    </span>
+  
+                    
+                    <span style="font-size: smaller;">$3,335,280</span>
+                                    
+
+                </td>
+                <td class="align-middle" width="90px">
+                    <div class="d-flex flex-row">
+                    <span class="badge rounded-pill text-bg-primary" style="">1</span>
+
+                    <span class="align-middle" style="margin-left: 10px; width: 100%">
+                        
+                            <b>-</b>
+                        
+                        </span>
+                    </div>
+                </td>
+                <td class="align-middle">
+                    <button type="button" class="btn btn-outline-success" onclick="location.href='/plans_demand/board/DAU/26_DAU_26dauteam9/R2602B'">View</button>
+                </td>
+            </tr>
+        </tbody>
+                
+        <tbody>
+            <tr>
+                <td class="align-middle"><img src='https://academyinfo.go.kr/image/schlInfoJspImgLoad.do?paramUrl=/infofile/PDF_UPLOAD/ANNOUNCE/20130507142832971.jpg' class="rounded mx-auto d-block" width="120"></td>
+                <!-- <td class="align-middle">DAU</td>                 -->
+                <td class="align-middle">26_DAU_26warigari</td>
+                <td class="align-middle">운영최적화</td>
+                <td class="align-middle">
+                    <!-- <span class="inlinesparkline_DAU_26_DAU_26warigari">
+                        3335280                         
+                    </span> -->
+                    <span class="inlinesparkline_DAU_26_DAU_26warigari">
+                        <div class="spinner-border" role="status" style="width:10px; height:10px">
+                            <span class="visually-hidden" >Loading...</span>
+                          </div>          
+                    </span>
+  
+                    
+                    <span style="font-size: smaller;">$3,335,280</span>
+                                    
+
+                </td>
+                <td class="align-middle" width="90px">
+                    <div class="d-flex flex-row">
+                    <span class="badge rounded-pill text-bg-primary" style="">1</span>
+
+                    <span class="align-middle" style="margin-left: 10px; width: 100%">
+                        
+                            <b>-</b>
+                        
+                        </span>
+                    </div>
+                </td>
+                <td class="align-middle">
+                    <button type="button" class="btn btn-outline-success" onclick="location.href='/plans_demand/board/DAU/26_DAU_26warigari/R2602B'">View</button>
+                </td>
+            </tr>
+        </tbody>
+                
+        <tbody>
+            <tr>
+                <td class="align-middle"><img src='https://academyinfo.go.kr/image/schlInfoJspImgLoad.do?paramUrl=/infofile/PDF_UPLOAD/ANNOUNCE/20130507142832971.jpg' class="rounded mx-auto d-block" width="120"></td>
+                <!-- <td class="align-middle">DAU</td>                 -->
+                <td class="align-middle">26_DAU_abc123</td>
+                <td class="align-middle">운영최적화</td>
+                <td class="align-middle">
+                    <!-- <span class="inlinesparkline_DAU_26_DAU_abc123">
+                        3335280                         
+                    </span> -->
+                    <span class="inlinesparkline_DAU_26_DAU_abc123">
+                        <div class="spinner-border" role="status" style="width:10px; height:10px">
+                            <span class="visually-hidden" >Loading...</span>
+                          </div>          
+                    </span>
+  
+                    
+                    <span style="font-size: smaller;">$3,335,280</span>
+                                    
+
+                </td>
+                <td class="align-middle" width="90px">
+                    <div class="d-flex flex-row">
+                    <span class="badge rounded-pill text-bg-primary" style="">1</span>
+
+                    <span class="align-middle" style="margin-left: 10px; width: 100%">
+                        
+                            <b>-</b>
+                        
+                        </span>
+                    </div>
+                </td>
+                <td class="align-middle">
+                    <button type="button" class="btn btn-outline-success" onclick="location.href='/plans_demand/board/DAU/26_DAU_abc123/R2602B'">View</button>
+                </td>
+            </tr>
+        </tbody>
+                
+        <tbody>
+            <tr>
+                <td class="align-middle"><img src='https://academyinfo.go.kr/image/schlInfoJspImgLoad.do?paramUrl=/infofile/PDF_UPLOAD/ANNOUNCE/20130507142832971.jpg' class="rounded mx-auto d-block" width="120"></td>
+                <!-- <td class="align-middle">DAU</td>                 -->
+                <td class="align-middle">26_DAU_asd012</td>
+                <td class="align-middle">운영최적화</td>
+                <td class="align-middle">
+                    <!-- <span class="inlinesparkline_DAU_26_DAU_asd012">
+                        3335280                         
+                    </span> -->
+                    <span class="inlinesparkline_DAU_26_DAU_asd012">
+                        <div class="spinner-border" role="status" style="width:10px; height:10px">
+                            <span class="visually-hidden" >Loading...</span>
+                          </div>          
+                    </span>
+  
+                    
+                    <span style="font-size: smaller;">$3,335,280</span>
+                                    
+
+                </td>
+                <td class="align-middle" width="90px">
+                    <div class="d-flex flex-row">
+                    <span class="badge rounded-pill text-bg-primary" style="">1</span>
+
+                    <span class="align-middle" style="margin-left: 10px; width: 100%">
+                        
+                            <b>-</b>
+                        
+                        </span>
+                    </div>
+                </td>
+                <td class="align-middle">
+                    <button type="button" class="btn btn-outline-success" onclick="location.href='/plans_demand/board/DAU/26_DAU_asd012/R2602B'">View</button>
+                </td>
+            </tr>
+        </tbody>
+                
+        <tbody>
+            <tr>
+                <td class="align-middle"><img src='https://academyinfo.go.kr/image/schlInfoJspImgLoad.do?paramUrl=/infofile/PDF_UPLOAD/ANNOUNCE/20130507142832971.jpg' class="rounded mx-auto d-block" width="120"></td>
+                <!-- <td class="align-middle">DAU</td>                 -->
+                <td class="align-middle">26_DAU_cktmdwns</td>
+                <td class="align-middle">운영최적화</td>
+                <td class="align-middle">
+                    <!-- <span class="inlinesparkline_DAU_26_DAU_cktmdwns">
+                        3335280                         
+                    </span> -->
+                    <span class="inlinesparkline_DAU_26_DAU_cktmdwns">
+                        <div class="spinner-border" role="status" style="width:10px; height:10px">
+                            <span class="visually-hidden" >Loading...</span>
+                          </div>          
+                    </span>
+  
+                    
+                    <span style="font-size: smaller;">$3,335,280</span>
+                                    
+
+                </td>
+                <td class="align-middle" width="90px">
+                    <div class="d-flex flex-row">
+                    <span class="badge rounded-pill text-bg-primary" style="">1</span>
+
+                    <span class="align-middle" style="margin-left: 10px; width: 100%">
+                        
+                            <b>-</b>
+                        
+                        </span>
+                    </div>
+                </td>
+                <td class="align-middle">
+                    <button type="button" class="btn btn-outline-success" onclick="location.href='/plans_demand/board/DAU/26_DAU_cktmdwns/R2602B'">View</button>
+                </td>
+            </tr>
+        </tbody>
+                
+        <tbody>
+            <tr>
+                <td class="align-middle"><img src='https://academyinfo.go.kr/image/schlInfoJspImgLoad.do?paramUrl=/infofile/PDF_UPLOAD/ANNOUNCE/20130507142832971.jpg' class="rounded mx-auto d-block" width="120"></td>
+                <!-- <td class="align-middle">DAU</td>                 -->
+                <td class="align-middle">26_DAU_fortis444</td>
+                <td class="align-middle">운영최적화</td>
+                <td class="align-middle">
+                    <!-- <span class="inlinesparkline_DAU_26_DAU_fortis444">
+                        3335280                         
+                    </span> -->
+                    <span class="inlinesparkline_DAU_26_DAU_fortis444">
+                        <div class="spinner-border" role="status" style="width:10px; height:10px">
+                            <span class="visually-hidden" >Loading...</span>
+                          </div>          
+                    </span>
+  
+                    
+                    <span style="font-size: smaller;">$3,335,280</span>
+                                    
+
+                </td>
+                <td class="align-middle" width="90px">
+                    <div class="d-flex flex-row">
+                    <span class="badge rounded-pill text-bg-primary" style="">1</span>
+
+                    <span class="align-middle" style="margin-left: 10px; width: 100%">
+                        
+                            <b>-</b>
+                        
+                        </span>
+                    </div>
+                </td>
+                <td class="align-middle">
+                    <button type="button" class="btn btn-outline-success" onclick="location.href='/plans_demand/board/DAU/26_DAU_fortis444/R2602B'">View</button>
+                </td>
+            </tr>
+        </tbody>
+                
+        <tbody>
+            <tr>
+                <td class="align-middle"><img src='https://academyinfo.go.kr/image/schlInfoJspImgLoad.do?paramUrl=/infofile/PDF_UPLOAD/ANNOUNCE/20130507142832971.jpg' class="rounded mx-auto d-block" width="120"></td>
+                <!-- <td class="align-middle">DAU</td>                 -->
+                <td class="align-middle">26_DAU_kawaiiiii</td>
+                <td class="align-middle">운영최적화</td>
+                <td class="align-middle">
+                    <!-- <span class="inlinesparkline_DAU_26_DAU_kawaiiiii">
+                        3335280                         
+                    </span> -->
+                    <span class="inlinesparkline_DAU_26_DAU_kawaiiiii">
+                        <div class="spinner-border" role="status" style="width:10px; height:10px">
+                            <span class="visually-hidden" >Loading...</span>
+                          </div>          
+                    </span>
+  
+                    
+                    <span style="font-size: smaller;">$3,335,280</span>
+                                    
+
+                </td>
+                <td class="align-middle" width="90px">
+                    <div class="d-flex flex-row">
+                    <span class="badge rounded-pill text-bg-primary" style="">1</span>
+
+                    <span class="align-middle" style="margin-left: 10px; width: 100%">
+                        
+                            <b>-</b>
+                        
+                        </span>
+                    </div>
+                </td>
+                <td class="align-middle">
+                    <button type="button" class="btn btn-outline-success" onclick="location.href='/plans_demand/board/DAU/26_DAU_kawaiiiii/R2602B'">View</button>
+                </td>
+            </tr>
+        </tbody>
+                
+        <tbody>
+            <tr>
+                <td class="align-middle"><img src='https://academyinfo.go.kr/image/schlInfoJspImgLoad.do?paramUrl=/infofile/PDF_UPLOAD/ANNOUNCE/20130507142832971.jpg' class="rounded mx-auto d-block" width="120"></td>
+                <!-- <td class="align-middle">DAU</td>                 -->
+                <td class="align-middle">26_DAU_kmj444</td>
+                <td class="align-middle">운영최적화</td>
+                <td class="align-middle">
+                    <!-- <span class="inlinesparkline_DAU_26_DAU_kmj444">
+                        3335280                         
+                    </span> -->
+                    <span class="inlinesparkline_DAU_26_DAU_kmj444">
+                        <div class="spinner-border" role="status" style="width:10px; height:10px">
+                            <span class="visually-hidden" >Loading...</span>
+                          </div>          
+                    </span>
+  
+                    
+                    <span style="font-size: smaller;">$3,335,280</span>
+                                    
+
+                </td>
+                <td class="align-middle" width="90px">
+                    <div class="d-flex flex-row">
+                    <span class="badge rounded-pill text-bg-primary" style="">1</span>
+
+                    <span class="align-middle" style="margin-left: 10px; width: 100%">
+                        
+                            <b>-</b>
+                        
+                        </span>
+                    </div>
+                </td>
+                <td class="align-middle">
+                    <button type="button" class="btn btn-outline-success" onclick="location.href='/plans_demand/board/DAU/26_DAU_kmj444/R2602B'">View</button>
+                </td>
+            </tr>
+        </tbody>
+                
+        <tbody>
+            <tr>
+                <td class="align-middle"><img src='https://academyinfo.go.kr/image/schlInfoJspImgLoad.do?paramUrl=/infofile/PDF_UPLOAD/ANNOUNCE/20130507142832971.jpg' class="rounded mx-auto d-block" width="120"></td>
+                <!-- <td class="align-middle">DAU</td>                 -->
+                <td class="align-middle">26_DAU_mjsj1210</td>
+                <td class="align-middle">운영최적화</td>
+                <td class="align-middle">
+                    <!-- <span class="inlinesparkline_DAU_26_DAU_mjsj1210">
+                        3335280                         
+                    </span> -->
+                    <span class="inlinesparkline_DAU_26_DAU_mjsj1210">
+                        <div class="spinner-border" role="status" style="width:10px; height:10px">
+                            <span class="visually-hidden" >Loading...</span>
+                          </div>          
+                    </span>
+  
+                    
+                    <span style="font-size: smaller;">$3,335,280</span>
+                                    
+
+                </td>
+                <td class="align-middle" width="90px">
+                    <div class="d-flex flex-row">
+                    <span class="badge rounded-pill text-bg-primary" style="">1</span>
+
+                    <span class="align-middle" style="margin-left: 10px; width: 100%">
+                        
+                            <b>-</b>
+                        
+                        </span>
+                    </div>
+                </td>
+                <td class="align-middle">
+                    <button type="button" class="btn btn-outline-success" onclick="location.href='/plans_demand/board/DAU/26_DAU_mjsj1210/R2602B'">View</button>
+                </td>
+            </tr>
+        </tbody>
+                
+        <tbody>
+            <tr>
+                <td class="align-middle"><img src='https://academyinfo.go.kr/image/schlInfoJspImgLoad.do?paramUrl=/infofile/PDF_UPLOAD/ANNOUNCE/20130507142832971.jpg' class="rounded mx-auto d-block" width="120"></td>
+                <!-- <td class="align-middle">DAU</td>                 -->
+                <td class="align-middle">26_DAU_qwer147</td>
+                <td class="align-middle">운영최적화</td>
+                <td class="align-middle">
+                    <!-- <span class="inlinesparkline_DAU_26_DAU_qwer147">
+                        3335280                         
+                    </span> -->
+                    <span class="inlinesparkline_DAU_26_DAU_qwer147">
+                        <div class="spinner-border" role="status" style="width:10px; height:10px">
+                            <span class="visually-hidden" >Loading...</span>
+                          </div>          
+                    </span>
+  
+                    
+                    <span style="font-size: smaller;">$3,335,280</span>
+                                    
+
+                </td>
+                <td class="align-middle" width="90px">
+                    <div class="d-flex flex-row">
+                    <span class="badge rounded-pill text-bg-primary" style="">1</span>
+
+                    <span class="align-middle" style="margin-left: 10px; width: 100%">
+                        
+                            <b>-</b>
+                        
+                        </span>
+                    </div>
+                </td>
+                <td class="align-middle">
+                    <button type="button" class="btn btn-outline-success" onclick="location.href='/plans_demand/board/DAU/26_DAU_qwer147/R2602B'">View</button>
+                </td>
+            </tr>
+        </tbody>
+                
+        <tbody>
+            <tr>
+                <td class="align-middle"><img src='https://www.academyinfo.go.kr/image/schlInfoJspImgLoad.do?paramUrl=/infofile/PDF_UPLOAD/ANNOUNCE/20130626095054338.jpg' class="rounded mx-auto d-block" width="120"></td>
+                <!-- <td class="align-middle">DGU</td>                 -->
+                <td class="align-middle">26_DGU_APPLEPIE</td>
+                <td class="align-middle">의사결정시스템</td>
+                <td class="align-middle">
+                    <!-- <span class="inlinesparkline_DGU_26_DGU_APPLEPIE">
+                        3335280                         
+                    </span> -->
+                    <span class="inlinesparkline_DGU_26_DGU_APPLEPIE">
+                        <div class="spinner-border" role="status" style="width:10px; height:10px">
+                            <span class="visually-hidden" >Loading...</span>
+                          </div>          
+                    </span>
+  
+                    
+                    <span style="font-size: smaller;">$3,335,280</span>
+                                    
+
+                </td>
+                <td class="align-middle" width="90px">
+                    <div class="d-flex flex-row">
+                    <span class="badge rounded-pill text-bg-primary" style="">1</span>
+
+                    <span class="align-middle" style="margin-left: 10px; width: 100%">
+                        
+                            <b>-</b>
+                        
+                        </span>
+                    </div>
+                </td>
+                <td class="align-middle">
+                    <button type="button" class="btn btn-outline-success" onclick="location.href='/plans_demand/board/DGU/26_DGU_APPLEPIE/R2602B'">View</button>
+                </td>
+            </tr>
+        </tbody>
+                
+        <tbody>
+            <tr>
+                <td class="align-middle"><img src='https://www.academyinfo.go.kr/image/schlInfoJspImgLoad.do?paramUrl=/infofile/PDF_UPLOAD/ANNOUNCE/20130626095054338.jpg' class="rounded mx-auto d-block" width="120"></td>
+                <!-- <td class="align-middle">DGU</td>                 -->
+                <td class="align-middle">26_DGU_AYJ</td>
+                <td class="align-middle">의사결정시스템</td>
+                <td class="align-middle">
+                    <!-- <span class="inlinesparkline_DGU_26_DGU_AYJ">
+                        3335280                         
+                    </span> -->
+                    <span class="inlinesparkline_DGU_26_DGU_AYJ">
+                        <div class="spinner-border" role="status" style="width:10px; height:10px">
+                            <span class="visually-hidden" >Loading...</span>
+                          </div>          
+                    </span>
+  
+                    
+                    <span style="font-size: smaller;">$3,335,280</span>
+                                    
+
+                </td>
+                <td class="align-middle" width="90px">
+                    <div class="d-flex flex-row">
+                    <span class="badge rounded-pill text-bg-primary" style="">1</span>
+
+                    <span class="align-middle" style="margin-left: 10px; width: 100%">
+                        
+                            <b>-</b>
+                        
+                        </span>
+                    </div>
+                </td>
+                <td class="align-middle">
+                    <button type="button" class="btn btn-outline-success" onclick="location.href='/plans_demand/board/DGU/26_DGU_AYJ/R2602B'">View</button>
+                </td>
+            </tr>
+        </tbody>
+                
+        <tbody>
+            <tr>
+                <td class="align-middle"><img src='https://www.academyinfo.go.kr/image/schlInfoJspImgLoad.do?paramUrl=/infofile/PDF_UPLOAD/ANNOUNCE/20130626095054338.jpg' class="rounded mx-auto d-block" width="120"></td>
+                <!-- <td class="align-middle">DGU</td>                 -->
+                <td class="align-middle">26_DGU_KHJ</td>
+                <td class="align-middle">의사결정시스템</td>
+                <td class="align-middle">
+                    <!-- <span class="inlinesparkline_DGU_26_DGU_KHJ">
+                        3335280                         
+                    </span> -->
+                    <span class="inlinesparkline_DGU_26_DGU_KHJ">
+                        <div class="spinner-border" role="status" style="width:10px; height:10px">
+                            <span class="visually-hidden" >Loading...</span>
+                          </div>          
+                    </span>
+  
+                    
+                    <span style="font-size: smaller;">$3,335,280</span>
+                                    
+
+                </td>
+                <td class="align-middle" width="90px">
+                    <div class="d-flex flex-row">
+                    <span class="badge rounded-pill text-bg-primary" style="">1</span>
+
+                    <span class="align-middle" style="margin-left: 10px; width: 100%">
+                        
+                            <b>-</b>
+                        
+                        </span>
+                    </div>
+                </td>
+                <td class="align-middle">
+                    <button type="button" class="btn btn-outline-success" onclick="location.href='/plans_demand/board/DGU/26_DGU_KHJ/R2602B'">View</button>
+                </td>
+            </tr>
+        </tbody>
+                
+        <tbody>
+            <tr>
+                <td class="align-middle"><img src='https://www.academyinfo.go.kr/image/schlInfoJspImgLoad.do?paramUrl=/infofile/PDF_UPLOAD/ANNOUNCE/20130626095054338.jpg' class="rounded mx-auto d-block" width="120"></td>
+                <!-- <td class="align-middle">DGU</td>                 -->
+                <td class="align-middle">26_DGU_LUCKY</td>
+                <td class="align-middle">의사결정시스템</td>
+                <td class="align-middle">
+                    <!-- <span class="inlinesparkline_DGU_26_DGU_LUCKY">
+                        3335280                         
+                    </span> -->
+                    <span class="inlinesparkline_DGU_26_DGU_LUCKY">
+                        <div class="spinner-border" role="status" style="width:10px; height:10px">
+                            <span class="visually-hidden" >Loading...</span>
+                          </div>          
+                    </span>
+  
+                    
+                    <span style="font-size: smaller;">$3,335,280</span>
+                                    
+
+                </td>
+                <td class="align-middle" width="90px">
+                    <div class="d-flex flex-row">
+                    <span class="badge rounded-pill text-bg-primary" style="">1</span>
+
+                    <span class="align-middle" style="margin-left: 10px; width: 100%">
+                        
+                            <b>-</b>
+                        
+                        </span>
+                    </div>
+                </td>
+                <td class="align-middle">
+                    <button type="button" class="btn btn-outline-success" onclick="location.href='/plans_demand/board/DGU/26_DGU_LUCKY/R2602B'">View</button>
+                </td>
+            </tr>
+        </tbody>
+                
+        <tbody>
+            <tr>
+                <td class="align-middle"><img src='https://www.academyinfo.go.kr/image/schlInfoJspImgLoad.do?paramUrl=/infofile/PDF_UPLOAD/ANNOUNCE/20130626095054338.jpg' class="rounded mx-auto d-block" width="120"></td>
+                <!-- <td class="align-middle">DGU</td>                 -->
+                <td class="align-middle">26_DGU_YHW</td>
+                <td class="align-middle">의사결정시스템</td>
+                <td class="align-middle">
+                    <!-- <span class="inlinesparkline_DGU_26_DGU_YHW">
+                        3335280                         
+                    </span> -->
+                    <span class="inlinesparkline_DGU_26_DGU_YHW">
+                        <div class="spinner-border" role="status" style="width:10px; height:10px">
+                            <span class="visually-hidden" >Loading...</span>
+                          </div>          
+                    </span>
+  
+                    
+                    <span style="font-size: smaller;">$3,335,280</span>
+                                    
+
+                </td>
+                <td class="align-middle" width="90px">
+                    <div class="d-flex flex-row">
+                    <span class="badge rounded-pill text-bg-primary" style="">1</span>
+
+                    <span class="align-middle" style="margin-left: 10px; width: 100%">
+                        
+                            <b>-</b>
+                        
+                        </span>
+                    </div>
+                </td>
+                <td class="align-middle">
+                    <button type="button" class="btn btn-outline-success" onclick="location.href='/plans_demand/board/DGU/26_DGU_YHW/R2602B'">View</button>
+                </td>
+            </tr>
+        </tbody>
+                
+        <tbody>
+            <tr>
+                <td class="align-middle"><img src='https://academyinfo.go.kr/image/schlInfoJspImgLoad.do?paramUrl=/infofile/PDF_UPLOAD/ANNOUNCE/200811281708500.gif' class="rounded mx-auto d-block" width="120"></td>
+                <!-- <td class="align-middle">DKU</td>                 -->
+                <td class="align-middle">26_DKU01</td>
+                <td class="align-middle">머신러닝</td>
+                <td class="align-middle">
+                    <!-- <span class="inlinesparkline_DKU_26_DKU01">
+                        3335280                         
+                    </span> -->
+                    <span class="inlinesparkline_DKU_26_DKU01">
+                        <div class="spinner-border" role="status" style="width:10px; height:10px">
+                            <span class="visually-hidden" >Loading...</span>
+                          </div>          
+                    </span>
+  
+                    
+                    <span style="font-size: smaller;">$3,335,280</span>
+                                    
+
+                </td>
+                <td class="align-middle" width="90px">
+                    <div class="d-flex flex-row">
+                    <span class="badge rounded-pill text-bg-primary" style="">1</span>
+
+                    <span class="align-middle" style="margin-left: 10px; width: 100%">
+                        
+                            <b>-</b>
+                        
+                        </span>
+                    </div>
+                </td>
+                <td class="align-middle">
+                    <button type="button" class="btn btn-outline-success" onclick="location.href='/plans_demand/board/DKU/26_DKU01/R2602B'">View</button>
+                </td>
+            </tr>
+        </tbody>
+                
+        <tbody>
+            <tr>
+                <td class="align-middle"><img src='https://academyinfo.go.kr/image/schlInfoJspImgLoad.do?paramUrl=/infofile/PDF_UPLOAD/ANNOUNCE/200811281708500.gif' class="rounded mx-auto d-block" width="120"></td>
+                <!-- <td class="align-middle">DKU</td>                 -->
+                <td class="align-middle">26_DKU_DNN</td>
+                <td class="align-middle">머신러닝</td>
+                <td class="align-middle">
+                    <!-- <span class="inlinesparkline_DKU_26_DKU_DNN">
+                        3335280                         
+                    </span> -->
+                    <span class="inlinesparkline_DKU_26_DKU_DNN">
+                        <div class="spinner-border" role="status" style="width:10px; height:10px">
+                            <span class="visually-hidden" >Loading...</span>
+                          </div>          
+                    </span>
+  
+                    
+                    <span style="font-size: smaller;">$3,335,280</span>
+                                    
+
+                </td>
+                <td class="align-middle" width="90px">
+                    <div class="d-flex flex-row">
+                    <span class="badge rounded-pill text-bg-primary" style="">1</span>
+
+                    <span class="align-middle" style="margin-left: 10px; width: 100%">
+                        
+                            <b>-</b>
+                        
+                        </span>
+                    </div>
+                </td>
+                <td class="align-middle">
+                    <button type="button" class="btn btn-outline-success" onclick="location.href='/plans_demand/board/DKU/26_DKU_DNN/R2602B'">View</button>
+                </td>
+            </tr>
+        </tbody>
+                
+        <tbody>
+            <tr>
+                <td class="align-middle"><img src='https://academyinfo.go.kr/image/schlInfoJspImgLoad.do?paramUrl=/infofile/PDF_UPLOAD/ANNOUNCE/200811281708500.gif' class="rounded mx-auto d-block" width="120"></td>
+                <!-- <td class="align-middle">DKU</td>                 -->
+                <td class="align-middle">26_DKU_FIVE</td>
+                <td class="align-middle">머신러닝</td>
+                <td class="align-middle">
+                    <!-- <span class="inlinesparkline_DKU_26_DKU_FIVE">
+                        3335280                         
+                    </span> -->
+                    <span class="inlinesparkline_DKU_26_DKU_FIVE">
+                        <div class="spinner-border" role="status" style="width:10px; height:10px">
+                            <span class="visually-hidden" >Loading...</span>
+                          </div>          
+                    </span>
+  
+                    
+                    <span style="font-size: smaller;">$3,335,280</span>
+                                    
+
+                </td>
+                <td class="align-middle" width="90px">
+                    <div class="d-flex flex-row">
+                    <span class="badge rounded-pill text-bg-primary" style="">1</span>
+
+                    <span class="align-middle" style="margin-left: 10px; width: 100%">
+                        
+                            <b>-</b>
+                        
+                        </span>
+                    </div>
+                </td>
+                <td class="align-middle">
+                    <button type="button" class="btn btn-outline-success" onclick="location.href='/plans_demand/board/DKU/26_DKU_FIVE/R2602B'">View</button>
+                </td>
+            </tr>
+        </tbody>
+                
+        <tbody>
+            <tr>
+                <td class="align-middle"><img src='https://academyinfo.go.kr/image/schlInfoJspImgLoad.do?paramUrl=/infofile/PDF_UPLOAD/ANNOUNCE/200811281708500.gif' class="rounded mx-auto d-block" width="120"></td>
+                <!-- <td class="align-middle">DKU</td>                 -->
+                <td class="align-middle">26_DKU_HNYM</td>
+                <td class="align-middle">머신러닝</td>
+                <td class="align-middle">
+                    <!-- <span class="inlinesparkline_DKU_26_DKU_HNYM">
+                        3335280                         
+                    </span> -->
+                    <span class="inlinesparkline_DKU_26_DKU_HNYM">
+                        <div class="spinner-border" role="status" style="width:10px; height:10px">
+                            <span class="visually-hidden" >Loading...</span>
+                          </div>          
+                    </span>
+  
+                    
+                    <span style="font-size: smaller;">$3,335,280</span>
+                                    
+
+                </td>
+                <td class="align-middle" width="90px">
+                    <div class="d-flex flex-row">
+                    <span class="badge rounded-pill text-bg-primary" style="">1</span>
+
+                    <span class="align-middle" style="margin-left: 10px; width: 100%">
+                        
+                            <b>-</b>
+                        
+                        </span>
+                    </div>
+                </td>
+                <td class="align-middle">
+                    <button type="button" class="btn btn-outline-success" onclick="location.href='/plans_demand/board/DKU/26_DKU_HNYM/R2602B'">View</button>
+                </td>
+            </tr>
+        </tbody>
+                
+        <tbody>
+            <tr>
+                <td class="align-middle"><img src='https://academyinfo.go.kr/image/schlInfoJspImgLoad.do?paramUrl=/infofile/PDF_UPLOAD/ANNOUNCE/200811281708500.gif' class="rounded mx-auto d-block" width="120"></td>
+                <!-- <td class="align-middle">DKU</td>                 -->
+                <td class="align-middle">26_DKU_LIGHT</td>
+                <td class="align-middle">머신러닝</td>
+                <td class="align-middle">
+                    <!-- <span class="inlinesparkline_DKU_26_DKU_LIGHT">
+                        3335280                         
+                    </span> -->
+                    <span class="inlinesparkline_DKU_26_DKU_LIGHT">
+                        <div class="spinner-border" role="status" style="width:10px; height:10px">
+                            <span class="visually-hidden" >Loading...</span>
+                          </div>          
+                    </span>
+  
+                    
+                    <span style="font-size: smaller;">$3,335,280</span>
+                                    
+
+                </td>
+                <td class="align-middle" width="90px">
+                    <div class="d-flex flex-row">
+                    <span class="badge rounded-pill text-bg-primary" style="">1</span>
+
+                    <span class="align-middle" style="margin-left: 10px; width: 100%">
+                        
+                            <b>-</b>
+                        
+                        </span>
+                    </div>
+                </td>
+                <td class="align-middle">
+                    <button type="button" class="btn btn-outline-success" onclick="location.href='/plans_demand/board/DKU/26_DKU_LIGHT/R2602B'">View</button>
+                </td>
+            </tr>
+        </tbody>
+                
+        <tbody>
+            <tr>
+                <td class="align-middle"><img src='https://academyinfo.go.kr/image/schlInfoJspImgLoad.do?paramUrl=/infofile/PDF_UPLOAD/ANNOUNCE/200811281708500.gif' class="rounded mx-auto d-block" width="120"></td>
+                <!-- <td class="align-middle">DKU</td>                 -->
+                <td class="align-middle">26_DKU_RM</td>
+                <td class="align-middle">머신러닝</td>
+                <td class="align-middle">
+                    <!-- <span class="inlinesparkline_DKU_26_DKU_RM">
+                        3335280                         
+                    </span> -->
+                    <span class="inlinesparkline_DKU_26_DKU_RM">
+                        <div class="spinner-border" role="status" style="width:10px; height:10px">
+                            <span class="visually-hidden" >Loading...</span>
+                          </div>          
+                    </span>
+  
+                    
+                    <span style="font-size: smaller;">$3,335,280</span>
+                                    
+
+                </td>
+                <td class="align-middle" width="90px">
+                    <div class="d-flex flex-row">
+                    <span class="badge rounded-pill text-bg-primary" style="">1</span>
+
+                    <span class="align-middle" style="margin-left: 10px; width: 100%">
+                        
+                            <b>-</b>
+                        
+                        </span>
+                    </div>
+                </td>
+                <td class="align-middle">
+                    <button type="button" class="btn btn-outline-success" onclick="location.href='/plans_demand/board/DKU/26_DKU_RM/R2602B'">View</button>
+                </td>
+            </tr>
+        </tbody>
+                
+        <tbody>
+            <tr>
+                <td class="align-middle"><img src='https://academyinfo.go.kr/image/schlInfoJspImgLoad.do?paramUrl=/infofile/PDF_UPLOAD/ANNOUNCE/200811281708500.gif' class="rounded mx-auto d-block" width="120"></td>
+                <!-- <td class="align-middle">DKU</td>                 -->
+                <td class="align-middle">26_DKU_SOLD</td>
+                <td class="align-middle">머신러닝</td>
+                <td class="align-middle">
+                    <!-- <span class="inlinesparkline_DKU_26_DKU_SOLD">
+                        3335280                         
+                    </span> -->
+                    <span class="inlinesparkline_DKU_26_DKU_SOLD">
+                        <div class="spinner-border" role="status" style="width:10px; height:10px">
+                            <span class="visually-hidden" >Loading...</span>
+                          </div>          
+                    </span>
+  
+                    
+                    <span style="font-size: smaller;">$3,335,280</span>
+                                    
+
+                </td>
+                <td class="align-middle" width="90px">
+                    <div class="d-flex flex-row">
+                    <span class="badge rounded-pill text-bg-primary" style="">1</span>
+
+                    <span class="align-middle" style="margin-left: 10px; width: 100%">
+                        
+                            <b>-</b>
+                        
+                        </span>
+                    </div>
+                </td>
+                <td class="align-middle">
+                    <button type="button" class="btn btn-outline-success" onclick="location.href='/plans_demand/board/DKU/26_DKU_SOLD/R2602B'">View</button>
+                </td>
+            </tr>
+        </tbody>
+                
+        <tbody>
+            <tr>
+                <td class="align-middle"><img src='https://www.academyinfo.go.kr/image/schlInfoJspImgLoad.do?paramUrl=/infofile/PDF_UPLOAD/ANNOUNCE/201108041021150.jpg' class="rounded mx-auto d-block" width="120"></td>
+                <!-- <td class="align-middle">KGU</td>                 -->
+                <td class="align-middle">26_KGU_SCM1</td>
+                <td class="align-middle">SCM(3학년)</td>
+                <td class="align-middle">
+                    <!-- <span class="inlinesparkline_KGU_26_KGU_SCM1">
+                        3335280                         
+                    </span> -->
+                    <span class="inlinesparkline_KGU_26_KGU_SCM1">
+                        <div class="spinner-border" role="status" style="width:10px; height:10px">
+                            <span class="visually-hidden" >Loading...</span>
+                          </div>          
+                    </span>
+  
+                    
+                    <span style="font-size: smaller;">$3,335,280</span>
+                                    
+
+                </td>
+                <td class="align-middle" width="90px">
+                    <div class="d-flex flex-row">
+                    <span class="badge rounded-pill text-bg-primary" style="">1</span>
+
+                    <span class="align-middle" style="margin-left: 10px; width: 100%">
+                        
+                            <b>-</b>
+                        
+                        </span>
+                    </div>
+                </td>
+                <td class="align-middle">
+                    <button type="button" class="btn btn-outline-success" onclick="location.href='/plans_demand/board/KGU/26_KGU_SCM1/R2602B'">View</button>
+                </td>
+            </tr>
+        </tbody>
+                
+        <tbody>
+            <tr>
+                <td class="align-middle"><img src='https://www.academyinfo.go.kr/image/schlInfoJspImgLoad.do?paramUrl=/infofile/PDF_UPLOAD/ANNOUNCE/201108041021150.jpg' class="rounded mx-auto d-block" width="120"></td>
+                <!-- <td class="align-middle">KGU</td>                 -->
+                <td class="align-middle">26_KGU_SCM10</td>
+                <td class="align-middle">SCM(3학년)</td>
+                <td class="align-middle">
+                    <!-- <span class="inlinesparkline_KGU_26_KGU_SCM10">
+                        3335280                         
+                    </span> -->
+                    <span class="inlinesparkline_KGU_26_KGU_SCM10">
+                        <div class="spinner-border" role="status" style="width:10px; height:10px">
+                            <span class="visually-hidden" >Loading...</span>
+                          </div>          
+                    </span>
+  
+                    
+                    <span style="font-size: smaller;">$3,335,280</span>
+                                    
+
+                </td>
+                <td class="align-middle" width="90px">
+                    <div class="d-flex flex-row">
+                    <span class="badge rounded-pill text-bg-primary" style="">1</span>
+
+                    <span class="align-middle" style="margin-left: 10px; width: 100%">
+                        
+                            <b>-</b>
+                        
+                        </span>
+                    </div>
+                </td>
+                <td class="align-middle">
+                    <button type="button" class="btn btn-outline-success" onclick="location.href='/plans_demand/board/KGU/26_KGU_SCM10/R2602B'">View</button>
+                </td>
+            </tr>
+        </tbody>
+                
+        <tbody>
+            <tr>
+                <td class="align-middle"><img src='https://www.academyinfo.go.kr/image/schlInfoJspImgLoad.do?paramUrl=/infofile/PDF_UPLOAD/ANNOUNCE/201108041021150.jpg' class="rounded mx-auto d-block" width="120"></td>
+                <!-- <td class="align-middle">KGU</td>                 -->
+                <td class="align-middle">26_KGU_SCM12</td>
+                <td class="align-middle">SCM(3학년)</td>
+                <td class="align-middle">
+                    <!-- <span class="inlinesparkline_KGU_26_KGU_SCM12">
+                        3335280                         
+                    </span> -->
+                    <span class="inlinesparkline_KGU_26_KGU_SCM12">
+                        <div class="spinner-border" role="status" style="width:10px; height:10px">
+                            <span class="visually-hidden" >Loading...</span>
+                          </div>          
+                    </span>
+  
+                    
+                    <span style="font-size: smaller;">$3,335,280</span>
+                                    
+
+                </td>
+                <td class="align-middle" width="90px">
+                    <div class="d-flex flex-row">
+                    <span class="badge rounded-pill text-bg-primary" style="">1</span>
+
+                    <span class="align-middle" style="margin-left: 10px; width: 100%">
+                        
+                            <b>-</b>
+                        
+                        </span>
+                    </div>
+                </td>
+                <td class="align-middle">
+                    <button type="button" class="btn btn-outline-success" onclick="location.href='/plans_demand/board/KGU/26_KGU_SCM12/R2602B'">View</button>
+                </td>
+            </tr>
+        </tbody>
+                
+        <tbody>
+            <tr>
+                <td class="align-middle"><img src='https://www.academyinfo.go.kr/image/schlInfoJspImgLoad.do?paramUrl=/infofile/PDF_UPLOAD/ANNOUNCE/201108041021150.jpg' class="rounded mx-auto d-block" width="120"></td>
+                <!-- <td class="align-middle">KGU</td>                 -->
+                <td class="align-middle">26_KGU_SCM13</td>
+                <td class="align-middle">SCM(3학년)</td>
+                <td class="align-middle">
+                    <!-- <span class="inlinesparkline_KGU_26_KGU_SCM13">
+                        3335280                         
+                    </span> -->
+                    <span class="inlinesparkline_KGU_26_KGU_SCM13">
+                        <div class="spinner-border" role="status" style="width:10px; height:10px">
+                            <span class="visually-hidden" >Loading...</span>
+                          </div>          
+                    </span>
+  
+                    
+                    <span style="font-size: smaller;">$3,335,280</span>
+                                    
+
+                </td>
+                <td class="align-middle" width="90px">
+                    <div class="d-flex flex-row">
+                    <span class="badge rounded-pill text-bg-primary" style="">1</span>
+
+                    <span class="align-middle" style="margin-left: 10px; width: 100%">
+                        
+                            <b>-</b>
+                        
+                        </span>
+                    </div>
+                </td>
+                <td class="align-middle">
+                    <button type="button" class="btn btn-outline-success" onclick="location.href='/plans_demand/board/KGU/26_KGU_SCM13/R2602B'">View</button>
+                </td>
+            </tr>
+        </tbody>
+                
+        <tbody>
+            <tr>
+                <td class="align-middle"><img src='https://www.academyinfo.go.kr/image/schlInfoJspImgLoad.do?paramUrl=/infofile/PDF_UPLOAD/ANNOUNCE/201108041021150.jpg' class="rounded mx-auto d-block" width="120"></td>
+                <!-- <td class="align-middle">KGU</td>                 -->
+                <td class="align-middle">26_KGU_SCM14</td>
+                <td class="align-middle">SCM(3학년)</td>
+                <td class="align-middle">
+                    <!-- <span class="inlinesparkline_KGU_26_KGU_SCM14">
+                        3335280                         
+                    </span> -->
+                    <span class="inlinesparkline_KGU_26_KGU_SCM14">
+                        <div class="spinner-border" role="status" style="width:10px; height:10px">
+                            <span class="visually-hidden" >Loading...</span>
+                          </div>          
+                    </span>
+  
+                    
+                    <span style="font-size: smaller;">$3,335,280</span>
+                                    
+
+                </td>
+                <td class="align-middle" width="90px">
+                    <div class="d-flex flex-row">
+                    <span class="badge rounded-pill text-bg-primary" style="">1</span>
+
+                    <span class="align-middle" style="margin-left: 10px; width: 100%">
+                        
+                            <b>-</b>
+                        
+                        </span>
+                    </div>
+                </td>
+                <td class="align-middle">
+                    <button type="button" class="btn btn-outline-success" onclick="location.href='/plans_demand/board/KGU/26_KGU_SCM14/R2602B'">View</button>
+                </td>
+            </tr>
+        </tbody>
+                
+        <tbody>
+            <tr>
+                <td class="align-middle"><img src='https://www.academyinfo.go.kr/image/schlInfoJspImgLoad.do?paramUrl=/infofile/PDF_UPLOAD/ANNOUNCE/201108041021150.jpg' class="rounded mx-auto d-block" width="120"></td>
+                <!-- <td class="align-middle">KGU</td>                 -->
+                <td class="align-middle">26_KGU_SCM16</td>
+                <td class="align-middle">SCM(3학년)</td>
+                <td class="align-middle">
+                    <!-- <span class="inlinesparkline_KGU_26_KGU_SCM16">
+                        3335280                         
+                    </span> -->
+                    <span class="inlinesparkline_KGU_26_KGU_SCM16">
+                        <div class="spinner-border" role="status" style="width:10px; height:10px">
+                            <span class="visually-hidden" >Loading...</span>
+                          </div>          
+                    </span>
+  
+                    
+                    <span style="font-size: smaller;">$3,335,280</span>
+                                    
+
+                </td>
+                <td class="align-middle" width="90px">
+                    <div class="d-flex flex-row">
+                    <span class="badge rounded-pill text-bg-primary" style="">1</span>
+
+                    <span class="align-middle" style="margin-left: 10px; width: 100%">
+                        
+                            <b>-</b>
+                        
+                        </span>
+                    </div>
+                </td>
+                <td class="align-middle">
+                    <button type="button" class="btn btn-outline-success" onclick="location.href='/plans_demand/board/KGU/26_KGU_SCM16/R2602B'">View</button>
+                </td>
+            </tr>
+        </tbody>
+                
+        <tbody>
+            <tr>
+                <td class="align-middle"><img src='https://www.academyinfo.go.kr/image/schlInfoJspImgLoad.do?paramUrl=/infofile/PDF_UPLOAD/ANNOUNCE/201108041021150.jpg' class="rounded mx-auto d-block" width="120"></td>
+                <!-- <td class="align-middle">KGU</td>                 -->
+                <td class="align-middle">26_KGU_SCM2</td>
+                <td class="align-middle">SCM(3학년)</td>
+                <td class="align-middle">
+                    <!-- <span class="inlinesparkline_KGU_26_KGU_SCM2">
+                        3335280                         
+                    </span> -->
+                    <span class="inlinesparkline_KGU_26_KGU_SCM2">
+                        <div class="spinner-border" role="status" style="width:10px; height:10px">
+                            <span class="visually-hidden" >Loading...</span>
+                          </div>          
+                    </span>
+  
+                    
+                    <span style="font-size: smaller;">$3,335,280</span>
+                                    
+
+                </td>
+                <td class="align-middle" width="90px">
+                    <div class="d-flex flex-row">
+                    <span class="badge rounded-pill text-bg-primary" style="">1</span>
+
+                    <span class="align-middle" style="margin-left: 10px; width: 100%">
+                        
+                            <b>-</b>
+                        
+                        </span>
+                    </div>
+                </td>
+                <td class="align-middle">
+                    <button type="button" class="btn btn-outline-success" onclick="location.href='/plans_demand/board/KGU/26_KGU_SCM2/R2602B'">View</button>
+                </td>
+            </tr>
+        </tbody>
+                
+        <tbody>
+            <tr>
+                <td class="align-middle"><img src='https://www.academyinfo.go.kr/image/schlInfoJspImgLoad.do?paramUrl=/infofile/PDF_UPLOAD/ANNOUNCE/201108041021150.jpg' class="rounded mx-auto d-block" width="120"></td>
+                <!-- <td class="align-middle">KGU</td>                 -->
+                <td class="align-middle">26_KGU_SCM3</td>
+                <td class="align-middle">SCM(3학년)</td>
+                <td class="align-middle">
+                    <!-- <span class="inlinesparkline_KGU_26_KGU_SCM3">
+                        3335280                         
+                    </span> -->
+                    <span class="inlinesparkline_KGU_26_KGU_SCM3">
+                        <div class="spinner-border" role="status" style="width:10px; height:10px">
+                            <span class="visually-hidden" >Loading...</span>
+                          </div>          
+                    </span>
+  
+                    
+                    <span style="font-size: smaller;">$3,335,280</span>
+                                    
+
+                </td>
+                <td class="align-middle" width="90px">
+                    <div class="d-flex flex-row">
+                    <span class="badge rounded-pill text-bg-primary" style="">1</span>
+
+                    <span class="align-middle" style="margin-left: 10px; width: 100%">
+                        
+                            <b>-</b>
+                        
+                        </span>
+                    </div>
+                </td>
+                <td class="align-middle">
+                    <button type="button" class="btn btn-outline-success" onclick="location.href='/plans_demand/board/KGU/26_KGU_SCM3/R2602B'">View</button>
+                </td>
+            </tr>
+        </tbody>
+                
+        <tbody>
+            <tr>
+                <td class="align-middle"><img src='https://www.academyinfo.go.kr/image/schlInfoJspImgLoad.do?paramUrl=/infofile/PDF_UPLOAD/ANNOUNCE/201108041021150.jpg' class="rounded mx-auto d-block" width="120"></td>
+                <!-- <td class="align-middle">KGU</td>                 -->
+                <td class="align-middle">26_KGU_SCM5</td>
+                <td class="align-middle">SCM(3학년)</td>
+                <td class="align-middle">
+                    <!-- <span class="inlinesparkline_KGU_26_KGU_SCM5">
+                        3335280                         
+                    </span> -->
+                    <span class="inlinesparkline_KGU_26_KGU_SCM5">
+                        <div class="spinner-border" role="status" style="width:10px; height:10px">
+                            <span class="visually-hidden" >Loading...</span>
+                          </div>          
+                    </span>
+  
+                    
+                    <span style="font-size: smaller;">$3,335,280</span>
+                                    
+
+                </td>
+                <td class="align-middle" width="90px">
+                    <div class="d-flex flex-row">
+                    <span class="badge rounded-pill text-bg-primary" style="">1</span>
+
+                    <span class="align-middle" style="margin-left: 10px; width: 100%">
+                        
+                            <b>-</b>
+                        
+                        </span>
+                    </div>
+                </td>
+                <td class="align-middle">
+                    <button type="button" class="btn btn-outline-success" onclick="location.href='/plans_demand/board/KGU/26_KGU_SCM5/R2602B'">View</button>
+                </td>
+            </tr>
+        </tbody>
+                
+        <tbody>
+            <tr>
+                <td class="align-middle"><img src='https://www.academyinfo.go.kr/image/schlInfoJspImgLoad.do?paramUrl=/infofile/PDF_UPLOAD/ANNOUNCE/201108041021150.jpg' class="rounded mx-auto d-block" width="120"></td>
+                <!-- <td class="align-middle">KGU</td>                 -->
+                <td class="align-middle">26_KGU_SCM8</td>
+                <td class="align-middle">SCM(3학년)</td>
+                <td class="align-middle">
+                    <!-- <span class="inlinesparkline_KGU_26_KGU_SCM8">
+                        3335280                         
+                    </span> -->
+                    <span class="inlinesparkline_KGU_26_KGU_SCM8">
+                        <div class="spinner-border" role="status" style="width:10px; height:10px">
+                            <span class="visually-hidden" >Loading...</span>
+                          </div>          
+                    </span>
+  
+                    
+                    <span style="font-size: smaller;">$3,335,280</span>
+                                    
+
+                </td>
+                <td class="align-middle" width="90px">
+                    <div class="d-flex flex-row">
+                    <span class="badge rounded-pill text-bg-primary" style="">1</span>
+
+                    <span class="align-middle" style="margin-left: 10px; width: 100%">
+                        
+                            <b>-</b>
+                        
+                        </span>
+                    </div>
+                </td>
+                <td class="align-middle">
+                    <button type="button" class="btn btn-outline-success" onclick="location.href='/plans_demand/board/KGU/26_KGU_SCM8/R2602B'">View</button>
+                </td>
+            </tr>
+        </tbody>
+                
+        <tbody>
+            <tr>
+                <td class="align-middle"><img src='https://www.academyinfo.go.kr/image/schlInfoJspImgLoad.do?paramUrl=/infofile/PDF_UPLOAD/ANNOUNCE/201108041021150.jpg' class="rounded mx-auto d-block" width="120"></td>
+                <!-- <td class="align-middle">KGU</td>                 -->
+                <td class="align-middle">26_KGU_SCM9</td>
+                <td class="align-middle">SCM(3학년)</td>
+                <td class="align-middle">
+                    <!-- <span class="inlinesparkline_KGU_26_KGU_SCM9">
+                        3335280                         
+                    </span> -->
+                    <span class="inlinesparkline_KGU_26_KGU_SCM9">
+                        <div class="spinner-border" role="status" style="width:10px; height:10px">
+                            <span class="visually-hidden" >Loading...</span>
+                          </div>          
+                    </span>
+  
+                    
+                    <span style="font-size: smaller;">$3,335,280</span>
+                                    
+
+                </td>
+                <td class="align-middle" width="90px">
+                    <div class="d-flex flex-row">
+                    <span class="badge rounded-pill text-bg-primary" style="">1</span>
+
+                    <span class="align-middle" style="margin-left: 10px; width: 100%">
+                        
+                            <b>-</b>
+                        
+                        </span>
+                    </div>
+                </td>
+                <td class="align-middle">
+                    <button type="button" class="btn btn-outline-success" onclick="location.href='/plans_demand/board/KGU/26_KGU_SCM9/R2602B'">View</button>
+                </td>
+            </tr>
+        </tbody>
+                
+        <tbody>
+            <tr>
+                <td class="align-middle"><img src='https://www.academyinfo.go.kr/image/schlInfoJspImgLoad.do?paramUrl=/infofile/PDF_UPLOAD/ANNOUNCE/201108041021150.jpg' class="rounded mx-auto d-block" width="120"></td>
+                <!-- <td class="align-middle">KGU</td>                 -->
+                <td class="align-middle">26_KGU_Team1</td>
+                <td class="align-middle">물류경영(2학년)</td>
+                <td class="align-middle">
+                    <!-- <span class="inlinesparkline_KGU_26_KGU_Team1">
+                        3335280                         
+                    </span> -->
+                    <span class="inlinesparkline_KGU_26_KGU_Team1">
+                        <div class="spinner-border" role="status" style="width:10px; height:10px">
+                            <span class="visually-hidden" >Loading...</span>
+                          </div>          
+                    </span>
+  
+                    
+                    <span style="font-size: smaller;">$3,335,280</span>
+                                    
+
+                </td>
+                <td class="align-middle" width="90px">
+                    <div class="d-flex flex-row">
+                    <span class="badge rounded-pill text-bg-primary" style="">1</span>
+
+                    <span class="align-middle" style="margin-left: 10px; width: 100%">
+                        
+                            <b>-</b>
+                        
+                        </span>
+                    </div>
+                </td>
+                <td class="align-middle">
+                    <button type="button" class="btn btn-outline-success" onclick="location.href='/plans_demand/board/KGU/26_KGU_Team1/R2602B'">View</button>
+                </td>
+            </tr>
+        </tbody>
+                
+        <tbody>
+            <tr>
+                <td class="align-middle"><img src='https://www.academyinfo.go.kr/image/schlInfoJspImgLoad.do?paramUrl=/infofile/PDF_UPLOAD/ANNOUNCE/201108041021150.jpg' class="rounded mx-auto d-block" width="120"></td>
+                <!-- <td class="align-middle">KGU</td>                 -->
+                <td class="align-middle">26_KGU_Team10</td>
+                <td class="align-middle">물류경영(2학년)</td>
+                <td class="align-middle">
+                    <!-- <span class="inlinesparkline_KGU_26_KGU_Team10">
+                        3335280                         
+                    </span> -->
+                    <span class="inlinesparkline_KGU_26_KGU_Team10">
+                        <div class="spinner-border" role="status" style="width:10px; height:10px">
+                            <span class="visually-hidden" >Loading...</span>
+                          </div>          
+                    </span>
+  
+                    
+                    <span style="font-size: smaller;">$3,335,280</span>
+                                    
+
+                </td>
+                <td class="align-middle" width="90px">
+                    <div class="d-flex flex-row">
+                    <span class="badge rounded-pill text-bg-primary" style="">1</span>
+
+                    <span class="align-middle" style="margin-left: 10px; width: 100%">
+                        
+                            <b>-</b>
+                        
+                        </span>
+                    </div>
+                </td>
+                <td class="align-middle">
+                    <button type="button" class="btn btn-outline-success" onclick="location.href='/plans_demand/board/KGU/26_KGU_Team10/R2602B'">View</button>
+                </td>
+            </tr>
+        </tbody>
+                
+        <tbody>
+            <tr>
+                <td class="align-middle"><img src='https://www.academyinfo.go.kr/image/schlInfoJspImgLoad.do?paramUrl=/infofile/PDF_UPLOAD/ANNOUNCE/201108041021150.jpg' class="rounded mx-auto d-block" width="120"></td>
+                <!-- <td class="align-middle">KGU</td>                 -->
+                <td class="align-middle">26_KGU_Team11</td>
+                <td class="align-middle">물류경영(2학년)</td>
+                <td class="align-middle">
+                    <!-- <span class="inlinesparkline_KGU_26_KGU_Team11">
+                        3335280                         
+                    </span> -->
+                    <span class="inlinesparkline_KGU_26_KGU_Team11">
+                        <div class="spinner-border" role="status" style="width:10px; height:10px">
+                            <span class="visually-hidden" >Loading...</span>
+                          </div>          
+                    </span>
+  
+                    
+                    <span style="font-size: smaller;">$3,335,280</span>
+                                    
+
+                </td>
+                <td class="align-middle" width="90px">
+                    <div class="d-flex flex-row">
+                    <span class="badge rounded-pill text-bg-primary" style="">1</span>
+
+                    <span class="align-middle" style="margin-left: 10px; width: 100%">
+                        
+                            <b>-</b>
+                        
+                        </span>
+                    </div>
+                </td>
+                <td class="align-middle">
+                    <button type="button" class="btn btn-outline-success" onclick="location.href='/plans_demand/board/KGU/26_KGU_Team11/R2602B'">View</button>
+                </td>
+            </tr>
+        </tbody>
+                
+        <tbody>
+            <tr>
+                <td class="align-middle"><img src='https://www.academyinfo.go.kr/image/schlInfoJspImgLoad.do?paramUrl=/infofile/PDF_UPLOAD/ANNOUNCE/201108041021150.jpg' class="rounded mx-auto d-block" width="120"></td>
+                <!-- <td class="align-middle">KGU</td>                 -->
+                <td class="align-middle">26_KGU_Team12</td>
+                <td class="align-middle">물류경영(2학년)</td>
+                <td class="align-middle">
+                    <!-- <span class="inlinesparkline_KGU_26_KGU_Team12">
+                        3335280                         
+                    </span> -->
+                    <span class="inlinesparkline_KGU_26_KGU_Team12">
+                        <div class="spinner-border" role="status" style="width:10px; height:10px">
+                            <span class="visually-hidden" >Loading...</span>
+                          </div>          
+                    </span>
+  
+                    
+                    <span style="font-size: smaller;">$3,335,280</span>
+                                    
+
+                </td>
+                <td class="align-middle" width="90px">
+                    <div class="d-flex flex-row">
+                    <span class="badge rounded-pill text-bg-primary" style="">1</span>
+
+                    <span class="align-middle" style="margin-left: 10px; width: 100%">
+                        
+                            <b>-</b>
+                        
+                        </span>
+                    </div>
+                </td>
+                <td class="align-middle">
+                    <button type="button" class="btn btn-outline-success" onclick="location.href='/plans_demand/board/KGU/26_KGU_Team12/R2602B'">View</button>
+                </td>
+            </tr>
+        </tbody>
+                
+        <tbody>
+            <tr>
+                <td class="align-middle"><img src='https://www.academyinfo.go.kr/image/schlInfoJspImgLoad.do?paramUrl=/infofile/PDF_UPLOAD/ANNOUNCE/201108041021150.jpg' class="rounded mx-auto d-block" width="120"></td>
+                <!-- <td class="align-middle">KGU</td>                 -->
+                <td class="align-middle">26_KGU_Team13</td>
+                <td class="align-middle">물류경영(2학년)</td>
+                <td class="align-middle">
+                    <!-- <span class="inlinesparkline_KGU_26_KGU_Team13">
+                        3335280                         
+                    </span> -->
+                    <span class="inlinesparkline_KGU_26_KGU_Team13">
+                        <div class="spinner-border" role="status" style="width:10px; height:10px">
+                            <span class="visually-hidden" >Loading...</span>
+                          </div>          
+                    </span>
+  
+                    
+                    <span style="font-size: smaller;">$3,335,280</span>
+                                    
+
+                </td>
+                <td class="align-middle" width="90px">
+                    <div class="d-flex flex-row">
+                    <span class="badge rounded-pill text-bg-primary" style="">1</span>
+
+                    <span class="align-middle" style="margin-left: 10px; width: 100%">
+                        
+                            <b>-</b>
+                        
+                        </span>
+                    </div>
+                </td>
+                <td class="align-middle">
+                    <button type="button" class="btn btn-outline-success" onclick="location.href='/plans_demand/board/KGU/26_KGU_Team13/R2602B'">View</button>
+                </td>
+            </tr>
+        </tbody>
+                
+        <tbody>
+            <tr>
+                <td class="align-middle"><img src='https://www.academyinfo.go.kr/image/schlInfoJspImgLoad.do?paramUrl=/infofile/PDF_UPLOAD/ANNOUNCE/201108041021150.jpg' class="rounded mx-auto d-block" width="120"></td>
+                <!-- <td class="align-middle">KGU</td>                 -->
+                <td class="align-middle">26_KGU_Team14</td>
+                <td class="align-middle">물류경영(2학년)</td>
+                <td class="align-middle">
+                    <!-- <span class="inlinesparkline_KGU_26_KGU_Team14">
+                        3335280                         
+                    </span> -->
+                    <span class="inlinesparkline_KGU_26_KGU_Team14">
+                        <div class="spinner-border" role="status" style="width:10px; height:10px">
+                            <span class="visually-hidden" >Loading...</span>
+                          </div>          
+                    </span>
+  
+                    
+                    <span style="font-size: smaller;">$3,335,280</span>
+                                    
+
+                </td>
+                <td class="align-middle" width="90px">
+                    <div class="d-flex flex-row">
+                    <span class="badge rounded-pill text-bg-primary" style="">1</span>
+
+                    <span class="align-middle" style="margin-left: 10px; width: 100%">
+                        
+                            <b>-</b>
+                        
+                        </span>
+                    </div>
+                </td>
+                <td class="align-middle">
+                    <button type="button" class="btn btn-outline-success" onclick="location.href='/plans_demand/board/KGU/26_KGU_Team14/R2602B'">View</button>
+                </td>
+            </tr>
+        </tbody>
+                
+        <tbody>
+            <tr>
+                <td class="align-middle"><img src='https://www.academyinfo.go.kr/image/schlInfoJspImgLoad.do?paramUrl=/infofile/PDF_UPLOAD/ANNOUNCE/201108041021150.jpg' class="rounded mx-auto d-block" width="120"></td>
+                <!-- <td class="align-middle">KGU</td>                 -->
+                <td class="align-middle">26_KGU_Team15</td>
+                <td class="align-middle">물류경영(2학년)</td>
+                <td class="align-middle">
+                    <!-- <span class="inlinesparkline_KGU_26_KGU_Team15">
+                        3335280                         
+                    </span> -->
+                    <span class="inlinesparkline_KGU_26_KGU_Team15">
+                        <div class="spinner-border" role="status" style="width:10px; height:10px">
+                            <span class="visually-hidden" >Loading...</span>
+                          </div>          
+                    </span>
+  
+                    
+                    <span style="font-size: smaller;">$3,335,280</span>
+                                    
+
+                </td>
+                <td class="align-middle" width="90px">
+                    <div class="d-flex flex-row">
+                    <span class="badge rounded-pill text-bg-primary" style="">1</span>
+
+                    <span class="align-middle" style="margin-left: 10px; width: 100%">
+                        
+                            <b>-</b>
+                        
+                        </span>
+                    </div>
+                </td>
+                <td class="align-middle">
+                    <button type="button" class="btn btn-outline-success" onclick="location.href='/plans_demand/board/KGU/26_KGU_Team15/R2602B'">View</button>
+                </td>
+            </tr>
+        </tbody>
+                
+        <tbody>
+            <tr>
+                <td class="align-middle"><img src='https://www.academyinfo.go.kr/image/schlInfoJspImgLoad.do?paramUrl=/infofile/PDF_UPLOAD/ANNOUNCE/201108041021150.jpg' class="rounded mx-auto d-block" width="120"></td>
+                <!-- <td class="align-middle">KGU</td>                 -->
+                <td class="align-middle">26_KGU_Team2</td>
+                <td class="align-middle">물류경영(2학년)</td>
+                <td class="align-middle">
+                    <!-- <span class="inlinesparkline_KGU_26_KGU_Team2">
+                        3335280                         
+                    </span> -->
+                    <span class="inlinesparkline_KGU_26_KGU_Team2">
+                        <div class="spinner-border" role="status" style="width:10px; height:10px">
+                            <span class="visually-hidden" >Loading...</span>
+                          </div>          
+                    </span>
+  
+                    
+                    <span style="font-size: smaller;">$3,335,280</span>
+                                    
+
+                </td>
+                <td class="align-middle" width="90px">
+                    <div class="d-flex flex-row">
+                    <span class="badge rounded-pill text-bg-primary" style="">1</span>
+
+                    <span class="align-middle" style="margin-left: 10px; width: 100%">
+                        
+                            <b>-</b>
+                        
+                        </span>
+                    </div>
+                </td>
+                <td class="align-middle">
+                    <button type="button" class="btn btn-outline-success" onclick="location.href='/plans_demand/board/KGU/26_KGU_Team2/R2602B'">View</button>
+                </td>
+            </tr>
+        </tbody>
+                
+        <tbody>
+            <tr>
+                <td class="align-middle"><img src='https://www.academyinfo.go.kr/image/schlInfoJspImgLoad.do?paramUrl=/infofile/PDF_UPLOAD/ANNOUNCE/201108041021150.jpg' class="rounded mx-auto d-block" width="120"></td>
+                <!-- <td class="align-middle">KGU</td>                 -->
+                <td class="align-middle">26_KGU_Team3</td>
+                <td class="align-middle">물류경영(2학년)</td>
+                <td class="align-middle">
+                    <!-- <span class="inlinesparkline_KGU_26_KGU_Team3">
+                        3335280                         
+                    </span> -->
+                    <span class="inlinesparkline_KGU_26_KGU_Team3">
+                        <div class="spinner-border" role="status" style="width:10px; height:10px">
+                            <span class="visually-hidden" >Loading...</span>
+                          </div>          
+                    </span>
+  
+                    
+                    <span style="font-size: smaller;">$3,335,280</span>
+                                    
+
+                </td>
+                <td class="align-middle" width="90px">
+                    <div class="d-flex flex-row">
+                    <span class="badge rounded-pill text-bg-primary" style="">1</span>
+
+                    <span class="align-middle" style="margin-left: 10px; width: 100%">
+                        
+                            <b>-</b>
+                        
+                        </span>
+                    </div>
+                </td>
+                <td class="align-middle">
+                    <button type="button" class="btn btn-outline-success" onclick="location.href='/plans_demand/board/KGU/26_KGU_Team3/R2602B'">View</button>
+                </td>
+            </tr>
+        </tbody>
+                
+        <tbody>
+            <tr>
+                <td class="align-middle"><img src='https://www.academyinfo.go.kr/image/schlInfoJspImgLoad.do?paramUrl=/infofile/PDF_UPLOAD/ANNOUNCE/201108041021150.jpg' class="rounded mx-auto d-block" width="120"></td>
+                <!-- <td class="align-middle">KGU</td>                 -->
+                <td class="align-middle">26_KGU_Team4</td>
+                <td class="align-middle">물류경영(2학년)</td>
+                <td class="align-middle">
+                    <!-- <span class="inlinesparkline_KGU_26_KGU_Team4">
+                        3335280                         
+                    </span> -->
+                    <span class="inlinesparkline_KGU_26_KGU_Team4">
+                        <div class="spinner-border" role="status" style="width:10px; height:10px">
+                            <span class="visually-hidden" >Loading...</span>
+                          </div>          
+                    </span>
+  
+                    
+                    <span style="font-size: smaller;">$3,335,280</span>
+                                    
+
+                </td>
+                <td class="align-middle" width="90px">
+                    <div class="d-flex flex-row">
+                    <span class="badge rounded-pill text-bg-primary" style="">1</span>
+
+                    <span class="align-middle" style="margin-left: 10px; width: 100%">
+                        
+                            <b>-</b>
+                        
+                        </span>
+                    </div>
+                </td>
+                <td class="align-middle">
+                    <button type="button" class="btn btn-outline-success" onclick="location.href='/plans_demand/board/KGU/26_KGU_Team4/R2602B'">View</button>
+                </td>
+            </tr>
+        </tbody>
+                
+        <tbody>
+            <tr>
+                <td class="align-middle"><img src='https://www.academyinfo.go.kr/image/schlInfoJspImgLoad.do?paramUrl=/infofile/PDF_UPLOAD/ANNOUNCE/201108041021150.jpg' class="rounded mx-auto d-block" width="120"></td>
+                <!-- <td class="align-middle">KGU</td>                 -->
+                <td class="align-middle">26_KGU_Team5</td>
+                <td class="align-middle">물류경영(2학년)</td>
+                <td class="align-middle">
+                    <!-- <span class="inlinesparkline_KGU_26_KGU_Team5">
+                        3335280                         
+                    </span> -->
+                    <span class="inlinesparkline_KGU_26_KGU_Team5">
+                        <div class="spinner-border" role="status" style="width:10px; height:10px">
+                            <span class="visually-hidden" >Loading...</span>
+                          </div>          
+                    </span>
+  
+                    
+                    <span style="font-size: smaller;">$3,335,280</span>
+                                    
+
+                </td>
+                <td class="align-middle" width="90px">
+                    <div class="d-flex flex-row">
+                    <span class="badge rounded-pill text-bg-primary" style="">1</span>
+
+                    <span class="align-middle" style="margin-left: 10px; width: 100%">
+                        
+                            <b>-</b>
+                        
+                        </span>
+                    </div>
+                </td>
+                <td class="align-middle">
+                    <button type="button" class="btn btn-outline-success" onclick="location.href='/plans_demand/board/KGU/26_KGU_Team5/R2602B'">View</button>
+                </td>
+            </tr>
+        </tbody>
+                
+        <tbody>
+            <tr>
+                <td class="align-middle"><img src='https://www.academyinfo.go.kr/image/schlInfoJspImgLoad.do?paramUrl=/infofile/PDF_UPLOAD/ANNOUNCE/201108041021150.jpg' class="rounded mx-auto d-block" width="120"></td>
+                <!-- <td class="align-middle">KGU</td>                 -->
+                <td class="align-middle">26_KGU_Team6</td>
+                <td class="align-middle">물류경영(2학년)</td>
+                <td class="align-middle">
+                    <!-- <span class="inlinesparkline_KGU_26_KGU_Team6">
+                        3335280                         
+                    </span> -->
+                    <span class="inlinesparkline_KGU_26_KGU_Team6">
+                        <div class="spinner-border" role="status" style="width:10px; height:10px">
+                            <span class="visually-hidden" >Loading...</span>
+                          </div>          
+                    </span>
+  
+                    
+                    <span style="font-size: smaller;">$3,335,280</span>
+                                    
+
+                </td>
+                <td class="align-middle" width="90px">
+                    <div class="d-flex flex-row">
+                    <span class="badge rounded-pill text-bg-primary" style="">1</span>
+
+                    <span class="align-middle" style="margin-left: 10px; width: 100%">
+                        
+                            <b>-</b>
+                        
+                        </span>
+                    </div>
+                </td>
+                <td class="align-middle">
+                    <button type="button" class="btn btn-outline-success" onclick="location.href='/plans_demand/board/KGU/26_KGU_Team6/R2602B'">View</button>
+                </td>
+            </tr>
+        </tbody>
+                
+        <tbody>
+            <tr>
+                <td class="align-middle"><img src='https://www.academyinfo.go.kr/image/schlInfoJspImgLoad.do?paramUrl=/infofile/PDF_UPLOAD/ANNOUNCE/201108041021150.jpg' class="rounded mx-auto d-block" width="120"></td>
+                <!-- <td class="align-middle">KGU</td>                 -->
+                <td class="align-middle">26_KGU_Team7</td>
+                <td class="align-middle">물류경영(2학년)</td>
+                <td class="align-middle">
+                    <!-- <span class="inlinesparkline_KGU_26_KGU_Team7">
+                        3335280                         
+                    </span> -->
+                    <span class="inlinesparkline_KGU_26_KGU_Team7">
+                        <div class="spinner-border" role="status" style="width:10px; height:10px">
+                            <span class="visually-hidden" >Loading...</span>
+                          </div>          
+                    </span>
+  
+                    
+                    <span style="font-size: smaller;">$3,335,280</span>
+                                    
+
+                </td>
+                <td class="align-middle" width="90px">
+                    <div class="d-flex flex-row">
+                    <span class="badge rounded-pill text-bg-primary" style="">1</span>
+
+                    <span class="align-middle" style="margin-left: 10px; width: 100%">
+                        
+                            <b>-</b>
+                        
+                        </span>
+                    </div>
+                </td>
+                <td class="align-middle">
+                    <button type="button" class="btn btn-outline-success" onclick="location.href='/plans_demand/board/KGU/26_KGU_Team7/R2602B'">View</button>
+                </td>
+            </tr>
+        </tbody>
+                
+        <tbody>
+            <tr>
+                <td class="align-middle"><img src='https://www.academyinfo.go.kr/image/schlInfoJspImgLoad.do?paramUrl=/infofile/PDF_UPLOAD/ANNOUNCE/201108041021150.jpg' class="rounded mx-auto d-block" width="120"></td>
+                <!-- <td class="align-middle">KGU</td>                 -->
+                <td class="align-middle">26_KGU_Team9</td>
+                <td class="align-middle">물류경영(2학년)</td>
+                <td class="align-middle">
+                    <!-- <span class="inlinesparkline_KGU_26_KGU_Team9">
+                        3335280                         
+                    </span> -->
+                    <span class="inlinesparkline_KGU_26_KGU_Team9">
+                        <div class="spinner-border" role="status" style="width:10px; height:10px">
+                            <span class="visually-hidden" >Loading...</span>
+                          </div>          
+                    </span>
+  
+                    
+                    <span style="font-size: smaller;">$3,335,280</span>
+                                    
+
+                </td>
+                <td class="align-middle" width="90px">
+                    <div class="d-flex flex-row">
+                    <span class="badge rounded-pill text-bg-primary" style="">1</span>
+
+                    <span class="align-middle" style="margin-left: 10px; width: 100%">
+                        
+                            <b>-</b>
+                        
+                        </span>
+                    </div>
+                </td>
+                <td class="align-middle">
+                    <button type="button" class="btn btn-outline-success" onclick="location.href='/plans_demand/board/KGU/26_KGU_Team9/R2602B'">View</button>
+                </td>
+            </tr>
+        </tbody>
+                
+        <tbody>
+            <tr>
+                <td class="align-middle"><img src='https://www.academyinfo.go.kr/image/schlInfoJspImgLoad.do?paramUrl=/infofile/PDF_UPLOAD/ANNOUNCE/20150116204656042.gif' class="rounded mx-auto d-block" width="120"></td>
+                <!-- <td class="align-middle">MJU</td>                 -->
+                <td class="align-middle">26_MJU1</td>
+                <td class="align-middle">자율</td>
+                <td class="align-middle">
+                    <!-- <span class="inlinesparkline_MJU_26_MJU1">
+                        3335280                         
+                    </span> -->
+                    <span class="inlinesparkline_MJU_26_MJU1">
+                        <div class="spinner-border" role="status" style="width:10px; height:10px">
+                            <span class="visually-hidden" >Loading...</span>
+                          </div>          
+                    </span>
+  
+                    
+                    <span style="font-size: smaller;">$3,335,280</span>
+                                    
+
+                </td>
+                <td class="align-middle" width="90px">
+                    <div class="d-flex flex-row">
+                    <span class="badge rounded-pill text-bg-primary" style="">1</span>
+
+                    <span class="align-middle" style="margin-left: 10px; width: 100%">
+                        
+                            <b>-</b>
+                        
+                        </span>
+                    </div>
+                </td>
+                <td class="align-middle">
+                    <button type="button" class="btn btn-outline-success" onclick="location.href='/plans_demand/board/MJU/26_MJU1/R2602B'">View</button>
+                </td>
+            </tr>
+        </tbody>
+                
+        <tbody>
+            <tr>
+                <td class="align-middle"><img src='https://www.academyinfo.go.kr/image/schlInfoJspImgLoad.do?paramUrl=/infofile/PDF_UPLOAD/ANNOUNCE/20150116204656042.gif' class="rounded mx-auto d-block" width="120"></td>
+                <!-- <td class="align-middle">MJU</td>                 -->
+                <td class="align-middle">26_MJU3030</td>
+                <td class="align-middle">자율</td>
+                <td class="align-middle">
+                    <!-- <span class="inlinesparkline_MJU_26_MJU3030">
+                        3335280                         
+                    </span> -->
+                    <span class="inlinesparkline_MJU_26_MJU3030">
+                        <div class="spinner-border" role="status" style="width:10px; height:10px">
+                            <span class="visually-hidden" >Loading...</span>
+                          </div>          
+                    </span>
+  
+                    
+                    <span style="font-size: smaller;">$3,335,280</span>
+                                    
+
+                </td>
+                <td class="align-middle" width="90px">
+                    <div class="d-flex flex-row">
+                    <span class="badge rounded-pill text-bg-primary" style="">1</span>
+
+                    <span class="align-middle" style="margin-left: 10px; width: 100%">
+                        
+                            <b>-</b>
+                        
+                        </span>
+                    </div>
+                </td>
+                <td class="align-middle">
+                    <button type="button" class="btn btn-outline-success" onclick="location.href='/plans_demand/board/MJU/26_MJU3030/R2602B'">View</button>
+                </td>
+            </tr>
+        </tbody>
+                
+        <tbody>
+            <tr>
+                <td class="align-middle"><img src='https://www.academyinfo.go.kr/image/schlInfoJspImgLoad.do?paramUrl=/infofile/PDF_UPLOAD/ANNOUNCE/20150116204656042.gif' class="rounded mx-auto d-block" width="120"></td>
+                <!-- <td class="align-middle">MJU</td>                 -->
+                <td class="align-middle">26_MJU_QCTeam</td>
+                <td class="align-middle">자율</td>
+                <td class="align-middle">
+                    <!-- <span class="inlinesparkline_MJU_26_MJU_QCTeam">
+                        3335280                         
+                    </span> -->
+                    <span class="inlinesparkline_MJU_26_MJU_QCTeam">
+                        <div class="spinner-border" role="status" style="width:10px; height:10px">
+                            <span class="visually-hidden" >Loading...</span>
+                          </div>          
+                    </span>
+  
+                    
+                    <span style="font-size: smaller;">$3,335,280</span>
+                                    
+
+                </td>
+                <td class="align-middle" width="90px">
+                    <div class="d-flex flex-row">
+                    <span class="badge rounded-pill text-bg-primary" style="">1</span>
+
+                    <span class="align-middle" style="margin-left: 10px; width: 100%">
+                        
+                            <b>-</b>
+                        
+                        </span>
+                    </div>
+                </td>
+                <td class="align-middle">
+                    <button type="button" class="btn btn-outline-success" onclick="location.href='/plans_demand/board/MJU/26_MJU_QCTeam/R2602B'">View</button>
+                </td>
+            </tr>
+        </tbody>
+                
+        <tbody>
+            <tr>
+                <td class="align-middle"><img src='https://www.academyinfo.go.kr/image/schlInfoJspImgLoad.do?paramUrl=/infofile/PDF_UPLOAD/ANNOUNCE/20150116204656042.gif' class="rounded mx-auto d-block" width="120"></td>
+                <!-- <td class="align-middle">MJU</td>                 -->
+                <td class="align-middle">26_MJU_real02</td>
+                <td class="align-middle">자율</td>
+                <td class="align-middle">
+                    <!-- <span class="inlinesparkline_MJU_26_MJU_real02">
+                        3335280                         
+                    </span> -->
+                    <span class="inlinesparkline_MJU_26_MJU_real02">
+                        <div class="spinner-border" role="status" style="width:10px; height:10px">
+                            <span class="visually-hidden" >Loading...</span>
+                          </div>          
+                    </span>
+  
+                    
+                    <span style="font-size: smaller;">$3,335,280</span>
+                                    
+
+                </td>
+                <td class="align-middle" width="90px">
+                    <div class="d-flex flex-row">
+                    <span class="badge rounded-pill text-bg-primary" style="">1</span>
+
+                    <span class="align-middle" style="margin-left: 10px; width: 100%">
+                        
+                            <b>-</b>
+                        
+                        </span>
+                    </div>
+                </td>
+                <td class="align-middle">
+                    <button type="button" class="btn btn-outline-success" onclick="location.href='/plans_demand/board/MJU/26_MJU_real02/R2602B'">View</button>
+                </td>
+            </tr>
+        </tbody>
+                
+        <tbody>
+            <tr>
+                <td class="align-middle"><img src='https://www.academyinfo.go.kr/image/schlInfoJspImgLoad.do?paramUrl=/infofile/PDF_UPLOAD/ANNOUNCE/200812080943120.jpg' class="rounded mx-auto d-block" width="120"></td>
+                <!-- <td class="align-middle">PNU</td>                 -->
+                <td class="align-middle">26_PNU_SaHj</td>
+                <td class="align-middle">TBA</td>
+                <td class="align-middle">
+                    <!-- <span class="inlinesparkline_PNU_26_PNU_SaHj">
+                        3335280                         
+                    </span> -->
+                    <span class="inlinesparkline_PNU_26_PNU_SaHj">
+                        <div class="spinner-border" role="status" style="width:10px; height:10px">
+                            <span class="visually-hidden" >Loading...</span>
+                          </div>          
+                    </span>
+  
+                    
+                    <span style="font-size: smaller;">$3,335,280</span>
+                                    
+
+                </td>
+                <td class="align-middle" width="90px">
+                    <div class="d-flex flex-row">
+                    <span class="badge rounded-pill text-bg-primary" style="">1</span>
+
+                    <span class="align-middle" style="margin-left: 10px; width: 100%">
+                        
+                            <b>-</b>
+                        
+                        </span>
+                    </div>
+                </td>
+                <td class="align-middle">
+                    <button type="button" class="btn btn-outline-success" onclick="location.href='/plans_demand/board/PNU/26_PNU_SaHj/R2602B'">View</button>
+                </td>
+            </tr>
+        </tbody>
+                
+        <tbody>
+            <tr>
+                <td class="align-middle"><img src='https://www.academyinfo.go.kr/image/schlInfoJspImgLoad.do?paramUrl=/infofile/PDF_UPLOAD/ANNOUNCE/200812080943120.jpg' class="rounded mx-auto d-block" width="120"></td>
+                <!-- <td class="align-middle">PNU</td>                 -->
+                <td class="align-middle">26_SMART_FACTORY</td>
+                <td class="align-middle">TBA</td>
+                <td class="align-middle">
+                    <!-- <span class="inlinesparkline_PNU_26_SMART_FACTORY">
+                        3335280                         
+                    </span> -->
+                    <span class="inlinesparkline_PNU_26_SMART_FACTORY">
+                        <div class="spinner-border" role="status" style="width:10px; height:10px">
+                            <span class="visually-hidden" >Loading...</span>
+                          </div>          
+                    </span>
+  
+                    
+                    <span style="font-size: smaller;">$3,335,280</span>
+                                    
+
+                </td>
+                <td class="align-middle" width="90px">
+                    <div class="d-flex flex-row">
+                    <span class="badge rounded-pill text-bg-primary" style="">1</span>
+
+                    <span class="align-middle" style="margin-left: 10px; width: 100%">
+                        
+                            <b>-</b>
+                        
+                        </span>
+                    </div>
+                </td>
+                <td class="align-middle">
+                    <button type="button" class="btn btn-outline-success" onclick="location.href='/plans_demand/board/PNU/26_SMART_FACTORY/R2602B'">View</button>
+                </td>
+            </tr>
+        </tbody>
+                
+        <tbody>
+            <tr>
+                <td class="align-middle"><img src='https://academyinfo.go.kr/image/schlInfoJspImgLoad.do?paramUrl=/infofile/PDF_UPLOAD/ANNOUNCE/20130514173823962.gif&amp;refParamUrl=/infofile/PDF_UPLOAD/ANNOUNCE/20130514173823962.gif' class="rounded mx-auto d-block" width="120"></td>
+                <!-- <td class="align-middle">UOU</td>                 -->
+                <td class="align-middle">26_UOU_KTE</td>
+                <td class="align-middle">생산관리</td>
+                <td class="align-middle">
+                    <!-- <span class="inlinesparkline_UOU_26_UOU_KTE">
+                        3335280                         
+                    </span> -->
+                    <span class="inlinesparkline_UOU_26_UOU_KTE">
+                        <div class="spinner-border" role="status" style="width:10px; height:10px">
+                            <span class="visually-hidden" >Loading...</span>
+                          </div>          
+                    </span>
+  
+                    
+                    <span style="font-size: smaller;">$3,335,280</span>
+                                    
+
+                </td>
+                <td class="align-middle" width="90px">
+                    <div class="d-flex flex-row">
+                    <span class="badge rounded-pill text-bg-primary" style="">1</span>
+
+                    <span class="align-middle" style="margin-left: 10px; width: 100%">
+                        
+                            <b>-</b>
+                        
+                        </span>
+                    </div>
+                </td>
+                <td class="align-middle">
+                    <button type="button" class="btn btn-outline-success" onclick="location.href='/plans_demand/board/UOU/26_UOU_KTE/R2602B'">View</button>
+                </td>
+            </tr>
+        </tbody>
+                
+        <tbody>
+            <tr>
+                <td class="align-middle"><img src='https://academyinfo.go.kr/image/schlInfoJspImgLoad.do?paramUrl=/infofile/PDF_UPLOAD/ANNOUNCE/20130514173823962.gif&amp;refParamUrl=/infofile/PDF_UPLOAD/ANNOUNCE/20130514173823962.gif' class="rounded mx-auto d-block" width="120"></td>
+                <!-- <td class="align-middle">UOU</td>                 -->
+                <td class="align-middle">26_UOU_SMG</td>
+                <td class="align-middle">스마트제조</td>
+                <td class="align-middle">
+                    <!-- <span class="inlinesparkline_UOU_26_UOU_SMG">
+                        3335280                         
+                    </span> -->
+                    <span class="inlinesparkline_UOU_26_UOU_SMG">
+                        <div class="spinner-border" role="status" style="width:10px; height:10px">
+                            <span class="visually-hidden" >Loading...</span>
+                          </div>          
+                    </span>
+  
+                    
+                    <span style="font-size: smaller;">$3,335,280</span>
+                                    
+
+                </td>
+                <td class="align-middle" width="90px">
+                    <div class="d-flex flex-row">
+                    <span class="badge rounded-pill text-bg-primary" style="">1</span>
+
+                    <span class="align-middle" style="margin-left: 10px; width: 100%">
+                        
+                            <b>-</b>
+                        
+                        </span>
+                    </div>
+                </td>
+                <td class="align-middle">
+                    <button type="button" class="btn btn-outline-success" onclick="location.href='/plans_demand/board/UOU/26_UOU_SMG/R2602B'">View</button>
+                </td>
+            </tr>
+        </tbody>
+                
+        <tbody>
+            <tr>
+                <td class="align-middle"><img src='https://academyinfo.go.kr/image/schlInfoJspImgLoad.do?paramUrl=/infofile/PDF_UPLOAD/ANNOUNCE/200811281708500.gif' class="rounded mx-auto d-block" width="120"></td>
+                <!-- <td class="align-middle">DKU</td>                 -->
+                <td class="align-middle">26_DKU_HJD</td>
+                <td class="align-middle">머신러닝</td>
+                <td class="align-middle">
+                    <!-- <span class="inlinesparkline_DKU_26_DKU_HJD">
+                        3109280                         
+                    </span> -->
+                    <span class="inlinesparkline_DKU_26_DKU_HJD">
+                        <div class="spinner-border" role="status" style="width:10px; height:10px">
+                            <span class="visually-hidden" >Loading...</span>
+                          </div>          
+                    </span>
+  
+                    
+                    <span style="font-size: smaller;">$3,109,280</span>
+                                    
+
+                </td>
+                <td class="align-middle" width="90px">
+                    <div class="d-flex flex-row">
+                    <span class="badge rounded-pill text-bg-primary" style="">56</span>
+
+                    <span class="align-middle" style="margin-left: 10px; width: 100%">
+                        
+                            <b>-</b>
+                        
+                        </span>
+                    </div>
+                </td>
+                <td class="align-middle">
+                    <button type="button" class="btn btn-outline-success" onclick="location.href='/plans_demand/board/DKU/26_DKU_HJD/R2602B'">View</button>
+                </td>
+            </tr>
+        </tbody>
+                
+        <tbody>
+            <tr>
+                <td class="align-middle"><img src='https://www.academyinfo.go.kr/image/schlInfoJspImgLoad.do?paramUrl=/infofile/PDF_UPLOAD/ANNOUNCE/201108041021150.jpg' class="rounded mx-auto d-block" width="120"></td>
+                <!-- <td class="align-middle">KGU</td>                 -->
+                <td class="align-middle">26_KGU_Team8</td>
+                <td class="align-middle">물류경영(2학년)</td>
+                <td class="align-middle">
+                    <!-- <span class="inlinesparkline_KGU_26_KGU_Team8">
+                        3109280                         
+                    </span> -->
+                    <span class="inlinesparkline_KGU_26_KGU_Team8">
+                        <div class="spinner-border" role="status" style="width:10px; height:10px">
+                            <span class="visually-hidden" >Loading...</span>
+                          </div>          
+                    </span>
+  
+                    
+                    <span style="font-size: smaller;">$3,109,280</span>
+                                    
+
+                </td>
+                <td class="align-middle" width="90px">
+                    <div class="d-flex flex-row">
+                    <span class="badge rounded-pill text-bg-primary" style="">56</span>
+
+                    <span class="align-middle" style="margin-left: 10px; width: 100%">
+                        
+                            <b>-</b>
+                        
+                        </span>
+                    </div>
+                </td>
+                <td class="align-middle">
+                    <button type="button" class="btn btn-outline-success" onclick="location.href='/plans_demand/board/KGU/26_KGU_Team8/R2602B'">View</button>
+                </td>
+            </tr>
+        </tbody>
+                
+        <tbody>
+            <tr>
+                <td class="align-middle"><img src='https://www.academyinfo.go.kr/image/schlInfoJspImgLoad.do?paramUrl=/infofile/PDF_UPLOAD/ANNOUNCE/20130626095054338.jpg' class="rounded mx-auto d-block" width="120"></td>
+                <!-- <td class="align-middle">DGU</td>                 -->
+                <td class="align-middle">26_DGU_PROF</td>
+                <td class="align-middle">의사결정시스템</td>
+                <td class="align-middle">
+                    <!-- <span class="inlinesparkline_DGU_26_DGU_PROF">
+                        3022000                         
+                    </span> -->
+                    <span class="inlinesparkline_DGU_26_DGU_PROF">
+                        <div class="spinner-border" role="status" style="width:10px; height:10px">
+                            <span class="visually-hidden" >Loading...</span>
+                          </div>          
+                    </span>
+  
+                    
+                    <span style="font-size: smaller;">$3,022,000</span>
+                                    
+
+                </td>
+                <td class="align-middle" width="90px">
+                    <div class="d-flex flex-row">
+                    <span class="badge rounded-pill text-bg-primary" style="">58</span>
+
+                    <span class="align-middle" style="margin-left: 10px; width: 100%">
+                        
+                            <b>-</b>
+                        
+                        </span>
+                    </div>
+                </td>
+                <td class="align-middle">
+                    <button type="button" class="btn btn-outline-success" onclick="location.href='/plans_demand/board/DGU/26_DGU_PROF/R2602B'">View</button>
+                </td>
+            </tr>
+        </tbody>
+                
+        <tbody>
+            <tr>
+                <td class="align-middle"><img src='https://academyinfo.go.kr/image/schlInfoJspImgLoad.do?paramUrl=/infofile/PDF_UPLOAD/ANNOUNCE/200811281708500.gif' class="rounded mx-auto d-block" width="120"></td>
+                <!-- <td class="align-middle">DKU</td>                 -->
+                <td class="align-middle">26_DKU_HIDDEN</td>
+                <td class="align-middle">머신러닝</td>
+                <td class="align-middle">
+                    <!-- <span class="inlinesparkline_DKU_26_DKU_HIDDEN">
+                        3022000                         
+                    </span> -->
+                    <span class="inlinesparkline_DKU_26_DKU_HIDDEN">
+                        <div class="spinner-border" role="status" style="width:10px; height:10px">
+                            <span class="visually-hidden" >Loading...</span>
+                          </div>          
+                    </span>
+  
+                    
+                    <span style="font-size: smaller;">$3,022,000</span>
+                                    
+
+                </td>
+                <td class="align-middle" width="90px">
+                    <div class="d-flex flex-row">
+                    <span class="badge rounded-pill text-bg-primary" style="">58</span>
+
+                    <span class="align-middle" style="margin-left: 10px; width: 100%">
+                        
+                            <b>-</b>
+                        
+                        </span>
+                    </div>
+                </td>
+                <td class="align-middle">
+                    <button type="button" class="btn btn-outline-success" onclick="location.href='/plans_demand/board/DKU/26_DKU_HIDDEN/R2602B'">View</button>
+                </td>
+            </tr>
+        </tbody>
+                
+        <tbody>
+            <tr>
+                <td class="align-middle"><img src='https://www.academyinfo.go.kr/image/schlInfoJspImgLoad.do?paramUrl=/infofile/PDF_UPLOAD/ANNOUNCE/201108041021150.jpg' class="rounded mx-auto d-block" width="120"></td>
+                <!-- <td class="align-middle">KGU</td>                 -->
+                <td class="align-middle">26_KGU_SCM7</td>
+                <td class="align-middle">SCM(3학년)</td>
+                <td class="align-middle">
+                    <!-- <span class="inlinesparkline_KGU_26_KGU_SCM7">
+                        3022000                         
+                    </span> -->
+                    <span class="inlinesparkline_KGU_26_KGU_SCM7">
+                        <div class="spinner-border" role="status" style="width:10px; height:10px">
+                            <span class="visually-hidden" >Loading...</span>
+                          </div>          
+                    </span>
+  
+                    
+                    <span style="font-size: smaller;">$3,022,000</span>
+                                    
+
+                </td>
+                <td class="align-middle" width="90px">
+                    <div class="d-flex flex-row">
+                    <span class="badge rounded-pill text-bg-primary" style="">58</span>
+
+                    <span class="align-middle" style="margin-left: 10px; width: 100%">
+                        
+                            <b>-</b>
+                        
+                        </span>
+                    </div>
+                </td>
+                <td class="align-middle">
+                    <button type="button" class="btn btn-outline-success" onclick="location.href='/plans_demand/board/KGU/26_KGU_SCM7/R2602B'">View</button>
+                </td>
+            </tr>
+        </tbody>
+                
+        <tbody>
+            <tr>
+                <td class="align-middle"><img src='https://www.academyinfo.go.kr/image/schlInfoJspImgLoad.do?paramUrl=/infofile/PDF_UPLOAD/ANNOUNCE/20150116204656042.gif' class="rounded mx-auto d-block" width="120"></td>
+                <!-- <td class="align-middle">MJU</td>                 -->
+                <td class="align-middle">26_MJU_bnii333</td>
+                <td class="align-middle">지능형데이터애널리틱스</td>
+                <td class="align-middle">
+                    <!-- <span class="inlinesparkline_MJU_26_MJU_bnii333">
+                        3022000                         
+                    </span> -->
+                    <span class="inlinesparkline_MJU_26_MJU_bnii333">
+                        <div class="spinner-border" role="status" style="width:10px; height:10px">
+                            <span class="visually-hidden" >Loading...</span>
+                          </div>          
+                    </span>
+  
+                    
+                    <span style="font-size: smaller;">$3,022,000</span>
+                                    
+
+                </td>
+                <td class="align-middle" width="90px">
+                    <div class="d-flex flex-row">
+                    <span class="badge rounded-pill text-bg-primary" style="">58</span>
+
+                    <span class="align-middle" style="margin-left: 10px; width: 100%">
+                        
+                            <b>-</b>
+                        
+                        </span>
+                    </div>
+                </td>
+                <td class="align-middle">
+                    <button type="button" class="btn btn-outline-success" onclick="location.href='/plans_demand/board/MJU/26_MJU_bnii333/R2602B'">View</button>
+                </td>
+            </tr>
+        </tbody>
+                
+        <tbody>
+            <tr>
+                <td class="align-middle"><img src='https://www.academyinfo.go.kr/image/schlInfoJspImgLoad.do?paramUrl=/infofile/PDF_UPLOAD/ANNOUNCE/201108041021150.jpg' class="rounded mx-auto d-block" width="120"></td>
+                <!-- <td class="align-middle">KGU</td>                 -->
+                <td class="align-middle">26_KGU_SCM11</td>
+                <td class="align-middle">SCM(3학년)</td>
+                <td class="align-middle">
+                    <!-- <span class="inlinesparkline_KGU_26_KGU_SCM11">
+                        2683280                         
+                    </span> -->
+                    <span class="inlinesparkline_KGU_26_KGU_SCM11">
+                        <div class="spinner-border" role="status" style="width:10px; height:10px">
+                            <span class="visually-hidden" >Loading...</span>
+                          </div>          
+                    </span>
+  
+                    
+                    <span style="font-size: smaller;">$2,683,280</span>
+                                    
+
+                </td>
+                <td class="align-middle" width="90px">
+                    <div class="d-flex flex-row">
+                    <span class="badge rounded-pill text-bg-primary" style="">62</span>
+
+                    <span class="align-middle" style="margin-left: 10px; width: 100%">
+                        
+                            <b>-</b>
+                        
+                        </span>
+                    </div>
+                </td>
+                <td class="align-middle">
+                    <button type="button" class="btn btn-outline-success" onclick="location.href='/plans_demand/board/KGU/26_KGU_SCM11/R2602B'">View</button>
+                </td>
+            </tr>
+        </tbody>
+                
+        <tbody>
+            <tr>
+                <td class="align-middle"><img src='https://www.academyinfo.go.kr/image/schlInfoJspImgLoad.do?paramUrl=/infofile/PDF_UPLOAD/ANNOUNCE/201108041021150.jpg' class="rounded mx-auto d-block" width="120"></td>
+                <!-- <td class="align-middle">KGU</td>                 -->
+                <td class="align-middle">26_KGU_SCM15</td>
+                <td class="align-middle">SCM(3학년)</td>
+                <td class="align-middle">
+                    <!-- <span class="inlinesparkline_KGU_26_KGU_SCM15">
+                        2414000                         
+                    </span> -->
+                    <span class="inlinesparkline_KGU_26_KGU_SCM15">
+                        <div class="spinner-border" role="status" style="width:10px; height:10px">
+                            <span class="visually-hidden" >Loading...</span>
+                          </div>          
+                    </span>
+  
+                    
+                    <span style="font-size: smaller;">$2,414,000</span>
+                                    
+
+                </td>
+                <td class="align-middle" width="90px">
+                    <div class="d-flex flex-row">
+                    <span class="badge rounded-pill text-bg-primary" style="">63</span>
+
+                    <span class="align-middle" style="margin-left: 10px; width: 100%">
+                        
+                            <b>-</b>
+                        
+                        </span>
+                    </div>
+                </td>
+                <td class="align-middle">
+                    <button type="button" class="btn btn-outline-success" onclick="location.href='/plans_demand/board/KGU/26_KGU_SCM15/R2602B'">View</button>
+                </td>
+            </tr>
+        </tbody>
+                
+        <tbody>
+            <tr>
+                <td class="align-middle"><img src='https://www.academyinfo.go.kr/image/schlInfoJspImgLoad.do?paramUrl=/infofile/PDF_UPLOAD/ANNOUNCE/20150116204656042.gif' class="rounded mx-auto d-block" width="120"></td>
+                <!-- <td class="align-middle">MJU</td>                 -->
+                <td class="align-middle">26_MJU_qwer0123</td>
+                <td class="align-middle">생산관리</td>
+                <td class="align-middle">
+                    <!-- <span class="inlinesparkline_MJU_26_MJU_qwer0123">
+                        2231280                         
+                    </span> -->
+                    <span class="inlinesparkline_MJU_26_MJU_qwer0123">
+                        <div class="spinner-border" role="status" style="width:10px; height:10px">
+                            <span class="visually-hidden" >Loading...</span>
+                          </div>          
+                    </span>
+  
+                    
+                    <span style="font-size: smaller;">$2,231,280</span>
+                                    
+
+                </td>
+                <td class="align-middle" width="90px">
+                    <div class="d-flex flex-row">
+                    <span class="badge rounded-pill text-bg-primary" style="">64</span>
+
+                    <span class="align-middle" style="margin-left: 10px; width: 100%">
+                        
+                            <b>-</b>
+                        
+                        </span>
+                    </div>
+                </td>
+                <td class="align-middle">
+                    <button type="button" class="btn btn-outline-success" onclick="location.href='/plans_demand/board/MJU/26_MJU_qwer0123/R2602B'">View</button>
+                </td>
+            </tr>
+        </tbody>
+                
+        <tbody>
+            <tr>
+                <td class="align-middle"><img src='https://www.academyinfo.go.kr/image/schlInfoJspImgLoad.do?paramUrl=/infofile/PDF_UPLOAD/ANNOUNCE/20130626095054338.jpg' class="rounded mx-auto d-block" width="120"></td>
+                <!-- <td class="align-middle">DGU</td>                 -->
+                <td class="align-middle">26_DGU_DGUROX</td>
+                <td class="align-middle">의사결정시스템</td>
+                <td class="align-middle">
+                    <!-- <span class="inlinesparkline_DGU_26_DGU_DGUROX">
+                        794000                         
+                    </span> -->
+                    <span class="inlinesparkline_DGU_26_DGU_DGUROX">
+                        <div class="spinner-border" role="status" style="width:10px; height:10px">
+                            <span class="visually-hidden" >Loading...</span>
+                          </div>          
+                    </span>
+  
+                    
+                    <span style="font-size: smaller;">$794,000</span>
+                                    
+
+                </td>
+                <td class="align-middle" width="90px">
+                    <div class="d-flex flex-row">
+                    <span class="badge rounded-pill text-bg-primary" style="">65</span>
+
+                    <span class="align-middle" style="margin-left: 10px; width: 100%">
+                        
+                            <b>-</b>
+                        
+                        </span>
+                    </div>
+                </td>
+                <td class="align-middle">
+                    <button type="button" class="btn btn-outline-success" onclick="location.href='/plans_demand/board/DGU/26_DGU_DGUROX/R2602B'">View</button>
+                </td>
+            </tr>
+        </tbody>
+                
+        <tbody>
+            <tr>
+                <td class="align-middle"><img src='https://academyinfo.go.kr/image/schlInfoJspImgLoad.do?paramUrl=/infofile/PDF_UPLOAD/ANNOUNCE/200811281708500.gif' class="rounded mx-auto d-block" width="120"></td>
+                <!-- <td class="align-middle">DKU</td>                 -->
+                <td class="align-middle">26_DKU_BAR</td>
+                <td class="align-middle">머신러닝</td>
+                <td class="align-middle">
+                    <!-- <span class="inlinesparkline_DKU_26_DKU_BAR">
+                        794000                         
+                    </span> -->
+                    <span class="inlinesparkline_DKU_26_DKU_BAR">
+                        <div class="spinner-border" role="status" style="width:10px; height:10px">
+                            <span class="visually-hidden" >Loading...</span>
+                          </div>          
+                    </span>
+  
+                    
+                    <span style="font-size: smaller;">$794,000</span>
+                                    
+
+                </td>
+                <td class="align-middle" width="90px">
+                    <div class="d-flex flex-row">
+                    <span class="badge rounded-pill text-bg-primary" style="">65</span>
+
+                    <span class="align-middle" style="margin-left: 10px; width: 100%">
+                        
+                            <b>-</b>
+                        
+                        </span>
+                    </div>
+                </td>
+                <td class="align-middle">
+                    <button type="button" class="btn btn-outline-success" onclick="location.href='/plans_demand/board/DKU/26_DKU_BAR/R2602B'">View</button>
+                </td>
+            </tr>
+        </tbody>
+                
+        <tbody>
+            <tr>
+                <td class="align-middle"><img src='https://www.academyinfo.go.kr/image/schlInfoJspImgLoad.do?paramUrl=/infofile/PDF_UPLOAD/ANNOUNCE/201108041021150.jpg' class="rounded mx-auto d-block" width="120"></td>
+                <!-- <td class="align-middle">KGU</td>                 -->
+                <td class="align-middle">26_KGU_SCM6</td>
+                <td class="align-middle">SCM(3학년)</td>
+                <td class="align-middle">
+                    <!-- <span class="inlinesparkline_KGU_26_KGU_SCM6">
+                        594000                         
+                    </span> -->
+                    <span class="inlinesparkline_KGU_26_KGU_SCM6">
+                        <div class="spinner-border" role="status" style="width:10px; height:10px">
+                            <span class="visually-hidden" >Loading...</span>
+                          </div>          
+                    </span>
+  
+                    
+                    <span style="font-size: smaller;">$594,000</span>
+                                    
+
+                </td>
+                <td class="align-middle" width="90px">
+                    <div class="d-flex flex-row">
+                    <span class="badge rounded-pill text-bg-primary" style="">67</span>
+
+                    <span class="align-middle" style="margin-left: 10px; width: 100%">
+                        
+                            <b>-</b>
+                        
+                        </span>
+                    </div>
+                </td>
+                <td class="align-middle">
+                    <button type="button" class="btn btn-outline-success" onclick="location.href='/plans_demand/board/KGU/26_KGU_SCM6/R2602B'">View</button>
+                </td>
+            </tr>
+        </tbody>
+                
+        <tbody>
+            <tr>
+                <td class="align-middle"><img src='https://academyinfo.go.kr/image/schlInfoJspImgLoad.do?paramUrl=/infofile/PDF_UPLOAD/ANNOUNCE/20130514173823962.gif&amp;refParamUrl=/infofile/PDF_UPLOAD/ANNOUNCE/20130514173823962.gif' class="rounded mx-auto d-block" width="120"></td>
+                <!-- <td class="align-middle">UOU</td>                 -->
+                <td class="align-middle">26_UOU_LSW</td>
+                <td class="align-middle">스마트제조</td>
+                <td class="align-middle">
+                    <!-- <span class="inlinesparkline_UOU_26_UOU_LSW">
+                        594000                         
+                    </span> -->
+                    <span class="inlinesparkline_UOU_26_UOU_LSW">
+                        <div class="spinner-border" role="status" style="width:10px; height:10px">
+                            <span class="visually-hidden" >Loading...</span>
+                          </div>          
+                    </span>
+  
+                    
+                    <span style="font-size: smaller;">$594,000</span>
+                                    
+
+                </td>
+                <td class="align-middle" width="90px">
+                    <div class="d-flex flex-row">
+                    <span class="badge rounded-pill text-bg-primary" style="">67</span>
+
+                    <span class="align-middle" style="margin-left: 10px; width: 100%">
+                        
+                            <b>-</b>
+                        
+                        </span>
+                    </div>
+                </td>
+                <td class="align-middle">
+                    <button type="button" class="btn btn-outline-success" onclick="location.href='/plans_demand/board/UOU/26_UOU_LSW/R2602B'">View</button>
+                </td>
+            </tr>
+        </tbody>
+                
+        <tbody>
+            <tr>
+                <td class="align-middle"><img src='https://www.academyinfo.go.kr/image/schlInfoJspImgLoad.do?paramUrl=/infofile/PDF_UPLOAD/ANNOUNCE/20130626095054338.jpg' class="rounded mx-auto d-block" width="120"></td>
+                <!-- <td class="align-middle">DGU</td>                 -->
+                <td class="align-middle">26_DGU_KSH</td>
+                <td class="align-middle">의사결정시스템</td>
+                <td class="align-middle">
+                    <!-- <span class="inlinesparkline_DGU_26_DGU_KSH">
+                        390000                         
+                    </span> -->
+                    <span class="inlinesparkline_DGU_26_DGU_KSH">
+                        <div class="spinner-border" role="status" style="width:10px; height:10px">
+                            <span class="visually-hidden" >Loading...</span>
+                          </div>          
+                    </span>
+  
+                    
+                    <span style="font-size: smaller;">$390,000</span>
+                                    
+
+                </td>
+                <td class="align-middle" width="90px">
+                    <div class="d-flex flex-row">
+                    <span class="badge rounded-pill text-bg-primary" style="">69</span>
+
+                    <span class="align-middle" style="margin-left: 10px; width: 100%">
+                        
+                            <b>-</b>
+                        
+                        </span>
+                    </div>
+                </td>
+                <td class="align-middle">
+                    <button type="button" class="btn btn-outline-success" onclick="location.href='/plans_demand/board/DGU/26_DGU_KSH/R2602B'">View</button>
+                </td>
+            </tr>
+        </tbody>
+                
+        <tbody>
+            <tr>
+                <td class="align-middle"><img src='https://www.academyinfo.go.kr/image/schlInfoJspImgLoad.do?paramUrl=/infofile/PDF_UPLOAD/ANNOUNCE/201108041021150.jpg' class="rounded mx-auto d-block" width="120"></td>
+                <!-- <td class="align-middle">KGU</td>                 -->
+                <td class="align-middle">26_KGU_SCM4</td>
+                <td class="align-middle">SCM(3학년)</td>
+                <td class="align-middle">
+                    <!-- <span class="inlinesparkline_KGU_26_KGU_SCM4">
+                        390000                         
+                    </span> -->
+                    <span class="inlinesparkline_KGU_26_KGU_SCM4">
+                        <div class="spinner-border" role="status" style="width:10px; height:10px">
+                            <span class="visually-hidden" >Loading...</span>
+                          </div>          
+                    </span>
+  
+                    
+                    <span style="font-size: smaller;">$390,000</span>
+                                    
+
+                </td>
+                <td class="align-middle" width="90px">
+                    <div class="d-flex flex-row">
+                    <span class="badge rounded-pill text-bg-primary" style="">69</span>
+
+                    <span class="align-middle" style="margin-left: 10px; width: 100%">
+                        
+                            <b>-</b>
+                        
+                        </span>
+                    </div>
+                </td>
+                <td class="align-middle">
+                    <button type="button" class="btn btn-outline-success" onclick="location.href='/plans_demand/board/KGU/26_KGU_SCM4/R2602B'">View</button>
+                </td>
+            </tr>
+        </tbody>
+                
+        <tbody>
+            <tr>
+                <td class="align-middle"><img src='https://academyinfo.go.kr/image/schlInfoJspImgLoad.do?paramUrl=/infofile/PDF_UPLOAD/ANNOUNCE/200811281708500.gif' class="rounded mx-auto d-block" width="120"></td>
+                <!-- <td class="align-middle">DKU</td>                 -->
+                <td class="align-middle">26_DKU_GMG</td>
+                <td class="align-middle">머신러닝</td>
+                <td class="align-middle">
+                    <!-- <span class="inlinesparkline_DKU_26_DKU_GMG">
+                        -25514000                         
+                    </span> -->
+                    <span class="inlinesparkline_DKU_26_DKU_GMG">
+                        <div class="spinner-border" role="status" style="width:10px; height:10px">
+                            <span class="visually-hidden" >Loading...</span>
+                          </div>          
+                    </span>
+  
+                    
+                    <span style="font-size: smaller; color: red;">$-25,514,000</span>
+                                    
+
+                </td>
+                <td class="align-middle" width="90px">
+                    <div class="d-flex flex-row">
+                    <span class="badge rounded-pill text-bg-primary" style="">71</span>
+
+                    <span class="align-middle" style="margin-left: 10px; width: 100%">
+                        
+                            <b>-</b>
+                        
+                        </span>
+                    </div>
+                </td>
+                <td class="align-middle">
+                    <button type="button" class="btn btn-outline-success" onclick="location.href='/plans_demand/board/DKU/26_DKU_GMG/R2602B'">View</button>
+                </td>
+            </tr>
+        </tbody>
+        
+    </table>
+</p>    
+    
+
+<script>
+    $("#round_sct_btn").on('click',function() { 
+        location.href='/'+$("#round_sct option:checked").val(); 
+    });        
+</script>  
+
+
+
+<!-- <script type="text/javascript" src="https://code.jquery.com/jquery-3.7.1.slim.min.js"></script> -->
+
+<script type="text/javascript">
+$(function() {
+    /** This code runs when everything has been loaded on the page */
+    /* Inline sparklines take their values from the contents of the tag */
+    // 
+    //     $('.inlinesparkline_DAU_26_DAU_26dauteam9').sparkline('html', {type: 'line', width: '170px', disableTooltips: 'true'}); 
+    // 
+    //     $('.inlinesparkline_DAU_26_DAU_26warigari').sparkline('html', {type: 'line', width: '170px', disableTooltips: 'true'}); 
+    // 
+    //     $('.inlinesparkline_DAU_26_DAU_abc123').sparkline('html', {type: 'line', width: '170px', disableTooltips: 'true'}); 
+    // 
+    //     $('.inlinesparkline_DAU_26_DAU_asd012').sparkline('html', {type: 'line', width: '170px', disableTooltips: 'true'}); 
+    // 
+    //     $('.inlinesparkline_DAU_26_DAU_cktmdwns').sparkline('html', {type: 'line', width: '170px', disableTooltips: 'true'}); 
+    // 
+    //     $('.inlinesparkline_DAU_26_DAU_fortis444').sparkline('html', {type: 'line', width: '170px', disableTooltips: 'true'}); 
+    // 
+    //     $('.inlinesparkline_DAU_26_DAU_kawaiiiii').sparkline('html', {type: 'line', width: '170px', disableTooltips: 'true'}); 
+    // 
+    //     $('.inlinesparkline_DAU_26_DAU_kmj444').sparkline('html', {type: 'line', width: '170px', disableTooltips: 'true'}); 
+    // 
+    //     $('.inlinesparkline_DAU_26_DAU_mjsj1210').sparkline('html', {type: 'line', width: '170px', disableTooltips: 'true'}); 
+    // 
+    //     $('.inlinesparkline_DAU_26_DAU_qwer147').sparkline('html', {type: 'line', width: '170px', disableTooltips: 'true'}); 
+    // 
+    //     $('.inlinesparkline_DGU_26_DGU_APPLEPIE').sparkline('html', {type: 'line', width: '170px', disableTooltips: 'true'}); 
+    // 
+    //     $('.inlinesparkline_DGU_26_DGU_AYJ').sparkline('html', {type: 'line', width: '170px', disableTooltips: 'true'}); 
+    // 
+    //     $('.inlinesparkline_DGU_26_DGU_KHJ').sparkline('html', {type: 'line', width: '170px', disableTooltips: 'true'}); 
+    // 
+    //     $('.inlinesparkline_DGU_26_DGU_LUCKY').sparkline('html', {type: 'line', width: '170px', disableTooltips: 'true'}); 
+    // 
+    //     $('.inlinesparkline_DGU_26_DGU_YHW').sparkline('html', {type: 'line', width: '170px', disableTooltips: 'true'}); 
+    // 
+    //     $('.inlinesparkline_DKU_26_DKU01').sparkline('html', {type: 'line', width: '170px', disableTooltips: 'true'}); 
+    // 
+    //     $('.inlinesparkline_DKU_26_DKU_DNN').sparkline('html', {type: 'line', width: '170px', disableTooltips: 'true'}); 
+    // 
+    //     $('.inlinesparkline_DKU_26_DKU_FIVE').sparkline('html', {type: 'line', width: '170px', disableTooltips: 'true'}); 
+    // 
+    //     $('.inlinesparkline_DKU_26_DKU_HNYM').sparkline('html', {type: 'line', width: '170px', disableTooltips: 'true'}); 
+    // 
+    //     $('.inlinesparkline_DKU_26_DKU_LIGHT').sparkline('html', {type: 'line', width: '170px', disableTooltips: 'true'}); 
+    // 
+    //     $('.inlinesparkline_DKU_26_DKU_RM').sparkline('html', {type: 'line', width: '170px', disableTooltips: 'true'}); 
+    // 
+    //     $('.inlinesparkline_DKU_26_DKU_SOLD').sparkline('html', {type: 'line', width: '170px', disableTooltips: 'true'}); 
+    // 
+    //     $('.inlinesparkline_KGU_26_KGU_SCM1').sparkline('html', {type: 'line', width: '170px', disableTooltips: 'true'}); 
+    // 
+    //     $('.inlinesparkline_KGU_26_KGU_SCM10').sparkline('html', {type: 'line', width: '170px', disableTooltips: 'true'}); 
+    // 
+    //     $('.inlinesparkline_KGU_26_KGU_SCM12').sparkline('html', {type: 'line', width: '170px', disableTooltips: 'true'}); 
+    // 
+    //     $('.inlinesparkline_KGU_26_KGU_SCM13').sparkline('html', {type: 'line', width: '170px', disableTooltips: 'true'}); 
+    // 
+    //     $('.inlinesparkline_KGU_26_KGU_SCM14').sparkline('html', {type: 'line', width: '170px', disableTooltips: 'true'}); 
+    // 
+    //     $('.inlinesparkline_KGU_26_KGU_SCM16').sparkline('html', {type: 'line', width: '170px', disableTooltips: 'true'}); 
+    // 
+    //     $('.inlinesparkline_KGU_26_KGU_SCM2').sparkline('html', {type: 'line', width: '170px', disableTooltips: 'true'}); 
+    // 
+    //     $('.inlinesparkline_KGU_26_KGU_SCM3').sparkline('html', {type: 'line', width: '170px', disableTooltips: 'true'}); 
+    // 
+    //     $('.inlinesparkline_KGU_26_KGU_SCM5').sparkline('html', {type: 'line', width: '170px', disableTooltips: 'true'}); 
+    // 
+    //     $('.inlinesparkline_KGU_26_KGU_SCM8').sparkline('html', {type: 'line', width: '170px', disableTooltips: 'true'}); 
+    // 
+    //     $('.inlinesparkline_KGU_26_KGU_SCM9').sparkline('html', {type: 'line', width: '170px', disableTooltips: 'true'}); 
+    // 
+    //     $('.inlinesparkline_KGU_26_KGU_Team1').sparkline('html', {type: 'line', width: '170px', disableTooltips: 'true'}); 
+    // 
+    //     $('.inlinesparkline_KGU_26_KGU_Team10').sparkline('html', {type: 'line', width: '170px', disableTooltips: 'true'}); 
+    // 
+    //     $('.inlinesparkline_KGU_26_KGU_Team11').sparkline('html', {type: 'line', width: '170px', disableTooltips: 'true'}); 
+    // 
+    //     $('.inlinesparkline_KGU_26_KGU_Team12').sparkline('html', {type: 'line', width: '170px', disableTooltips: 'true'}); 
+    // 
+    //     $('.inlinesparkline_KGU_26_KGU_Team13').sparkline('html', {type: 'line', width: '170px', disableTooltips: 'true'}); 
+    // 
+    //     $('.inlinesparkline_KGU_26_KGU_Team14').sparkline('html', {type: 'line', width: '170px', disableTooltips: 'true'}); 
+    // 
+    //     $('.inlinesparkline_KGU_26_KGU_Team15').sparkline('html', {type: 'line', width: '170px', disableTooltips: 'true'}); 
+    // 
+    //     $('.inlinesparkline_KGU_26_KGU_Team2').sparkline('html', {type: 'line', width: '170px', disableTooltips: 'true'}); 
+    // 
+    //     $('.inlinesparkline_KGU_26_KGU_Team3').sparkline('html', {type: 'line', width: '170px', disableTooltips: 'true'}); 
+    // 
+    //     $('.inlinesparkline_KGU_26_KGU_Team4').sparkline('html', {type: 'line', width: '170px', disableTooltips: 'true'}); 
+    // 
+    //     $('.inlinesparkline_KGU_26_KGU_Team5').sparkline('html', {type: 'line', width: '170px', disableTooltips: 'true'}); 
+    // 
+    //     $('.inlinesparkline_KGU_26_KGU_Team6').sparkline('html', {type: 'line', width: '170px', disableTooltips: 'true'}); 
+    // 
+    //     $('.inlinesparkline_KGU_26_KGU_Team7').sparkline('html', {type: 'line', width: '170px', disableTooltips: 'true'}); 
+    // 
+    //     $('.inlinesparkline_KGU_26_KGU_Team9').sparkline('html', {type: 'line', width: '170px', disableTooltips: 'true'}); 
+    // 
+    //     $('.inlinesparkline_MJU_26_MJU1').sparkline('html', {type: 'line', width: '170px', disableTooltips: 'true'}); 
+    // 
+    //     $('.inlinesparkline_MJU_26_MJU3030').sparkline('html', {type: 'line', width: '170px', disableTooltips: 'true'}); 
+    // 
+    //     $('.inlinesparkline_MJU_26_MJU_QCTeam').sparkline('html', {type: 'line', width: '170px', disableTooltips: 'true'}); 
+    // 
+    //     $('.inlinesparkline_MJU_26_MJU_real02').sparkline('html', {type: 'line', width: '170px', disableTooltips: 'true'}); 
+    // 
+    //     $('.inlinesparkline_PNU_26_PNU_SaHj').sparkline('html', {type: 'line', width: '170px', disableTooltips: 'true'}); 
+    // 
+    //     $('.inlinesparkline_PNU_26_SMART_FACTORY').sparkline('html', {type: 'line', width: '170px', disableTooltips: 'true'}); 
+    // 
+    //     $('.inlinesparkline_UOU_26_UOU_KTE').sparkline('html', {type: 'line', width: '170px', disableTooltips: 'true'}); 
+    // 
+    //     $('.inlinesparkline_UOU_26_UOU_SMG').sparkline('html', {type: 'line', width: '170px', disableTooltips: 'true'}); 
+    // 
+    //     $('.inlinesparkline_DKU_26_DKU_HJD').sparkline('html', {type: 'line', width: '170px', disableTooltips: 'true'}); 
+    // 
+    //     $('.inlinesparkline_KGU_26_KGU_Team8').sparkline('html', {type: 'line', width: '170px', disableTooltips: 'true'}); 
+    // 
+    //     $('.inlinesparkline_DGU_26_DGU_PROF').sparkline('html', {type: 'line', width: '170px', disableTooltips: 'true'}); 
+    // 
+    //     $('.inlinesparkline_DKU_26_DKU_HIDDEN').sparkline('html', {type: 'line', width: '170px', disableTooltips: 'true'}); 
+    // 
+    //     $('.inlinesparkline_KGU_26_KGU_SCM7').sparkline('html', {type: 'line', width: '170px', disableTooltips: 'true'}); 
+    // 
+    //     $('.inlinesparkline_MJU_26_MJU_bnii333').sparkline('html', {type: 'line', width: '170px', disableTooltips: 'true'}); 
+    // 
+    //     $('.inlinesparkline_KGU_26_KGU_SCM11').sparkline('html', {type: 'line', width: '170px', disableTooltips: 'true'}); 
+    // 
+    //     $('.inlinesparkline_KGU_26_KGU_SCM15').sparkline('html', {type: 'line', width: '170px', disableTooltips: 'true'}); 
+    // 
+    //     $('.inlinesparkline_MJU_26_MJU_qwer0123').sparkline('html', {type: 'line', width: '170px', disableTooltips: 'true'}); 
+    // 
+    //     $('.inlinesparkline_DGU_26_DGU_DGUROX').sparkline('html', {type: 'line', width: '170px', disableTooltips: 'true'}); 
+    // 
+    //     $('.inlinesparkline_DKU_26_DKU_BAR').sparkline('html', {type: 'line', width: '170px', disableTooltips: 'true'}); 
+    // 
+    //     $('.inlinesparkline_KGU_26_KGU_SCM6').sparkline('html', {type: 'line', width: '170px', disableTooltips: 'true'}); 
+    // 
+    //     $('.inlinesparkline_UOU_26_UOU_LSW').sparkline('html', {type: 'line', width: '170px', disableTooltips: 'true'}); 
+    // 
+    //     $('.inlinesparkline_DGU_26_DGU_KSH').sparkline('html', {type: 'line', width: '170px', disableTooltips: 'true'}); 
+    // 
+    //     $('.inlinesparkline_KGU_26_KGU_SCM4').sparkline('html', {type: 'line', width: '170px', disableTooltips: 'true'}); 
+    // 
+    //     $('.inlinesparkline_DKU_26_DKU_GMG').sparkline('html', {type: 'line', width: '170px', disableTooltips: 'true'}); 
+    // 
+
+    // /* Sparklines can also take their values from the first argument 
+    // passed to the sparkline() function */
+    
+        var myvalues = [3335280];
+        $('.inlinesparkline_DAU_26_DAU_26dauteam9').sparkline(myvalues, {type: 'line', width: '170px', disableTooltips: 'true'});
+    
+        var myvalues = [3335280];
+        $('.inlinesparkline_DAU_26_DAU_26warigari').sparkline(myvalues, {type: 'line', width: '170px', disableTooltips: 'true'});
+    
+        var myvalues = [3335280];
+        $('.inlinesparkline_DAU_26_DAU_abc123').sparkline(myvalues, {type: 'line', width: '170px', disableTooltips: 'true'});
+    
+        var myvalues = [3335280];
+        $('.inlinesparkline_DAU_26_DAU_asd012').sparkline(myvalues, {type: 'line', width: '170px', disableTooltips: 'true'});
+    
+        var myvalues = [3335280];
+        $('.inlinesparkline_DAU_26_DAU_cktmdwns').sparkline(myvalues, {type: 'line', width: '170px', disableTooltips: 'true'});
+    
+        var myvalues = [3335280];
+        $('.inlinesparkline_DAU_26_DAU_fortis444').sparkline(myvalues, {type: 'line', width: '170px', disableTooltips: 'true'});
+    
+        var myvalues = [3335280];
+        $('.inlinesparkline_DAU_26_DAU_kawaiiiii').sparkline(myvalues, {type: 'line', width: '170px', disableTooltips: 'true'});
+    
+        var myvalues = [3335280];
+        $('.inlinesparkline_DAU_26_DAU_kmj444').sparkline(myvalues, {type: 'line', width: '170px', disableTooltips: 'true'});
+    
+        var myvalues = [3335280];
+        $('.inlinesparkline_DAU_26_DAU_mjsj1210').sparkline(myvalues, {type: 'line', width: '170px', disableTooltips: 'true'});
+    
+        var myvalues = [3335280];
+        $('.inlinesparkline_DAU_26_DAU_qwer147').sparkline(myvalues, {type: 'line', width: '170px', disableTooltips: 'true'});
+    
+        var myvalues = [3335280];
+        $('.inlinesparkline_DGU_26_DGU_APPLEPIE').sparkline(myvalues, {type: 'line', width: '170px', disableTooltips: 'true'});
+    
+        var myvalues = [3335280];
+        $('.inlinesparkline_DGU_26_DGU_AYJ').sparkline(myvalues, {type: 'line', width: '170px', disableTooltips: 'true'});
+    
+        var myvalues = [3335280];
+        $('.inlinesparkline_DGU_26_DGU_KHJ').sparkline(myvalues, {type: 'line', width: '170px', disableTooltips: 'true'});
+    
+        var myvalues = [3335280];
+        $('.inlinesparkline_DGU_26_DGU_LUCKY').sparkline(myvalues, {type: 'line', width: '170px', disableTooltips: 'true'});
+    
+        var myvalues = [3335280];
+        $('.inlinesparkline_DGU_26_DGU_YHW').sparkline(myvalues, {type: 'line', width: '170px', disableTooltips: 'true'});
+    
+        var myvalues = [3335280];
+        $('.inlinesparkline_DKU_26_DKU01').sparkline(myvalues, {type: 'line', width: '170px', disableTooltips: 'true'});
+    
+        var myvalues = [3335280];
+        $('.inlinesparkline_DKU_26_DKU_DNN').sparkline(myvalues, {type: 'line', width: '170px', disableTooltips: 'true'});
+    
+        var myvalues = [3335280];
+        $('.inlinesparkline_DKU_26_DKU_FIVE').sparkline(myvalues, {type: 'line', width: '170px', disableTooltips: 'true'});
+    
+        var myvalues = [3335280];
+        $('.inlinesparkline_DKU_26_DKU_HNYM').sparkline(myvalues, {type: 'line', width: '170px', disableTooltips: 'true'});
+    
+        var myvalues = [3335280];
+        $('.inlinesparkline_DKU_26_DKU_LIGHT').sparkline(myvalues, {type: 'line', width: '170px', disableTooltips: 'true'});
+    
+        var myvalues = [3335280];
+        $('.inlinesparkline_DKU_26_DKU_RM').sparkline(myvalues, {type: 'line', width: '170px', disableTooltips: 'true'});
+    
+        var myvalues = [3335280];
+        $('.inlinesparkline_DKU_26_DKU_SOLD').sparkline(myvalues, {type: 'line', width: '170px', disableTooltips: 'true'});
+    
+        var myvalues = [3335280];
+        $('.inlinesparkline_KGU_26_KGU_SCM1').sparkline(myvalues, {type: 'line', width: '170px', disableTooltips: 'true'});
+    
+        var myvalues = [3335280];
+        $('.inlinesparkline_KGU_26_KGU_SCM10').sparkline(myvalues, {type: 'line', width: '170px', disableTooltips: 'true'});
+    
+        var myvalues = [3335280];
+        $('.inlinesparkline_KGU_26_KGU_SCM12').sparkline(myvalues, {type: 'line', width: '170px', disableTooltips: 'true'});
+    
+        var myvalues = [3335280];
+        $('.inlinesparkline_KGU_26_KGU_SCM13').sparkline(myvalues, {type: 'line', width: '170px', disableTooltips: 'true'});
+    
+        var myvalues = [3335280];
+        $('.inlinesparkline_KGU_26_KGU_SCM14').sparkline(myvalues, {type: 'line', width: '170px', disableTooltips: 'true'});
+    
+        var myvalues = [3335280];
+        $('.inlinesparkline_KGU_26_KGU_SCM16').sparkline(myvalues, {type: 'line', width: '170px', disableTooltips: 'true'});
+    
+        var myvalues = [3335280];
+        $('.inlinesparkline_KGU_26_KGU_SCM2').sparkline(myvalues, {type: 'line', width: '170px', disableTooltips: 'true'});
+    
+        var myvalues = [3335280];
+        $('.inlinesparkline_KGU_26_KGU_SCM3').sparkline(myvalues, {type: 'line', width: '170px', disableTooltips: 'true'});
+    
+        var myvalues = [3335280];
+        $('.inlinesparkline_KGU_26_KGU_SCM5').sparkline(myvalues, {type: 'line', width: '170px', disableTooltips: 'true'});
+    
+        var myvalues = [3335280];
+        $('.inlinesparkline_KGU_26_KGU_SCM8').sparkline(myvalues, {type: 'line', width: '170px', disableTooltips: 'true'});
+    
+        var myvalues = [3335280];
+        $('.inlinesparkline_KGU_26_KGU_SCM9').sparkline(myvalues, {type: 'line', width: '170px', disableTooltips: 'true'});
+    
+        var myvalues = [3335280];
+        $('.inlinesparkline_KGU_26_KGU_Team1').sparkline(myvalues, {type: 'line', width: '170px', disableTooltips: 'true'});
+    
+        var myvalues = [3335280];
+        $('.inlinesparkline_KGU_26_KGU_Team10').sparkline(myvalues, {type: 'line', width: '170px', disableTooltips: 'true'});
+    
+        var myvalues = [3335280];
+        $('.inlinesparkline_KGU_26_KGU_Team11').sparkline(myvalues, {type: 'line', width: '170px', disableTooltips: 'true'});
+    
+        var myvalues = [3335280];
+        $('.inlinesparkline_KGU_26_KGU_Team12').sparkline(myvalues, {type: 'line', width: '170px', disableTooltips: 'true'});
+    
+        var myvalues = [3335280];
+        $('.inlinesparkline_KGU_26_KGU_Team13').sparkline(myvalues, {type: 'line', width: '170px', disableTooltips: 'true'});
+    
+        var myvalues = [3335280];
+        $('.inlinesparkline_KGU_26_KGU_Team14').sparkline(myvalues, {type: 'line', width: '170px', disableTooltips: 'true'});
+    
+        var myvalues = [3335280];
+        $('.inlinesparkline_KGU_26_KGU_Team15').sparkline(myvalues, {type: 'line', width: '170px', disableTooltips: 'true'});
+    
+        var myvalues = [3335280];
+        $('.inlinesparkline_KGU_26_KGU_Team2').sparkline(myvalues, {type: 'line', width: '170px', disableTooltips: 'true'});
+    
+        var myvalues = [3335280];
+        $('.inlinesparkline_KGU_26_KGU_Team3').sparkline(myvalues, {type: 'line', width: '170px', disableTooltips: 'true'});
+    
+        var myvalues = [3335280];
+        $('.inlinesparkline_KGU_26_KGU_Team4').sparkline(myvalues, {type: 'line', width: '170px', disableTooltips: 'true'});
+    
+        var myvalues = [3335280];
+        $('.inlinesparkline_KGU_26_KGU_Team5').sparkline(myvalues, {type: 'line', width: '170px', disableTooltips: 'true'});
+    
+        var myvalues = [3335280];
+        $('.inlinesparkline_KGU_26_KGU_Team6').sparkline(myvalues, {type: 'line', width: '170px', disableTooltips: 'true'});
+    
+        var myvalues = [3335280];
+        $('.inlinesparkline_KGU_26_KGU_Team7').sparkline(myvalues, {type: 'line', width: '170px', disableTooltips: 'true'});
+    
+        var myvalues = [3335280];
+        $('.inlinesparkline_KGU_26_KGU_Team9').sparkline(myvalues, {type: 'line', width: '170px', disableTooltips: 'true'});
+    
+        var myvalues = [3335280];
+        $('.inlinesparkline_MJU_26_MJU1').sparkline(myvalues, {type: 'line', width: '170px', disableTooltips: 'true'});
+    
+        var myvalues = [3335280];
+        $('.inlinesparkline_MJU_26_MJU3030').sparkline(myvalues, {type: 'line', width: '170px', disableTooltips: 'true'});
+    
+        var myvalues = [3335280];
+        $('.inlinesparkline_MJU_26_MJU_QCTeam').sparkline(myvalues, {type: 'line', width: '170px', disableTooltips: 'true'});
+    
+        var myvalues = [3335280];
+        $('.inlinesparkline_MJU_26_MJU_real02').sparkline(myvalues, {type: 'line', width: '170px', disableTooltips: 'true'});
+    
+        var myvalues = [3335280];
+        $('.inlinesparkline_PNU_26_PNU_SaHj').sparkline(myvalues, {type: 'line', width: '170px', disableTooltips: 'true'});
+    
+        var myvalues = [3335280];
+        $('.inlinesparkline_PNU_26_SMART_FACTORY').sparkline(myvalues, {type: 'line', width: '170px', disableTooltips: 'true'});
+    
+        var myvalues = [3335280];
+        $('.inlinesparkline_UOU_26_UOU_KTE').sparkline(myvalues, {type: 'line', width: '170px', disableTooltips: 'true'});
+    
+        var myvalues = [3335280];
+        $('.inlinesparkline_UOU_26_UOU_SMG').sparkline(myvalues, {type: 'line', width: '170px', disableTooltips: 'true'});
+    
+        var myvalues = [3109280];
+        $('.inlinesparkline_DKU_26_DKU_HJD').sparkline(myvalues, {type: 'line', width: '170px', disableTooltips: 'true'});
+    
+        var myvalues = [3109280];
+        $('.inlinesparkline_KGU_26_KGU_Team8').sparkline(myvalues, {type: 'line', width: '170px', disableTooltips: 'true'});
+    
+        var myvalues = [3022000];
+        $('.inlinesparkline_DGU_26_DGU_PROF').sparkline(myvalues, {type: 'line', width: '170px', disableTooltips: 'true'});
+    
+        var myvalues = [3022000];
+        $('.inlinesparkline_DKU_26_DKU_HIDDEN').sparkline(myvalues, {type: 'line', width: '170px', disableTooltips: 'true'});
+    
+        var myvalues = [3022000];
+        $('.inlinesparkline_KGU_26_KGU_SCM7').sparkline(myvalues, {type: 'line', width: '170px', disableTooltips: 'true'});
+    
+        var myvalues = [3022000];
+        $('.inlinesparkline_MJU_26_MJU_bnii333').sparkline(myvalues, {type: 'line', width: '170px', disableTooltips: 'true'});
+    
+        var myvalues = [2683280];
+        $('.inlinesparkline_KGU_26_KGU_SCM11').sparkline(myvalues, {type: 'line', width: '170px', disableTooltips: 'true'});
+    
+        var myvalues = [2414000];
+        $('.inlinesparkline_KGU_26_KGU_SCM15').sparkline(myvalues, {type: 'line', width: '170px', disableTooltips: 'true'});
+    
+        var myvalues = [2231280];
+        $('.inlinesparkline_MJU_26_MJU_qwer0123').sparkline(myvalues, {type: 'line', width: '170px', disableTooltips: 'true'});
+    
+        var myvalues = [794000];
+        $('.inlinesparkline_DGU_26_DGU_DGUROX').sparkline(myvalues, {type: 'line', width: '170px', disableTooltips: 'true'});
+    
+        var myvalues = [794000];
+        $('.inlinesparkline_DKU_26_DKU_BAR').sparkline(myvalues, {type: 'line', width: '170px', disableTooltips: 'true'});
+    
+        var myvalues = [594000];
+        $('.inlinesparkline_KGU_26_KGU_SCM6').sparkline(myvalues, {type: 'line', width: '170px', disableTooltips: 'true'});
+    
+        var myvalues = [594000];
+        $('.inlinesparkline_UOU_26_UOU_LSW').sparkline(myvalues, {type: 'line', width: '170px', disableTooltips: 'true'});
+    
+        var myvalues = [390000];
+        $('.inlinesparkline_DGU_26_DGU_KSH').sparkline(myvalues, {type: 'line', width: '170px', disableTooltips: 'true'});
+    
+        var myvalues = [390000];
+        $('.inlinesparkline_KGU_26_KGU_SCM4').sparkline(myvalues, {type: 'line', width: '170px', disableTooltips: 'true'});
+    
+        var myvalues = [-25514000];
+        $('.inlinesparkline_DKU_26_DKU_GMG').sparkline(myvalues, {type: 'line', width: '170px', disableTooltips: 'true'});
+    
+
+    // /* The second argument gives options such as chart type */
+    // $('.dynamicbar').sparkline(myvalues, {type: 'bar', barColor: 'green'} );
+
+    // /* Use 'html' instead of an array of values to pass options 
+    // to a sparkline with data in the tag */
+    // $('.inlinebar').sparkline('html', {type: 'bar', barColor: 'red'} );
+});
+</script>
+
+
+
+
+</div> <!-- main-content -->
+
+
+<footer class="bd-footer py-4 py-md-5 mt-5 bg-body-tertiary">
+    <div class="container py-4 py-md-1 px-4 px-md-3 text-body-secondary">
+      <div class="row">
+        <div class="col-lg-10 mb-10">
+          <a class="d-inline-flex align-items-center mb-2 text-body-emphasis text-decoration-none" 
+              href="/" aria-label="Bootstrap">            
+            <span class="fs-5"><b>IOG</b> <font size="2px">Industrial Optimization Ground</font></span>
+          </a>
+          <ul class="list-unstyled small">
+            <li class="mb-2">Designed and built with all the love in the world by IOG team with the help of our contributors.</li>
+            <!-- <li class="mb-2">Code licensed <a href="https://github.com/twbs/bootstrap/blob/main/LICENSE" target="_blank" rel="license noopener">MIT</a>, docs <a href="https://creativecommons.org/licenses/by/3.0/" target="_blank" rel="license noopener">CC BY 3.0</a>.</li> -->
+            <li class="mb-2">Currently v0.1.0 published on Sep. 9 2024.</li>
+          </ul>
+        </div>
+        <!-- <div class="col-6 col-lg-2 offset-lg-1 mb-3">
+          <h5>Links</h5>
+          <ul class="list-unstyled">
+            <li class="mb-2"><a href="/">Home</a></li>
+            <li class="mb-2"><a href="/docs/5.3/">Docs</a></li>
+            <li class="mb-2"><a href="/docs/5.3/examples/">Examples</a></li>
+            <li class="mb-2"><a href="https://icons.getbootstrap.com/">Icons</a></li>
+            <li class="mb-2"><a href="https://themes.getbootstrap.com/">Themes</a></li>
+            <li class="mb-2"><a href="https://blog.getbootstrap.com/">Blog</a></li>
+            <li class="mb-2"><a href="https://cottonbureau.com/people/bootstrap" target="_blank" rel="noopener">Swag Store</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-lg-2 mb-3">
+          <h5>Guides</h5>
+          <ul class="list-unstyled">
+            <li class="mb-2"><a href="/docs/5.3/getting-started/">Getting started</a></li>
+            <li class="mb-2"><a href="/docs/5.3/examples/starter-template/">Starter template</a></li>
+            <li class="mb-2"><a href="/docs/5.3/getting-started/webpack/">Webpack</a></li>
+            <li class="mb-2"><a href="/docs/5.3/getting-started/parcel/">Parcel</a></li>
+            <li class="mb-2"><a href="/docs/5.3/getting-started/vite/">Vite</a></li>
+          </ul>
+        </div> -->
+        
+        
+      </div>
+    </div>
+  </footer>
+
+</body>
+ 
+</html>

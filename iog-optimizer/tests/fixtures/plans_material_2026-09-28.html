@@ -1,0 +1,452 @@
+<html lang="en" xmlns:float="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>    
+   <!-- Required meta tags -->
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+   <!-- Bootstrap CSS -->
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+   <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
+   <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+   <script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>
+
+   <link rel="stylesheet" href="/static/my.css" type="text/css" />        
+
+   <link rel="shortcut icon" href="https://s3.amazonaws.com/django-blog/ico/favicon_v2.ico">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://omnipotent.net/jquery.sparkline/2.1.2/jquery.sparkline.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+<style>
+  .toggle-btn{
+    display:inline-flex; align-items:center; gap:.5rem;
+    padding:.6rem 1rem; border:1px solid #ccc; border-radius:999px;
+    cursor:pointer; user-select:none; font:14px/1.2 system-ui, sans-serif;
+    background:#f7f7f8; transition:background .2s, border-color .2s;
+  }
+  .toggle-btn .dot{
+    width:18px; height:18px; border-radius:50%; background:#bbb; transition:transform .2s, background .2s;
+  }
+  .toggle-btn.is-on{ background:#e8f7ee; border-color:#86d39a; }
+  .toggle-btn.is-on .dot{ background:#17a34a; transform:translateX(4px) scale(1.05); }
+  .state{ font-weight:600; min-width:2.5em; text-align:center; }
+</style>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-F840W1DZTS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-F840W1DZTS');
+</script>
+
+</head>
+
+<body>
+
+  <!-- <header class="navbar navbar-expand-lg bd-navbar sticky-top"> -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/R2602B">
+          <img  src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="">          
+          <b>IOG</b>          
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/R2602B">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="https://deluxe-barometer-751.notion.site/IOG-Notice-1fc2218381bb801da87bf1930641ec4e" target="_blank">Notice</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/stats/R2602B">Stats</a>
+            </li>   
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/rank_changes/R2602B">LeaderBoard</a>
+            </li>                          
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" target="_blank" href="/iog_rank">Ranks</a>
+            </li>                        
+            <li class="nav-item">
+              <a class="nav-link active" href="/show_configs">Configs</a>
+            </li>
+          
+            <li class="nav-item">
+
+            </li>  
+
+            </ul>         
+            
+        </div>
+
+        <div class="d-flex" role="search" style="margin-top: 0px;">
+
+          <span style="color: #fd7e14; margin-top: 3px; margin-right: 20px;" >
+            Sys Today(AUTO): 2026-09-28,
+            Current Round: <b>R2602B</b>
+          </span>          
+
+          
+            <span style="color: white; margin-top: 3px; margin-right: 20px" >Logged in as <b>DGU</b> / <b>26_DGU_KSH</b></span>
+            <button type="button" onclick="document.location.href='/login/out/R2602B'" class="btn btn-outline-danger btn-sm " >Logout</button>
+          
+        </div>           
+
+      </div>
+    </nav>
+  <!-- </header> -->
+<!--     
+    <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top" data-bs-theme="dark">
+
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/R2602B">
+          <img src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="">          
+          <b>IOG</b>
+        </a>
+          <div class="" style="width:500px">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                  <a class="nav-link" href="/R2602B">Home</a>
+                </li>
+                <li class="nav-item active">
+                  <a class="nav-link" href="/show_configs">Configs</a>
+                </li>
+                <li class="nav-item active">
+                  <a class="nav-link" href="https://deluxe-barometer-751.notion.site/IOG_Notice-67e7b177fadc4bcba35bb0490ff3772f?pvs=4" target="_blank">Notice</a>
+                </li>
+                <li class="nav-item active">
+                  <span style="margin-left: 20px; font-weight:100; color: #fd7e14" class="navbar-brand">Round: <b>R2602B</b></span>
+                </li>
+              </ul>
+          </div>            
+        </div>
+      </nav> -->
+
+  <!-- </header> -->
+  
+   
+
+
+  
+
+
+    </header>
+
+
+
+
+    
+    <div class="container-sm">
+
+<!--
+https://doong-e.tistory.com/50
+-->
+
+<script type="text/javascript">
+    $( document ).ready( function() {
+        $(".tab-ul li:nth-child("+tab_idx+")").addClass("selected")
+    });   
+</script>
+
+    <p>
+        <h4 style="margin-top: 35px; margin-bottom: 35px;">Business Dashboard of DGU / 26_DGU_KSH</h4>
+    </p>
+
+    <ul class="tab-ul">
+        <li class="tab-ul" onclick='document.location.href="/plans_demand/board/DGU/26_DGU_KSH/R2602B"'>Demand</li>
+        <li class="tab-ul" onclick='document.location.href="/plans_material/board/DGU/26_DGU_KSH/R2602B"''>Material</li>        
+        <li class="tab-ul" onclick='document.location.href="/plans_production/board/DGU/26_DGU_KSH/R2602B"''>Production</li>
+        <li class="tab-ul" onclick='document.location.href="/plans_sales/board/DGU/26_DGU_KSH/R2602B"''>Sales</li>        
+        <li class="tab-ul" onclick='document.location.href="/plans_ledger/board/DGU/26_DGU_KSH/R2602B"''>Ledger</li>        
+     </ul>    
+<script type="text/javascript">
+    tab_idx = 2
+</script>
+
+        
+    <p>
+        <a href="/plans_material/frm/DGU/26_DGU_KSH/R2602B">Create material plans</a>        
+    </p>        
+
+    <h4>Material inventory in/out summary</h4>
+    <table class="table" style="text-align:center;">
+        <thead class="table-dark">
+        <tr>
+            <th>Material type</th>
+            <th>Total in qty</th>
+            <th>Total out qty</th>
+            <th>Current level</th>
+        </tr>
+        </thead>
+        
+        <tbody>
+            <tr>
+                <td>M1</td>                    
+                <td>300,000</td>
+                <td>0</td>
+                <td>300,000</td>
+            </tr>
+        </tbody>
+        
+        <tbody>
+            <tr>
+                <td>M2</td>                    
+                <td>3,000,000</td>
+                <td>152,000</td>
+                <td>2,848,000</td>
+            </tr>
+        </tbody>
+        
+        <tbody>
+            <tr>
+                <td>M3</td>                    
+                <td>500,000</td>
+                <td>76,000</td>
+                <td>424,000</td>
+            </tr>
+        </tbody>
+        
+    </table>
+
+    <h4>Material inventory levels</h4>
+    <div id="chart" class="chart"></div>
+
+    <h4>Material plans</h4>
+
+
+
+    <table class="table" style="text-align:center;">
+        <thead class="table-dark">
+        <tr>
+            <th>Material type</th>
+            <th>Order date</th>
+            <th>Scheduled arrival date</th>
+            <th>Order type</th>
+            <th>Qty</th>
+            <th>Delivered date</th>
+            <th>In type</th>
+            <th>Updated</th>
+        </tr>
+        </thead>
+        
+        <tbody>
+            <tr>
+                <td>M1</td>                    
+                <td>2026-09-28</td>
+                <td>2026-10-01</td>
+                <td>NORMAL</td>
+                <td>600,000</td>
+                <td>None</td>
+                <td>MANUAL</td>
+                <td>2026-09-28 12:18:03</td>
+            </tr>
+        </tbody>
+        
+        <tbody>
+            <tr>
+                <td>M2</td>                    
+                <td>2026-09-28</td>
+                <td>2026-10-06</td>
+                <td>NORMAL</td>
+                <td>2,400,000</td>
+                <td>None</td>
+                <td>MANUAL</td>
+                <td>2026-09-28 12:18:03</td>
+            </tr>
+        </tbody>
+        
+        <tbody>
+            <tr>
+                <td>M2</td>                    
+                <td>2026-09-28</td>
+                <td>2026-09-30</td>
+                <td>URGENT</td>
+                <td>750,000</td>
+                <td>None</td>
+                <td>MANUAL</td>
+                <td>2026-09-28 12:18:03</td>
+            </tr>
+        </tbody>
+        
+        <tbody>
+            <tr>
+                <td>M1</td>                    
+                <td>2026-09-27</td>
+                <td>2026-09-30</td>
+                <td>NORMAL</td>
+                <td>300,000</td>
+                <td>None</td>
+                <td>AUTO</td>
+                <td>2026-09-27 20:05:21</td>
+            </tr>
+        </tbody>
+        
+        <tbody>
+            <tr>
+                <td>M3</td>                    
+                <td>2026-09-27</td>
+                <td>2026-10-02</td>
+                <td>NORMAL</td>
+                <td>500,000</td>
+                <td>None</td>
+                <td>AUTO</td>
+                <td>2026-09-27 20:05:21</td>
+            </tr>
+        </tbody>
+        
+    </table>
+
+
+    <h4>Material inventory</h4>
+    <table class="table" style="text-align:center;">
+        <thead class="table-dark">
+        <tr>
+            <th>Material type</th>
+            <th>Order type</th>
+            <th>Product</th>
+            <th>In date</th>
+            <th>In qty</th>
+            <th>Out date</th>
+            <th>Out qty</th>
+            <th>Updated</th>
+        </tr>
+        </thead>
+        
+        <tbody>
+            <tr>
+                <td>M2</td>                    
+                <td></td>    
+                <td>P2</td>                  
+                <td></td>                    
+                <td></td>
+                <td>2026-09-27</td>                    
+                <td>152,000</td>
+                <td>2026-09-27 20:05:26</td>
+            </tr>
+        </tbody>
+        
+        <tbody>
+            <tr>
+                <td>M3</td>                    
+                <td></td>    
+                <td>P2</td>                  
+                <td></td>                    
+                <td></td>
+                <td>2026-09-27</td>                    
+                <td>76,000</td>
+                <td>2026-09-27 20:05:26</td>
+            </tr>
+        </tbody>
+        
+        <tbody>
+            <tr>
+                <td>M1</td>                    
+                <td>NORMAL</td>    
+                <td></td>                  
+                <td>2026-09-26</td>                    
+                <td>300,000</td>
+                <td></td>                    
+                <td></td>
+                <td>2026-09-10 20:21:15</td>
+            </tr>
+        </tbody>
+        
+        <tbody>
+            <tr>
+                <td>M2</td>                    
+                <td>NORMAL</td>    
+                <td></td>                  
+                <td>2026-09-26</td>                    
+                <td>3,000,000</td>
+                <td></td>                    
+                <td></td>
+                <td>2026-09-10 20:21:15</td>
+            </tr>
+        </tbody>
+        
+        <tbody>
+            <tr>
+                <td>M3</td>                    
+                <td>NORMAL</td>    
+                <td></td>                  
+                <td>2026-09-26</td>                    
+                <td>500,000</td>
+                <td></td>                    
+                <td></td>
+                <td>2026-09-10 20:21:15</td>
+            </tr>
+        </tbody>
+        
+    </table>
+    
+
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script type="text/javascript">
+    var graphs = {"data": [{"marker": {"color": "#BDC100"}, "name": "M1", "x": ["2026-09-26", "2026-09-27", "2026-09-28"], "y": [300000, 300000, 300000.0], "type": "bar"}, {"marker": {"color": "#007139"}, "name": "M2", "x": ["2026-09-26", "2026-09-27", "2026-09-28"], "y": [3000000, 2848000, 2848000.0], "type": "bar"}, {"marker": {"color": "#1981BD"}, "name": "M3", "x": ["2026-09-26", "2026-09-27", "2026-09-28"], "y": [500000, 424000, 424000.0], "type": "bar"}], "layout": {"template": {"data": {"histogram2dcontour": [{"type": "histogram2dcontour", "colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]]}], "choropleth": [{"type": "choropleth", "colorbar": {"outlinewidth": 0, "ticks": ""}}], "histogram2d": [{"type": "histogram2d", "colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]]}], "heatmap": [{"type": "heatmap", "colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]]}], "heatmapgl": [{"type": "heatmapgl", "colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]]}], "contourcarpet": [{"type": "contourcarpet", "colorbar": {"outlinewidth": 0, "ticks": ""}}], "contour": [{"type": "contour", "colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]]}], "surface": [{"type": "surface", "colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]]}], "mesh3d": [{"type": "mesh3d", "colorbar": {"outlinewidth": 0, "ticks": ""}}], "scatter": [{"fillpattern": {"fillmode": "overlay", "size": 10, "solidity": 0.2}, "type": "scatter"}], "parcoords": [{"type": "parcoords", "line": {"colorbar": {"outlinewidth": 0, "ticks": ""}}}], "scatterpolargl": [{"type": "scatterpolargl", "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}}], "bar": [{"error_x": {"color": "#2a3f5f"}, "error_y": {"color": "#2a3f5f"}, "marker": {"line": {"color": "#E5ECF6", "width": 0.5}, "pattern": {"fillmode": "overlay", "size": 10, "solidity": 0.2}}, "type": "bar"}], "scattergeo": [{"type": "scattergeo", "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}}], "scatterpolar": [{"type": "scatterpolar", "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}}], "histogram": [{"marker": {"pattern": {"fillmode": "overlay", "size": 10, "solidity": 0.2}}, "type": "histogram"}], "scattergl": [{"type": "scattergl", "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}}], "scatter3d": [{"type": "scatter3d", "line": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}}], "scattermapbox": [{"type": "scattermapbox", "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}}], "scatterternary": [{"type": "scatterternary", "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}}], "scattercarpet": [{"type": "scattercarpet", "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}}], "carpet": [{"aaxis": {"endlinecolor": "#2a3f5f", "gridcolor": "white", "linecolor": "white", "minorgridcolor": "white", "startlinecolor": "#2a3f5f"}, "baxis": {"endlinecolor": "#2a3f5f", "gridcolor": "white", "linecolor": "white", "minorgridcolor": "white", "startlinecolor": "#2a3f5f"}, "type": "carpet"}], "table": [{"cells": {"fill": {"color": "#EBF0F8"}, "line": {"color": "white"}}, "header": {"fill": {"color": "#C8D4E3"}, "line": {"color": "white"}}, "type": "table"}], "barpolar": [{"marker": {"line": {"color": "#E5ECF6", "width": 0.5}, "pattern": {"fillmode": "overlay", "size": 10, "solidity": 0.2}}, "type": "barpolar"}], "pie": [{"automargin": true, "type": "pie"}]}, "layout": {"autotypenumbers": "strict", "colorway": ["#636efa", "#EF553B", "#00cc96", "#ab63fa", "#FFA15A", "#19d3f3", "#FF6692", "#B6E880", "#FF97FF", "#FECB52"], "font": {"color": "#2a3f5f"}, "hovermode": "closest", "hoverlabel": {"align": "left"}, "paper_bgcolor": "white", "plot_bgcolor": "#E5ECF6", "polar": {"bgcolor": "#E5ECF6", "angularaxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}, "radialaxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}}, "ternary": {"bgcolor": "#E5ECF6", "aaxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}, "baxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}, "caxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}}, "coloraxis": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "colorscale": {"sequential": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "sequentialminus": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "diverging": [[0, "#8e0152"], [0.1, "#c51b7d"], [0.2, "#de77ae"], [0.3, "#f1b6da"], [0.4, "#fde0ef"], [0.5, "#f7f7f7"], [0.6, "#e6f5d0"], [0.7, "#b8e186"], [0.8, "#7fbc41"], [0.9, "#4d9221"], [1, "#276419"]]}, "xaxis": {"gridcolor": "white", "linecolor": "white", "ticks": "", "title": {"standoff": 15}, "zerolinecolor": "white", "automargin": true, "zerolinewidth": 2}, "yaxis": {"gridcolor": "white", "linecolor": "white", "ticks": "", "title": {"standoff": 15}, "zerolinecolor": "white", "automargin": true, "zerolinewidth": 2}, "scene": {"xaxis": {"backgroundcolor": "#E5ECF6", "gridcolor": "white", "linecolor": "white", "showbackground": true, "ticks": "", "zerolinecolor": "white", "gridwidth": 2}, "yaxis": {"backgroundcolor": "#E5ECF6", "gridcolor": "white", "linecolor": "white", "showbackground": true, "ticks": "", "zerolinecolor": "white", "gridwidth": 2}, "zaxis": {"backgroundcolor": "#E5ECF6", "gridcolor": "white", "linecolor": "white", "showbackground": true, "ticks": "", "zerolinecolor": "white", "gridwidth": 2}}, "shapedefaults": {"line": {"color": "#2a3f5f"}}, "annotationdefaults": {"arrowcolor": "#2a3f5f", "arrowhead": 0, "arrowwidth": 1}, "geo": {"bgcolor": "white", "landcolor": "#E5ECF6", "subunitcolor": "white", "showland": true, "showlakes": true, "lakecolor": "white"}, "title": {"x": 0.05}, "mapbox": {"style": "light"}}}, "xaxis": {"tickangle": -45}, "margin": {"l": 0, "r": 0, "t": 0, "b": 0}, "barmode": "group", "height": 250, "legend": {"yanchor": "top", "y": 0.95, "xanchor": "left", "x": 0.01}}};
+    Plotly.plot('chart',graphs,{});       
+    
+</script>
+
+
+
+
+</div> <!-- main-content -->
+
+
+<footer class="bd-footer py-4 py-md-5 mt-5 bg-body-tertiary">
+    <div class="container py-4 py-md-1 px-4 px-md-3 text-body-secondary">
+      <div class="row">
+        <div class="col-lg-10 mb-10">
+          <a class="d-inline-flex align-items-center mb-2 text-body-emphasis text-decoration-none" 
+              href="/" aria-label="Bootstrap">            
+            <span class="fs-5"><b>IOG</b> <font size="2px">Industrial Optimization Ground</font></span>
+          </a>
+          <ul class="list-unstyled small">
+            <li class="mb-2">Designed and built with all the love in the world by IOG team with the help of our contributors.</li>
+            <!-- <li class="mb-2">Code licensed <a href="https://github.com/twbs/bootstrap/blob/main/LICENSE" target="_blank" rel="license noopener">MIT</a>, docs <a href="https://creativecommons.org/licenses/by/3.0/" target="_blank" rel="license noopener">CC BY 3.0</a>.</li> -->
+            <li class="mb-2">Currently v0.1.0 published on Sep. 9 2024.</li>
+          </ul>
+        </div>
+        <!-- <div class="col-6 col-lg-2 offset-lg-1 mb-3">
+          <h5>Links</h5>
+          <ul class="list-unstyled">
+            <li class="mb-2"><a href="/">Home</a></li>
+            <li class="mb-2"><a href="/docs/5.3/">Docs</a></li>
+            <li class="mb-2"><a href="/docs/5.3/examples/">Examples</a></li>
+            <li class="mb-2"><a href="https://icons.getbootstrap.com/">Icons</a></li>
+            <li class="mb-2"><a href="https://themes.getbootstrap.com/">Themes</a></li>
+            <li class="mb-2"><a href="https://blog.getbootstrap.com/">Blog</a></li>
+            <li class="mb-2"><a href="https://cottonbureau.com/people/bootstrap" target="_blank" rel="noopener">Swag Store</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-lg-2 mb-3">
+          <h5>Guides</h5>
+          <ul class="list-unstyled">
+            <li class="mb-2"><a href="/docs/5.3/getting-started/">Getting started</a></li>
+            <li class="mb-2"><a href="/docs/5.3/examples/starter-template/">Starter template</a></li>
+            <li class="mb-2"><a href="/docs/5.3/getting-started/webpack/">Webpack</a></li>
+            <li class="mb-2"><a href="/docs/5.3/getting-started/parcel/">Parcel</a></li>
+            <li class="mb-2"><a href="/docs/5.3/getting-started/vite/">Vite</a></li>
+          </ul>
+        </div> -->
+        
+        
+      </div>
+    </div>
+  </footer>
+
+</body>
+ 
+</html>

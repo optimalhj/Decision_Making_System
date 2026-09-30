@@ -1,0 +1,14 @@
+# 비밀번호·인증키 파일은 절대 커밋하지 않는다
+*password*
+*passwd*
+*secret*
+*credential*
+*인증*
+*비번*
+*아이디*
+.env
+# 생성물
+outputs/
+__pycache__/
+*.pyc
+.pytest_cache/
