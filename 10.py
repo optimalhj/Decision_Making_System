@@ -91,11 +91,8 @@ def decide_lineup(my_team: pd.DataFrame, opponent_team: pd.DataFrame,
     # ------------------------------------------------------------------
     # 0) 자주 쓰는 형태로 미리 캐싱 (매 적합도 평가마다 DataFrame 필터링 금지!)
     # ------------------------------------------------------------------
-
     batters = my_team[my_team["role"] == "타자"]
-
     pitchers = my_team[my_team["role"] == "투수"]
-
     batter_stat = {row["pCode"]: row for _, row in batters.iterrows()}       # pCode -> Series
     pitcher_stat = {row["pCode"]: row for _, row in pitchers.iterrows()}
 
