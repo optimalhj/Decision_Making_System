@@ -1,218 +1,567 @@
-"""
-student_algorithm_template.py
-------------------------------
-"너, 내 구단주가 돼라" 과제 제출 템플릿.
-
-이 파일을 복사해서 본인 학번_이름.py 로 저장한 뒤, decide_lineup() 함수 안을
-Tabu Search / PSO / GA 중 하나(또는 조합)로 구현하세요.
-
-===============================================================
-지켜야 하는 것
-===============================================================
-1. 함수 이름/인자 순서를 절대 바꾸지 마세요:
-   decide_lineup(my_team, opponent_team, matchups, context, rng)
-2. 난수는 반드시 인자로 받은 rng(random.Random 인스턴스)만 사용하세요.
-   전역 random 모듈이나 random.seed()를 쓰면 여러분 알고리즘 내부의 재현성에는
-   문제가 없지만, 시뮬레이션 엔진 결과에는 어차피 영향을 주지 못합니다 (완전히
-   분리된 RNG). 대신 채점/디버깅 시 여러분 알고리즘의 동작을 재현하려면 이 rng를
-   써야 합니다.
-3. 반환값은 {"defense": [10명], "offense": [9명]} 형태의 dict입니다.
-   pCode(정수) 리스트를 쓰면 되고, my_team["pCode"] 컬럼 값을 그대로 쓰면 됩니다.
-   - defense: 10명, 순서 고정 [내야수x4, 외야수x3, 포수, DH, 투수] (마지막이 투수)
-   - offense: 9명, 투수 제외, 타순 순서. defense의 앞 9명을 재배열한 것이어야 합니다.
-4. 이 함수는 이닝마다 팀당 한 번 호출됩니다 (한 번에 공수 명단을 모두 정함).
-   제한시간(기본 10초)을 넘기면 직전 이닝 명단으로 자동 대체합니다. 프로세스 시작·import
-   비용을 포함하므로 실제 환경에서 반복 수를 조정하세요.
-5. 적합도 함수 안에서 매번 DataFrame을 필터링하지 말고, 함수 시작 시 딕셔너리로
-   한 번 캐싱해서 쓰세요 (아래 예시 참고).
-6. my_team의 AVG/OPS/ERA는 원본 값 그대로라 표본이 적은 선수는 왜곡되어 보입니다
-   (예: 1타수 1안타 → OPS 4.000). PA_eff/TBF_eff로 표본크기를 확인해서 리그 평균 쪽으로
-   당겨 쓰세요 (아래 batter_score/pitcher_score 예시 참고).
-7. matchups(맞대결 표)에는 상대 팀 투수 **전원**과 우리 타자들의 기록이 들어옵니다. 그래도
-   **이번 이닝에 그중 누가 나올지는 알 수 없습니다.** 한 명을 확정으로 놓고 최적화하지 말고,
-   등판 후보 전원에 대한 기댓값으로 평가하세요 (아래 "맞대결 표" 절과 0-2) 캐싱 예시 참고).
-
-자세한 인자/반환값 스펙은 kbo_sim/student_api.py 모듈 docstring에 전부 설명되어 있습니다.
-
-이닝 선발 규칙: 이닝마다 팀당 한 번 호출되어 그 이닝의 공격 타순과 수비 배치를 함께 정합니다.
-공수교대 때 선수·투수 교체는 없으며, 다음 이닝 시작에 다시 선발합니다. context의
-opp_pitcher_pcode/opp_catcher_pcode는 상대의 '직전 이닝' 수비 기준이며 1회엔 None입니다.
-
-===============================================================
-맞대결 표(matchups) — 전체가 들어오지만, 이번 이닝 상대 투수는 여전히 모른다
-===============================================================
-- matchups 에는 "우리 팀 전체 투수 x 상대 팀 전체 타자" 와 "상대 팀 전체 투수 x 우리 팀 전체 타자"
-  조합이 **모두** 들어 있습니다. 상대 선발뿐 아니라 불펜 투수까지 조회 대상이고, **1회에도
-  비어 있지 않습니다.** 단 통산 맞대결이 한 번도 없는 조합은 행 자체가 없어서, 실제로 행이
-  붙는 상대 투수는 로스터의 평균 76%(대진에 따라 59~90%)입니다. 즉 등판 후보 중 일부는
-  맞대결 정보가 아예 없으니, 그런 투수는 개인 시즌기록으로만 평가해야 합니다.
-- 그렇다고 이번 이닝 상대 투수를 알 수 있는 건 아닙니다. 양 팀이 이닝 시작에 **동시에** 명단을
-  정하므로 **이번 이닝에 상대가 누구를 올릴지는 끝까지 알 수 없습니다.**
-  context["opp_pitcher_pcode"] 는 '상대의 직전 이닝 투수'라는 **힌트**일 뿐이고(1회엔 None),
-  이번 이닝에도 그 투수가 나온다는 보장은 없습니다. 확정 정보로 오해하지 마세요.
-- 그래서 투수 한 명에 맞춰 타순을 짜기보다, **등판 후보(상대 투수 전원)에 대한 기댓값**으로
-  평가하는 쪽이 낫습니다. 예: 우리 타자별로 상대 투수 전원과의 기록을 모아 PA(타석수) 가중평균을
-  내고, 표본이 작으면 리그 평균 쪽으로 당깁니다(shrinkage). 상대 투수들의 체력(health_pct)과
-  투구수(pitch_count)는 opponent_team 에 전부 보이므로, 지친 투수의 가중치를 낮추는 식으로
-  '등판 확률'을 추정해 가중치에 반영하는 것도 좋은 방향입니다.
-- 맞대결 표본은 대부분 아주 작습니다(한 조합에 1~10타석). 한 줄만 보고 판단하면 안 됩니다.
-"""
+import math
 import random
+import time
 
 import pandas as pd
 
 # ------------------------------------------------------------------------
-# 표본이 적은 선수 함정 주의: 예를 들어 1타수 1안타면 원본 AVG=1.000, OPS=4.000으로 보입니다.
-# 시뮬레이션 엔진은 내부적으로 표본크기(PA/TBF)에 비례해 리그 평균 쪽으로 당겨서(shrinkage)
-# 실제 확률을 계산하므로 그런 선수가 실제로 4할 타자처럼 행동하지는 않습니다 — 하지만 my_team에
-# 노출되는 AVG/OPS/ERA 컬럼은 원본 그대로(축소 적용 전)입니다. 아래 batter_score/pitcher_score는
-# PA_eff/TBF_eff(엔진이 계산한 유효 표본수)를 이용해 여러분 스코어링에도 같은 보정을 적용하는
-# 예시입니다. 이 보정이 없으면 "1타수 1안타" 선수를 4할 타자로 착각해 주전으로 기용하는 실수를
-# 하게 됩니다. 자세한 설명은 프로그램_매뉴얼.md 참고.
+# 타석 결과 확률은 엔진(kbo_sim/data_pipeline.py, probability.py)과 같은 방식으로 계산한다.
+#   1) 타자/투수의 사건별 기록(볼넷·사구·삼진·1루타·2루타·3루타·홈런·아웃)을 리그 평균 쪽으로 축소
+#      (타자 60타석, 투수 80타자 분량의 리그평균을 섞음 — 표본이 적은 선수의 극단값 방지)
+#   2) log5: 타자율 × 투수율 / 리그율
+#   3) 맞대결 기록이 있으면 PA/(PA+15) 비중으로 섞음
+#   4) 체력 배수: 출루 사건 ×f, 아웃 사건 ×1/f 후 재정규화
+# ERA/OPS 같은 요약 지표는 엔진이 쓰지 않는 값이라 잡음이 크므로 쓰지 않는다.
 # ------------------------------------------------------------------------
-LEAGUE_AVG_OPS = 0.750
-LEAGUE_AVG_ERA = 4.80
-BATTER_SHRINK_PA = 30.0    # 이 값이 클수록 표본이 적은 선수를 더 강하게 리그평균으로 당김
-PITCHER_SHRINK_TBF = 40.0
-MATCHUP_SHRINK_PA = 40.0   # 맞대결 표본(PA 합)이 이보다 작으면 맞대결 성적을 그만큼 덜 믿는다
-MATCHUP_WEIGHT = 0.30      # 개인 시즌성적 대비 맞대결 기댓값을 얼마나 섞을지 (0=무시, 1=맞대결만)
-HINT_PITCHER_WEIGHT = 0.10  # '직전 이닝 투수' 힌트에 줄 최대 가중치. 확정이 아니므로 작게 유지
+EVENTS = ("BB", "HBP", "SO", "1B", "2B", "3B", "HR", "OUT")
+ON_BASE = ("BB", "HBP", "1B", "2B", "3B", "HR")
+BASES = {"1B": 1, "2B": 2, "3B": 3, "HR": 4}
+ENGINE_BATTER_SHRINK = 60.0
+ENGINE_PITCHER_SHRINK = 80.0
+ENGINE_MATCHUP_SHRINK = 15.0
+# 사건별 득점 가치(아웃 대비 선형가중치). RV_SCALE로 '이닝 안에서의 기여' 크기로 맞춘다
+RUN_WEIGHTS = {"BB": 0.58, "HBP": 0.60, "1B": 0.74, "2B": 1.04, "3B": 1.31, "HR": 1.67}
+RV_SCALE = 0.45
+
+# ---- 상대 투수 예측 ----
+PRED_CONFIDENCE = 0.60     # 1회: 예측한 선발에게 줄 확률. 나머지는 다른 투수들에게 나눠 준다
+# 2회 이후: 직전 투수의 (누적 투구수 / 목표 투구수) 구간별로 "이번 이닝도 던질" 확률
+STAY_PROB_BY_LOAD = ((0.5, 0.75), (0.8, 0.55), (1.0, 0.30), (float("inf"), 0.15))
+
+# ---- 체력 모델 (엔진 kbo_sim/fatigue.py 의 시그모이드를 이 파일 안에서 그대로 재현) ----
+BATTER_STEEPNESS = 16.0
+BATTER_MAX_DROP = 0.63
+PITCHER_STEEPNESS = 6.5
+PITCHER_MAX_DROP = 0.73
+FATIGUE_EXP = 0.86         # 확률 배수 = (타자배수/투수배수)^0.86
+FATIGUE_CAP = 1.45         # 확률 배수 상한
+FIELDING_SWINGS = 4.0      # 수비 하프이닝 1번 = 스윙 3~5회 환산 (평균 4)
+SWINGS_PER_PA = 1.55       # 타석 1번에 소모하는 평균 스윙 수
+PITCHES_PER_INNING = 16.0  # 투수가 한 이닝에 던지는 평균 투구수
+# 이닝 중 투구수 지점과 가중치 (긴 이닝일수록 뒤쪽 지점까지 간다)
+PITCH_SAMPLE_POINTS = ((2, 1.0), (6, 1.0), (10, 1.0), (14, 0.9), (18, 0.6), (24, 0.3))
+PA_PER_BATTER_INNING = 0.48  # 타자 1명이 한 이닝에 평균적으로 서는 타석 수
+
+# ---- 목적함수 가중치 (단위: 대략 '득점') ----
+CONNECT_W = 0.25           # 앞 타자 출루 × 뒤 타자 루타 연결 효과
+ERR_COST = 0.02            # 수비수 1명이 한 이닝에 실책으로 내주는 기대 실점(기준값)
+MISMATCH_MULT = 1.5        # 포지션 불일치 시 실책 배수 (엔진 규칙)
+CATCHER_MISMATCH_COST = 0.005  # 포수 자리는 타구 처리를 안 하지만, 혹시 몰라 아주 작게만 감점
+GAMMA_BATTER = 2.0         # 지금 체력을 쓰면 이후 이닝에 잃는 타자 가치(대체 선수 대비)의 반영 비율
+REPLACEMENT_PCT = 0.5      # 우리 타자 중 이 분위수의 타격 가치를 '대체 선수 수준'으로 본다
+GAMMA_PITCHER = 0.3        # 같은 개념의 투수 버전
+
+# ---- Tabu Search 파라미터 ----
+TS_MAX_ITERS = 300
+TS_NEIGHBORS = 40          # 반복마다 평가하는 이웃 후보 수 (candidate list)
+TS_TENURE = 7              # 타부 기간(반복 수)
+TS_STAGNATION = 40         # 최고해가 이만큼 개선되지 않으면 다변화(재시작)
+TS_PERTURB_MOVES = 4       # 다변화할 때 최고해에 가하는 무작위 이동 수
+TS_TIME_LIMIT_SEC = 5.0    # 안전장치. 보통은 반복 수 제한으로 먼저 끝난다
+
+SLOT_GROUPS = ("내야수", "내야수", "내야수", "내야수",
+               "외야수", "외야수", "외야수", "포수", "DH")
 
 
 def _num(v, default):
     """v가 없거나(None) 결측(NaN)이면 default, 0.0처럼 유효한 실측값이면 그대로 반환한다.
     `row.get(col) or default` 식으로 쓰면 진짜 0인 값(OPS 0.000, ERA 0.00, health_pct 0 등)까지
     "없는 값" 취급해 default로 바꿔버리는 버그가 생긴다 (파이썬에서 0은 falsy이기 때문)."""
-    return default if pd.isna(v) else v
+    return default if v is None or pd.isna(v) else v
+
+
+def _event_counts(row, is_pitcher):
+    """엔진과 같은 방식으로 사건별 횟수와 분모(타자 PA / 투수 TBF)를 만든다."""
+    h = _num(row.get("H"), 0.0)
+    d = _num(row.get("2B"), 0.0)
+    t = _num(row.get("3B"), 0.0)
+    hr = _num(row.get("HR"), 0.0)
+    bb = _num(row.get("BB"), 0.0)
+    hbp = _num(row.get("HBP"), 0.0)
+    so = _num(row.get("SO"), 0.0)
+    if is_pitcher:
+        n = _num(row.get("TBF"), 0.0)
+    else:
+        n = _num(row.get("PA"), 0.0)
+        if n <= 0:
+            n = (_num(row.get("AB"), 0.0) + bb + hbp
+                 + _num(row.get("SF"), 0.0) + _num(row.get("SAC"), 0.0))
+    counts = {"BB": bb, "HBP": hbp, "SO": so, "1B": max(h - d - t - hr, 0.0), "2B": d, "3B": t,
+              "HR": hr, "OUT": max(n - bb - hbp - h - so, 0.0)}
+    return counts, n
+
+
+def _normalize(rate):
+    s = sum(rate.values())
+    return {ev: v / s for ev, v in rate.items()} if s > 0 else {ev: 1.0 / len(rate) for ev in rate}
+
+
+def _shrunk_rate(counts, n, k, league):
+    """counts/n 을 리그평균 k타석 분량과 섞는다 (엔진 _rate_dict와 같음)."""
+    return _normalize({ev: (counts[ev] + league[ev] * k) / (n + k) for ev in EVENTS})
+
+
+def _log5(bat, pit, league):
+    return _normalize({ev: max(bat[ev] * pit[ev] / max(league[ev], 1e-6), 1e-9) for ev in EVENTS})
+
+
+def _blend_matchup(rate, row):
+    """맞대결 기록이 있으면 PA/(PA+15) 비중으로 섞는다 (엔진 blend_with_matchup과 같음)."""
+    if row is None:
+        return rate
+    counts, pa = _event_counts(row, is_pitcher=False)
+    if pa <= 0:
+        return rate
+    w = pa / (pa + ENGINE_MATCHUP_SHRINK)
+    return _normalize({ev: w * counts[ev] / pa + (1 - w) * rate[ev] for ev in EVENTS})
+
+
+def _fatigued(rate, f):
+    """출루 사건 ×f, 아웃 사건 ×1/f 후 재정규화 (엔진 apply_fatigue_and_jitter와 같음, 잡음 제외)."""
+    return _normalize({ev: p * (f if ev in ON_BASE else 1.0 / f) for ev, p in rate.items()})
+
+
+def _summary(rate):
+    """사건 확률 → (출루율, 타석당 루타, 타석당 득점 가치)."""
+    obp = sum(rate[ev] for ev in ON_BASE)
+    tb = sum(rate[ev] * n for ev, n in BASES.items())
+    rv = RV_SCALE * sum(rate[ev] * w for ev, w in RUN_WEIGHTS.items())
+    return obp, tb, rv
+
+
+def _inning_runs(stats):
+    """[(출루율, 루타, 득점가치), ...] 순서로 타석에 설 때 3아웃까지의 기대 득점 근사."""
+    probs = [1.0, 0.0, 0.0]
+    total = 0.0
+    prev_obp = None
+    n = len(stats)
+    for t in range(12):
+        obp, tb, rv = stats[t % n]
+        reach = probs[0] + probs[1] + probs[2]
+        if reach < 1e-3:
+            break
+        total += reach * rv
+        if prev_obp is not None:
+            total += CONNECT_W * reach * prev_obp * tb
+        out = 1.0 - obp
+        probs = [probs[0] * obp, probs[1] * obp + probs[0] * out, probs[2] * obp + probs[1] * out]
+        prev_obp = obp
+    return total
+
+
+def _perf_mult(count, target, steepness, max_drop):
+    """엔진과 같은 체력 시그모이드. 1.0 = 정상, 1 - max_drop = 완전 탈진."""
+    if target <= 0:
+        target = 1.0
+    x = steepness / target * (count - target)
+    if x > 40:
+        sig = 1.0
+    elif x < -40:
+        sig = 0.0
+    else:
+        sig = 1.0 / (1.0 + math.exp(-x))
+    return 1.0 - max_drop * sig
+
+
+def _bat_mult(count, target):
+    return _perf_mult(count, target, BATTER_STEEPNESS, BATTER_MAX_DROP)
+
+
+def _pit_mult(count, target):
+    return _perf_mult(count, target, PITCHER_STEEPNESS, PITCHER_MAX_DROP)
+
+
+def _pit_mult_inning(count, target):
+    """한 이닝을 던지는 동안의 평균 체력 배수. 이닝 중간(+8구) 한 점만 보면, 목표 투구수가 10~12개인
+    불펜 투수가 이닝 도중(16구 전후) 급격히 무너지는 것을 놓친다 (목표 11구 → 16구째 배수 약 0.3)."""
+    num = den = 0.0
+    for extra, w in PITCH_SAMPLE_POINTS:
+        num += w * _pit_mult(count + extra, target)
+        den += w
+    return num / den
+
+
+def _fatigue_factor(batter_mult, pitcher_mult):
+    """엔진(probability.apply_fatigue_and_jitter)과 같은 체력 배수. 상하한 [1/1.45, 1.45]."""
+    f = (batter_mult / max(pitcher_mult, 1e-3)) ** FATIGUE_EXP
+    return min(max(f, 1.0 / FATIGUE_CAP), FATIGUE_CAP)
+
+
+def _pitch_target(row):
+    tgt = _num(row.get("pitch_target"), None)
+    if tgt is None:
+        tgt = 0.7 * _num(row.get("NP_per_G"), 40.0)
+    return max(float(tgt), 10.0)
 
 
 def decide_lineup(my_team: pd.DataFrame, opponent_team: pd.DataFrame,
                    matchups: pd.DataFrame, context: dict, rng: random.Random):
-    # ------------------------------------------------------------------
-    # 0) 자주 쓰는 형태로 미리 캐싱 (매 적합도 평가마다 DataFrame 필터링 금지!)
-    # ------------------------------------------------------------------
-    batters = my_team[my_team["role"] == "타자"]
-    pitchers = my_team[my_team["role"] == "투수"]
-    batter_stat = {row["pCode"]: row for _, row in batters.iterrows()}       # pCode -> Series
-    pitcher_stat = {row["pCode"]: row for _, row in pitchers.iterrows()}
-
-    ifs = batters[batters["position"] == "내야수"]["pCode"].tolist()
-    ofs = batters[batters["position"] == "외야수"]["pCode"].tolist()
-    cs = batters[batters["position"] == "포수"]["pCode"].tolist()
-    all_batter_codes = batters["pCode"].tolist()
-    all_pitcher_codes = pitchers["pCode"].tolist()
+    t_start = time.perf_counter()
 
     # ------------------------------------------------------------------
-    # 0-2) 맞대결 표 캐싱 — 표에는 상대 투수 '전원'이 들어 있다 (1회에도 비어 있지 않음)
+    # 0) 우리 팀 / 상대 팀 데이터를 딕셔너리로 캐싱 (탐색 중에는 DataFrame을 건드리지 않는다)
     # ------------------------------------------------------------------
-    # 하지만 이번 이닝에 상대가 누구를 올릴지는 모른다. context["opp_pitcher_pcode"]는
-    # '직전 이닝 투수'라는 힌트일 뿐(1회엔 None)이므로, 특정 투수 한 명을 확정으로 놓지 말고
-    # 후보 전원에 대한 기댓값으로 보는 것이 핵심이다.
-    # iterrows()는 행마다 Series를 새로 만들어 느리다 → to_dict("records")로 한 번에 dict 리스트로
-    # 바꿔 쓴다 (표가 상대 투수 전원만큼 커져서 차이가 더 커졌다). 이 캐싱은 함수 시작에 딱 한 번만!
-    mu_records = matchups.to_dict("records") if matchups is not None and len(matchups) else []
+    ifs, ofs, cs, pits = {}, {}, {}, {}
+    bats = {}                                   # 포지션 상관없이 우리 타자 전원
+    for row in my_team.to_dict("records"):
+        pcode = int(row.pop("pCode"))
 
-    my_batter_set = set(all_batter_codes)
-    my_pitcher_set = set(all_pitcher_codes)
-    matchup_lookup = {}    # (투수 pCode, 타자 pCode) -> 기록 dict. 특정 조합 한 줄을 찍어볼 때
-    vs_opp_pitchers = {}   # 우리 타자 pCode -> [상대 투수 전원과의 맞대결 기록, ...]  (타순용)
-    vs_opp_batters = {}    # 우리 투수 pCode -> [상대 타자 전원과의 맞대결 기록, ...]  (선발투수용)
-    for row in mu_records:
-        p, h = row["pitcherPCode"], row["hitterPCode"]
-        matchup_lookup[(p, h)] = row
-        if h in my_batter_set:         # 상대 투수 x 우리 타자 (우리 공격)
-            vs_opp_pitchers.setdefault(h, []).append(row)
-        elif p in my_pitcher_set:      # 우리 투수 x 상대 타자 (우리 수비)
-            vs_opp_batters.setdefault(p, []).append(row)
+        if row["role"] == "타자":
+            bats[pcode] = row
+            pos = row["position"]
+            if pos == "내야수":
+                ifs[pcode] = row
+            elif pos == "외야수":
+                ofs[pcode] = row
+            elif pos == "포수":
+                cs[pcode] = row
+        else:
+            pits[pcode] = row
 
-    # pCode는 이 표에서 실수(float)로 들어오지만, 정수 pCode로 조회해도 파이썬이 같은 키로 찾아준다.
-    hint_pitcher = context.get("opp_pitcher_pcode")   # 힌트일 뿐! 이번 이닝 등판 확정이 아니다
+    opp_pits, opp_bats = {}, {}
+    for row in opponent_team.to_dict("records"):
+        opp_pcode = int(row.pop("pCode"))
+        if row["role"] == "투수":
+            opp_pits[opp_pcode] = row
+        else:
+            opp_bats[opp_pcode] = row
 
-    def matchup_expected_ops(rows, hint_pcode=None):
-        """맞대결 기록 목록을 '기대 OPS' 하나로 요약한다 (PA 가중평균 + 리그평균 쪽으로 축소).
+    # 맞대결 표: (투수 pCode, 타자 pCode) 두 개를 함께 키로 쓴다. 기록이 없는 조합은 키가 없다.
+    mu = {}
+    if matchups is not None and len(matchups):
+        for row in matchups.to_dict("records"):
+            mu[(int(row["pitcherPCode"]), int(row["hitterPCode"]))] = row
 
-        누가 등판할지 모르므로 후보 전원을 PA(타석수)로 가중해 평균 낸다. hint_pcode(직전 이닝
-        투수)가 주어지면 그 투수만 가중치를 조금 올린다 — 확정이 아니므로 '조금'만.
-        더 정교하게 하려면 opponent_team의 health_pct/pitch_count로 등판 확률을 추정해
-        가중치에 곱하면 된다 (많이 던져 지친 투수는 이번 이닝에 나올 가능성이 낮다)."""
-        num = den = pa_sum = 0.0
-        for r in rows:
-            pa = _num(r.get("PA"), 0.0)
-            if pa <= 0:
-                continue
-            w = pa
-            if hint_pcode is not None and r["pitcherPCode"] == hint_pcode:
-                w *= 2.0                                    # 직전 이닝 투수 = 조금 더 나올 법한 후보
-            num += w * _num(r.get("OPS"), LEAGUE_AVG_OPS)
-            den += w
-            pa_sum += pa
-        ops = num / den if den > 0 else LEAGUE_AVG_OPS
-        shrink = pa_sum / (pa_sum + MATCHUP_SHRINK_PA)      # 표본이 적을수록 0에 가까워짐
-        return shrink * ops + (1 - shrink) * LEAGUE_AVG_OPS
-
-    # 선수별로 한 번씩만 집계해 둔다 (적합도 평가 때마다 다시 계산하면 제한시간만 잡아먹는다)
-    batter_mu_ops = {h: matchup_expected_ops(rows, hint_pitcher)
-                     for h, rows in vs_opp_pitchers.items()}   # 우리 타자의 기대 OPS (높을수록 좋음)
-    pitcher_mu_ops = {p: matchup_expected_ops(rows)
-                      for p, rows in vs_opp_batters.items()}   # 우리 투수의 피 OPS (낮을수록 좋음)
+    inning = int(context.get("inning", 1))
+    remaining = max(0, 9 - inning)              # 이번 이닝 이후 남은 이닝 수
+    is_home = context.get("half") == "bottom"   # 홈팀은 수비(초)를 먼저 하고 공격(말)한다
+    start_idx = int(_num(context.get("batting_order_start_index"), 0)) % 9
 
     # ------------------------------------------------------------------
-    # 1) 간단한 적합도(fitness) 함수 예시 - OPS와 체력을 이용한 아주 단순한 점수.
-    #    실제 과제에서는 이 부분을 여러분의 메타휴리스틱 탐색으로 대체하세요.
+    # 0-2) 엔진과 같은 사건별 확률: 리그 평균(양 팀 합산) → 선수별 축소 비율
     # ------------------------------------------------------------------
-    def batter_score(pcode):
-        row = batter_stat[pcode]
-        raw_ops = _num(row.get("OPS"), LEAGUE_AVG_OPS)
-        pa = _num(row.get("PA_eff", row.get("PA")), 0.0)
-        w = pa / (pa + BATTER_SHRINK_PA)               # 표본이 적을수록 w가 0에 가까워짐
-        ops = w * raw_ops + (1 - w) * LEAGUE_AVG_OPS    # 리그 평균 쪽으로 축소(shrinkage)
-        # 맞대결 보정: '상대 투수 후보 전원'을 상대로 한 기대 OPS를 MATCHUP_WEIGHT 만큼 섞는다.
-        # 맞대결 기록이 없는 타자에게는 리그평균이 들어가므로 손해도 이득도 보지 않는다.
-        mu_ops = batter_mu_ops.get(pcode, LEAGUE_AVG_OPS)
-        ops = (1 - MATCHUP_WEIGHT) * ops + MATCHUP_WEIGHT * mu_ops
+    def league_rate(rows, is_pitcher):
+        tot, n_tot = {ev: 0.0 for ev in EVENTS}, 0.0
+        for row in rows:
+            counts, n = _event_counts(row, is_pitcher)
+            for ev in EVENTS:
+                tot[ev] += counts[ev]
+            n_tot += n
+        return _normalize({ev: tot[ev] / n_tot for ev in EVENTS}) if n_tot > 0 else None
+
+    default_rate = {"BB": 0.09, "HBP": 0.012, "SO": 0.19, "1B": 0.16, "2B": 0.045,
+                    "3B": 0.004, "HR": 0.025, "OUT": 0.474}
+    lg_bat = league_rate(list(bats.values()) + list(opp_bats.values()), False) or default_rate
+    lg_pit = league_rate(list(pits.values()) + list(opp_pits.values()), True) or default_rate
+
+    bat_rate, pit_rate = {}, {}
+    for pool in (bats, opp_bats):
+        for b, row in pool.items():
+            counts, n = _event_counts(row, False)
+            bat_rate[b] = _shrunk_rate(counts, n, ENGINE_BATTER_SHRINK, lg_bat)
+    for pool in (pits, opp_pits):
+        for q, row in pool.items():
+            counts, n = _event_counts(row, True)
+            pit_rate[q] = _shrunk_rate(counts, n, ENGINE_PITCHER_SHRINK, lg_pit)
+
+    def pa_rate(b, q, f=1.0):
+        """타자 b vs 투수 q 한 타석의 사건 확률 (q=None이면 리그 평균 투수)."""
+        rate = _log5(bat_rate[b], pit_rate[q] if q is not None else lg_pit, lg_bat)
+        if q is not None:
+            rate = _blend_matchup(rate, mu.get((q, b)))
+        return _fatigued(rate, f) if f != 1.0 else rate
+
+    # ------------------------------------------------------------------
+    # 1) 상대 투수 예측 — 한 명을 '가장 유력'으로 찍고, 나머지 후보에도 작은 확률을 남긴다
+    # ------------------------------------------------------------------
+    top_bats = sorted(bats, key=lambda b: -_summary(pa_rate(b, None))[2])[:12]
+
+    def opp_pitcher_quality(q):
+        """상대 투수 q가 얼마나 '내보낼 만한' 투수인지 (상대 입장에서 좋을수록 큼).
+        우리 주력 타자들을 상대로 한 타석당 허용 득점가치(맞대결 반영)가 낮을수록 좋은 투수."""
+        row = opp_pits[q]
+        allowed = sum(_summary(pa_rate(b, q))[2] for b in top_bats) / max(len(top_bats), 1)
         health = _num(row.get("health_pct"), 100.0) / 100.0
-        return ops * (0.5 + 0.5 * health)  # 체력이 떨어지면 점수 하락
+        return (1.0 / max(allowed, 0.02)) ** 2 * (0.2 + 0.8 * health) ** 2
 
-    def pitcher_score(pcode):
-        row = pitcher_stat[pcode]
-        raw_era = _num(row.get("ERA"), LEAGUE_AVG_ERA)
-        tbf = _num(row.get("TBF_eff", row.get("TBF")), 0.0)
-        w = tbf / (tbf + PITCHER_SHRINK_TBF)
-        era = w * raw_era + (1 - w) * LEAGUE_AVG_ERA
-        health = _num(row.get("health_pct"), 100.0) / 100.0
-        # 맞대결 보정: 이 투수가 '상대 타선 전체'에게 허용해온 기대 OPS (낮을수록 좋다).
-        allowed = pitcher_mu_ops.get(pcode, LEAGUE_AVG_OPS)
-        mu_mult = LEAGUE_AVG_OPS / max(allowed, 0.30)       # 잘 막아왔으면 1보다 커진다
-        mu_mult = min(max(mu_mult, 0.80), 1.25)             # 표본이 작으니 영향은 제한해 둔다
-        return (1.0 / (era + 1.0)) * (0.5 + 0.5 * health) * mu_mult
+    def finding_opp_pit_rule(opp_pits, prior_pit_pcode=None):
+        """반환값: {상대 투수 pCode: 이번 이닝 등판 확률}  (확률 합 = 1)
+
+        - 1회(prior_pit_pcode=None): 모두 쌩쌩하므로 기록이 가장 좋은 투수를 선발로 예측.
+        - 2회 이후: 직전 투수가 아직 여력이 있으면 계속 던진다고 보고, 지쳤으면 교체를 예측.
+        """
+        if not opp_pits:
+            return {}
+        quality = {q: opp_pitcher_quality(q) for q in opp_pits}
+
+        if prior_pit_pcode is None or int(prior_pit_pcode) not in opp_pits:
+            predicted = max(quality, key=quality.get)
+            main_prob = PRED_CONFIDENCE
+        else:
+            predicted = int(prior_pit_pcode)
+            row = opp_pits[predicted]
+            load = _num(row.get("pitch_count"), 0.0) / _pitch_target(row)
+            main_prob = next(p for limit, p in STAY_PROB_BY_LOAD if load < limit)
+
+        others = {q: w for q, w in quality.items() if q != predicted}
+        total = sum(others.values())
+        if total <= 0:
+            return {predicted: 1.0}
+        dist = {q: (1 - main_prob) * w / total for q, w in others.items()}
+        dist[predicted] = main_prob
+        return dist
+
+    opp_dist = finding_opp_pit_rule(opp_pits, context.get("opp_pitcher_pcode"))
 
     # ------------------------------------------------------------------
-    # 2) TODO: 여기를 Tabu Search / PSO / GA로 교체하세요.
-    #    아래는 "점수 높은 순으로 그리디하게 채우는" 매우 단순한 자리표시자(placeholder)입니다.
+    # 2) 우리 타자별 기대 출루율/장타율 (예측 분포에 대한 기댓값) — 맞대결이 없으면 추정치 사용
+    #    fld=1: 이번 이닝에 수비도 나가는 경우, fld=0: DH (수비 체력 소모 없음)
     # ------------------------------------------------------------------
-    # (a) 수비: 포지션별 상위 점수 선수 + 나머지 중 1명 DH + 최고점 투수
-    chosen_if = sorted(ifs, key=batter_score, reverse=True)[:4]
-    chosen_of = sorted(ofs, key=batter_score, reverse=True)[:3]
-    chosen_c = sorted(cs, key=batter_score, reverse=True)[:1]
-    used = set(chosen_if) | set(chosen_of) | set(chosen_c)
-    remaining = [p for p in all_batter_codes if p not in used]
-    dh = sorted(remaining, key=batter_score, reverse=True)[0] if remaining else all_batter_codes[0]
-    pitcher = sorted(all_pitcher_codes, key=pitcher_score, reverse=True)[0]
-    defense = chosen_if + chosen_of + chosen_c + [dh, pitcher]
+    opp_pm = {q: _pit_mult_inning(_num(opp_pits[q].get("pitch_count"), 0.0), _pitch_target(opp_pits[q]))
+              for q in opp_dist}
 
-    # (b) 공격: 선발 9명(투수 제외)을 점수 순으로 세운다 (예시일 뿐 - 타순 최적화 로직으로 대체)
-    #     batter_score 에 이미 '상대 투수 후보 전원'에 대한 기댓값이 들어 있다. 여기서는 추가로
-    #     직전 이닝 투수가 이번에도 나올 경우를 아주 조금만 더 얹는다 (어디까지나 힌트이므로).
-    #     matchup_lookup 으로 (그 투수, 우리 타자) 조합 한 줄만 바로 꺼내 쓰는 예시다.
-    def order_score(pcode):
-        s = batter_score(pcode)
-        row = matchup_lookup.get((hint_pitcher, pcode)) if hint_pitcher is not None else None
-        if row is None:
-            return s
-        pa = _num(row.get("PA"), 0.0)
-        w = HINT_PITCHER_WEIGHT * pa / (pa + MATCHUP_SHRINK_PA)
-        return s * ((1 - w) + w * _num(row.get("OPS"), LEAGUE_AVG_OPS) / LEAGUE_AVG_OPS)
+    swing_cnt, swing_tgt = {}, {}
+    for pool in (bats, opp_bats):
+        for b, row in pool.items():
+            swing_cnt[b] = _num(row.get("swing_count"), 0.0)
+            swing_tgt[b] = max(_num(row.get("swing_target"), 10.5), 1.0)
 
-    offense = sorted(defense[:9], key=order_score, reverse=True)
+    # exp_obp/exp_slg/exp_rv[b][fld] : 출루율, 타석당 루타, 타석당 득점가치 (상대 투수 분포에 대한 기댓값)
+    exp_obp, exp_slg, exp_rv = {}, {}, {}
+    for b in bats:
+        exp_obp[b], exp_slg[b], exp_rv[b] = [0.0, 0.0], [0.0, 0.0], [0.0, 0.0]
+        for fld in (0, 1):
+            # 홈팀 수비수는 수비(초)를 먼저 하고 나서 타석에 서므로 그만큼 지친 상태로 친다
+            cnt = swing_cnt[b] + (FIELDING_SWINGS if fld and is_home else 0.0) + SWINGS_PER_PA / 2
+            bm = _bat_mult(cnt, swing_tgt[b])
+            if not opp_dist:
+                mix = pa_rate(b, None, _fatigue_factor(bm, 1.0))
+            else:
+                mix = {ev: 0.0 for ev in EVENTS}
+                for q, prob in opp_dist.items():
+                    rate = pa_rate(b, q, _fatigue_factor(bm, opp_pm[q]))
+                    for ev in EVENTS:
+                        mix[ev] += prob * rate[ev]
+            o, s, v = _summary(mix)
+            exp_obp[b][fld], exp_slg[b][fld], exp_rv[b][fld] = min(max(o, 0.05), 0.75), s, v
+
+    # ------------------------------------------------------------------
+    # 3) 수비/투수 비용 미리 계산
+    # ------------------------------------------------------------------
+    fresh_value = {b: _summary(pa_rate(b, None))[2] for b in bats}
+    # 체력 공급(타자 약 27명 × 목표 10.5스윙)이 수요(수비 8자리 × 9이닝 + 타석)보다 적어서
+    # 경기 후반에는 누군가 반드시 탈진한다. 그 탈진을 '대체 선수 수준' 이하의 타자가 떠안도록,
+    # 미래 체력 비용은 대체 선수보다 잘 치는 만큼(surplus)에만 매긴다.
+    # → 약한 타자는 체력을 써도 비용 0, 잘 치는 타자일수록 아껴 둔다(수비 대신 DH, 교대 기용).
+    ranked_values = sorted(fresh_value.values())
+    replacement = ranked_values[int(len(ranked_values) * REPLACEMENT_PCT)] if ranked_values else 0.0
+    surplus = {b: max(0.0, v - replacement) for b, v in fresh_value.items()}
+
+    def future_loss(b, extra_swings, base_extra=0.0):
+        """extra_swings 만큼 체력을 쓰면 남은 이닝에 잃게 될 타격 가치 (늦은 이닝일수록 0에 가까움)."""
+        c0 = swing_cnt[b] + base_extra
+        drop = _bat_mult(c0, swing_tgt[b]) - _bat_mult(c0 + extra_swings, swing_tgt[b])
+        return GAMMA_BATTER * surplus[b] * PA_PER_BATTER_INNING * remaining * drop
+
+    field_cost = {}         # field_cost[b][그룹] : 이 타자를 그 수비 자리에 세울 때의 비용
+    bat_swing_cost = {}     # bat_swing_cost[b][fld] : 타석 1번 설 때마다 드는 체력 비용
+    for b, row in bats.items():
+        m_after = _bat_mult(swing_cnt[b] + FIELDING_SWINGS, swing_tgt[b])
+        fatigue_err = 1.0 + (1.0 - m_after)          # 탈진 시 최대 약 1.63배
+        loss = future_loss(b, FIELDING_SWINGS)
+        costs = {}
+        for grp in ("내야수", "외야수"):
+            mismatch = MISMATCH_MULT if row["position"] != grp else 1.0
+            costs[grp] = ERR_COST * mismatch * fatigue_err + loss
+        costs["포수"] = (CATCHER_MISMATCH_COST if row["position"] != "포수" else 0.0) + loss
+        field_cost[b] = costs
+        bat_swing_cost[b] = [future_loss(b, SWINGS_PER_PA),
+                             future_loss(b, SWINGS_PER_PA, FIELDING_SWINGS)]
+
+    # 우리 투수가 상대할 타선: 상대의 직전 타순이 있으면 그것, 없으면 상대가 고를 법한 상위 9명
+    opp_prev = [int(h) for h in (context.get("opp_prev_offense") or []) if int(h) in opp_bats]
+    if len(opp_prev) == 9:
+        opp_lineup = opp_prev
+    else:
+        opp_lineup = sorted(opp_bats, key=lambda h: -_summary(pa_rate(h, None))[2])[:9]
+    # 상대 타자 체력: 상대가 홈이면(=우리가 원정) 수비를 먼저 하고 타석에 선다
+    opp_extra = 0.0 if is_home else FIELDING_SWINGS
+    opp_bm = {h: _bat_mult(swing_cnt[h] + opp_extra + SWINGS_PER_PA / 2, swing_tgt[h]) for h in opp_lineup}
+    lg_allowed = _summary(lg_pit)[2]
+
+    pit_cost = {}
+    for p, row in pits.items():
+        cnt, tgt = _num(row.get("pitch_count"), 0.0), _pitch_target(row)
+        pm_mid = _pit_mult_inning(cnt, tgt)
+        stats = [_summary(pa_rate(h, p, _fatigue_factor(opp_bm[h], pm_mid))) for h in opp_lineup]
+        # 상대 타순이 몇 번부터 시작할지 모르므로 9가지 시작점의 평균 실점으로 본다
+        runs_allowed = sum(_inning_runs(stats[s:] + stats[:s]) for s in range(len(stats))) / max(len(stats), 1)
+
+        fresh_allowed = _summary(pit_rate[p])[2]
+        goodness = max(0.02, 4.3 * (1.25 * lg_allowed - fresh_allowed))   # 대체 투수 대비 이닝당 실점 절약분
+        drop = _pit_mult(cnt, tgt) - _pit_mult(cnt + PITCHES_PER_INNING, tgt)
+        pit_cost[p] = runs_allowed + GAMMA_PITCHER * goodness * remaining * drop
+
+    # ------------------------------------------------------------------
+    # 4) 목적함수 fit(해) — 클수록 좋은 해
+    #    해 = (slots: 9명 [내야4, 외야3, 포수, DH], 투수, order: 그 9명의 '실제 타격 순서')
+    # ------------------------------------------------------------------
+    def offense_value(order, dh):
+        """선두부터 타격해 3아웃이 될 때까지의 기대 득점 근사. 타순이 바뀌면 값도 바뀐다."""
+        probs = [1.0, 0.0, 0.0]                  # 이 타자 차례가 왔을 때 0/1/2아웃일 확률
+        total = 0.0
+        prev_obp = None
+        for t in range(12):                      # 한 바퀴 돌고 다시 앞 타자까지 (드물지만 반영)
+            b = order[t % 9]
+            f = 0 if b == dh else 1
+            reach = probs[0] + probs[1] + probs[2]
+            if reach < 1e-3:
+                break
+            obp = exp_obp[b][f]
+            total += reach * (exp_rv[b][f] - bat_swing_cost[b][f])
+            if prev_obp is not None:
+                total += CONNECT_W * reach * prev_obp * exp_slg[b][f]
+            out = 1.0 - obp
+            probs = [probs[0] * obp, probs[1] * obp + probs[0] * out, probs[2] * obp + probs[1] * out]
+            prev_obp = obp
+        return total
+
+    fit_cache = {}
+
+    def fit(sol):
+        if sol in fit_cache:
+            return fit_cache[sol]
+        slots, p, order = sol
+        value = offense_value(order, slots[8]) - pit_cost[p]
+        for i in range(8):
+            value -= field_cost[slots[i]][SLOT_GROUPS[i]]
+        fit_cache[sol] = value
+        return value
+
+    # ------------------------------------------------------------------
+    # 5) 초기해 — 규칙 기반 그리디 (Tabu Search의 출발점)
+    # ------------------------------------------------------------------
+    def initial_solution():
+        used, slots = set(), []
+        for grp, n in (("내야수", 4), ("외야수", 3), ("포수", 1)):
+            cands = sorted((b for b in bats if b not in used),
+                           key=lambda b: (bats[b]["position"] == grp, exp_rv[b][1] - field_cost[b][grp]),
+                           reverse=True)
+            slots += cands[:n]
+            used.update(cands[:n])
+        dh = max((b for b in bats if b not in used), key=lambda b: exp_rv[b][0])
+        slots.append(dh)
+        p = min(pits, key=pit_cost.get)
+        order = sorted(slots, key=lambda b: exp_obp[b][0 if b == dh else 1], reverse=True)
+        return tuple(slots), p, tuple(order)
+
+    # ------------------------------------------------------------------
+    # 6) 이웃 생성 — 이동 1번 = (새 해, 이 이동의 타부 속성, 이동 후 금지할 역이동 속성들)
+    #    ① 타순 두 자리 교환  ② 수비 두 자리 교환(DH 포함)  ③ 벤치 타자와 교체  ④ 투수 교체
+    # ------------------------------------------------------------------
+    bat_list = list(bats)
+    pit_list = list(pits)
+
+    def neighbor(sol):
+        slots, p, order = sol
+        move = rng.random()
+        if move < 0.35:                                          # ① 타순 교환
+            i, j = rng.sample(range(9), 2)
+            new_order = list(order)
+            new_order[i], new_order[j] = new_order[j], new_order[i]
+            attr = ("ord", frozenset((order[i], order[j])))
+            return (slots, p, tuple(new_order)), attr, [attr]
+        if move < 0.55:                                          # ② 수비 자리 교환
+            i, j = rng.sample(range(9), 2)
+            new_slots = list(slots)
+            new_slots[i], new_slots[j] = new_slots[j], new_slots[i]
+            attr = ("slot", frozenset((slots[i], slots[j])))
+            return (tuple(new_slots), p, order), attr, [attr]
+        if move < 0.85:                                          # ③ 벤치 교체
+            on_field = set(slots)
+            bench = [b for b in bat_list if b not in on_field]
+            if not bench:
+                return None
+            i = rng.randrange(9)
+            out_b, in_b = slots[i], rng.choice(bench)
+            new_slots = list(slots)
+            new_slots[i] = in_b
+            new_order = tuple(in_b if b == out_b else b for b in order)   # 빠진 선수의 타순을 이어받음
+            return (tuple(new_slots), p, new_order), ("bat", in_b), [("bat", out_b)]
+        others = [q for q in pit_list if q != p]                  # ④ 투수 교체
+        if not others:
+            return None
+        q = rng.choice(others)
+        return (slots, q, order), ("pit", q), [("pit", p)]
+
+    # ------------------------------------------------------------------
+    # 7) Tabu Search
+    #    - 매 반복 이웃 TS_NEIGHBORS개 중 타부가 아닌 최선으로 이동 (나빠지는 이동도 허용)
+    #    - 방금 한 이동을 되돌리는 속성은 TS_TENURE 반복 동안 타부
+    #    - 열망 기준: 타부여도 지금까지의 최고해보다 좋으면 허용
+    #    - 정체되면 최고해를 조금 흔들어 다시 출발 (다변화)
+    # ------------------------------------------------------------------
+    def tabu_search(init):
+        cur = best = init
+        best_f = fit(init)
+        tabu = {}
+        no_improve = 0
+        for it in range(TS_MAX_ITERS):
+            if time.perf_counter() - t_start > TS_TIME_LIMIT_SEC:
+                break
+            chosen = None
+            for _ in range(TS_NEIGHBORS):
+                nb = neighbor(cur)
+                if nb is None:
+                    continue
+                sol, attr, reverse_attrs = nb
+                f = fit(sol)
+                if tabu.get(attr, -1) >= it and f <= best_f:
+                    continue
+                if chosen is None or f > chosen[0]:
+                    chosen = (f, sol, reverse_attrs)
+            if chosen is None:
+                no_improve += 1
+            else:
+                cur_f, cur, reverse_attrs = chosen
+                for a in reverse_attrs:
+                    tabu[a] = it + TS_TENURE
+                if cur_f > best_f + 1e-12:
+                    best, best_f = cur, cur_f
+                    no_improve = 0
+                else:
+                    no_improve += 1
+
+            if no_improve >= TS_STAGNATION:
+                cur = best
+                for _ in range(TS_PERTURB_MOVES):
+                    nb = neighbor(cur)
+                    if nb is not None:
+                        cur = nb[0]
+                tabu.clear()
+                no_improve = 0
+        return best
+
+    # ------------------------------------------------------------------
+    # 8) 실행 + 결과 변환
+    # ------------------------------------------------------------------
+    def to_lineup(sol):
+        slots, p, order = sol
+        defense = [int(b) for b in slots] + [int(p)]
+        offense = [0] * 9
+        for i, b in enumerate(order):            # 엔진은 start_idx부터 읽으므로 그 자리에 선두타자를 둔다
+            offense[(start_idx + i) % 9] = int(b)
+        return defense, offense
+
+    def is_valid(defense, offense):
+        return (len(defense) == 10 and len(set(defense)) == 10
+                and all(b in bats for b in defense[:9]) and defense[9] in pits
+                and len(offense) == 9 and set(offense) == set(defense[:9]))
+
+    init = initial_solution()
+    best = tabu_search(init)
+    defense, offense = to_lineup(best)
+    if not is_valid(defense, offense):           # 탐색 중 규칙이 깨졌다면 초기해로 대체
+        defense, offense = to_lineup(init)
 
     return {"defense": defense, "offense": offense}
