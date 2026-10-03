@@ -5,7 +5,6 @@ from collections import deque
 
 class Meta:
     def __init__(self, df):
-        print(df)
         self.job_id = df.JobID
         self.machine_id = list(df.columns)[1:]
         self.df = df
