@@ -18,7 +18,7 @@ class Meta:
                 # print("Job :", job, "  /   Machine :", m)
                 start_time = max(machine_start[m], job_start[job])
                 # print(machine_start[m], job_start[job], f" -->   {start_time}", end=" + ")
-                processing_time = self.df.loc[self.df.JobID == job, m].values
+                processing_time = self.df.loc[self.df.JobID == job, m].values[0]
                 # print(f"{processing_time} == ", end="")
                 machine_start[m], job_start[job] = [start_time + processing_time for _ in range(2)]
             #     print(machine_start[m])
@@ -131,7 +131,7 @@ def schedule(df):
         candidate_makespan = dt.total_makespan(every_gene[0])
         if candidate_makespan <= dt.total_makespan(best):
             best, best_score = every_gene[0], candidate_makespan
-        print(f"Best : {best_score}  /  {best}")
+        print(f"Best : {best_score}  /  {",".join([str(job) for job in best])}")
         pops = every_gene.copy()
         if len(pops) <= 1:
             return best
@@ -142,7 +142,7 @@ def main():
     # amount = 75000
 
     scheduling = {}
-    for week, amount in (("fri",288000), ()):
+    for week, amount in (("tue",275000), ("wed",275000), ("thu",275000)):
         directory = "./ProcessingTimeTable/t_500_20_"
         df = pd.read_csv(directory + week + ".csv")
 
