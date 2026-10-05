@@ -542,9 +542,6 @@ def decide_lineup(my_team: pd.DataFrame, opponent_team: pd.DataFrame,
                 no_improve = 0
         return best
 
-    # ------------------------------------------------------------------
-    # 8) 실행 + 결과 변환
-    # ------------------------------------------------------------------
     def to_lineup(sol):
         slots, p, order = sol
         defense = [int(b) for b in slots] + [int(p)]

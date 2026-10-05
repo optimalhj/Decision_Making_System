@@ -16,3 +16,4 @@ output/*
 !output/.gitkeep
 sota/*
 examples/example_ga_lineup.py
+/.idea
